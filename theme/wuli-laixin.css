@@ -36,8 +36,8 @@
   background-position:left top,right top,center top;
 }
 #chat .mes::after {
-  bottom:0; height:clamp(104px,30vw,180px);
-  background-image:url('../assets/v1/rose-bottom-left.webp'),url('../assets/v1/rose-bottom-right.webp'),url('../assets/v1/moon-footer.webp');
+  bottom:0; height:clamp(132px,38vw,210px);
+  background-image:url('../assets/v6/bottom-left.webp'),url('../assets/v6/bottom-right.webp'),url('../assets/v1/moon-footer.webp');
   background-size:32% auto,32% auto,36.3% auto;
   background-position:left bottom,right bottom,center bottom;
 }
@@ -80,16 +80,18 @@
   flex:auto !important; width:100% !important; max-width:none !important; min-width:0 !important;
   margin:0 !important; padding:0 0 18px !important; background:transparent !important;
 }
+/* Each side remains continuous through the moon and chain: no mid-motif seam. */
 #chat .mes > .mes_block::before,#chat .mes > .mes_block::after {
- content:"";position:absolute;top:31px;width:42px;height:60px;pointer-events:none;background-size:100% auto;background-repeat:no-repeat;
+ content:"";position:absolute;top:0;width:calc(31.25% + 12.5px);height:auto;aspect-ratio:284/244;
+ pointer-events:none;background-size:100% auto;background-repeat:no-repeat;
 }
-#chat .mes > .mes_block::before{left:-12px;background-image:url('../assets/v5/chain-left.webp')}
-#chat .mes > .mes_block::after{right:-12px;background-image:url('../assets/v5/chain-right.webp')}
+#chat .mes > .mes_block::before{left:-20px;background-image:url('../assets/v6/name-side-left.webp')}
+#chat .mes > .mes_block::after{right:-20px;background-image:url('../assets/v6/name-side-right.webp')}
 #chat .mes .ch_name {
   position:relative; display:flex !important; align-items:center !important; justify-content:center !important;
   width:calc(100% + 40px); max-width:none!important; min-height:36px; margin:0 -20px !important; padding:0 !important;
   border-top:0;
-  background:url('../assets/v1/name-ribbon.webp') center/146px 34px no-repeat,url('../assets/v5/name-left.webp') left top/31.25% auto no-repeat,url('../assets/v5/name-right.webp') right top/31.25% auto no-repeat;
+  background:url('../assets/v1/name-ribbon.webp') center/146px 34px no-repeat;
 }
 #chat .mes .ch_name > .flex1 {
   display:flex !important; flex:0 1 135px !important; justify-content:center !important;
@@ -111,7 +113,7 @@
 }
 #chat .mes .mes_text {
   position:relative; box-sizing:border-box; width:100% !important; max-width:none !important;
-  min-width:0 !important; margin:0 !important; padding:37px 0 8px !important;
+  min-width:0 !important; margin:0 !important; padding:54px 0 8px !important;
   min-height:0 !important; background:none !important; line-height:1.8; overflow-wrap:anywhere;
 }
 #chat .mes .mes_text p { margin:.4em 0 .8em; }

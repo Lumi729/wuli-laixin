@@ -1,0 +1,158 @@
+{
+  "rose-top-left": {
+    "width": 300,
+    "height": 275,
+    "bytes": 46096,
+    "alpha": true
+  },
+  "rose-top-right": {
+    "width": 300,
+    "height": 275,
+    "bytes": 51194,
+    "alpha": true
+  },
+  "moon-crown": {
+    "width": 341,
+    "height": 114,
+    "bytes": 32846,
+    "alpha": true
+  },
+  "rose-bottom-left": {
+    "width": 300,
+    "height": 280,
+    "bytes": 55184,
+    "alpha": true
+  },
+  "rose-bottom-right": {
+    "width": 300,
+    "height": 280,
+    "bytes": 55056,
+    "alpha": true
+  },
+  "moon-footer": {
+    "width": 341,
+    "height": 154,
+    "bytes": 43404,
+    "alpha": true
+  },
+  "name-ribbon": {
+    "width": 341,
+    "height": 76,
+    "bytes": 14696,
+    "alpha": true
+  },
+  "pendant-left": {
+    "width": 190,
+    "height": 258,
+    "bytes": 34548,
+    "alpha": true
+  },
+  "pendant-right": {
+    "width": 190,
+    "height": 258,
+    "bytes": 33640,
+    "alpha": true
+  },
+  "star": {
+    "width": 38,
+    "height": 41,
+    "bytes": 2036,
+    "alpha": true
+  },
+  "toolbar-left": {
+    "width": 235,
+    "height": 95,
+    "bytes": 6652,
+    "alpha": true
+  },
+  "toolbar-right": {
+    "width": 235,
+    "height": 95,
+    "bytes": 6538,
+    "alpha": true
+  },
+  "input-left": {
+    "width": 90,
+    "height": 135,
+    "bytes": 6274,
+    "alpha": true
+  },
+  "input-right": {
+    "width": 81,
+    "height": 135,
+    "bytes": 4588,
+    "alpha": true
+  },
+  "paper": {
+    "width": 320,
+    "height": 240,
+    "bytes": 3376,
+    "alpha": false
+  },
+  "page-background": {
+    "width": 320,
+    "height": 240,
+    "bytes": 3376,
+    "alpha": false
+  },
+  "icon-pendulum": {
+    "width": 140,
+    "height": 144,
+    "bytes": 14372,
+    "alpha": true
+  },
+  "icon-moons": {
+    "width": 144,
+    "height": 139,
+    "bytes": 17238,
+    "alpha": true
+  },
+  "icon-quill": {
+    "width": 144,
+    "height": 144,
+    "bytes": 13866,
+    "alpha": true
+  },
+  "icon-book": {
+    "width": 144,
+    "height": 141,
+    "bytes": 15722,
+    "alpha": true
+  },
+  "icon-mirror": {
+    "width": 144,
+    "height": 141,
+    "bytes": 11900,
+    "alpha": true
+  },
+  "icon-landscape": {
+    "width": 138,
+    "height": 144,
+    "bytes": 14350,
+    "alpha": true
+  },
+  "icon-gift": {
+    "width": 144,
+    "height": 144,
+    "bytes": 14234,
+    "alpha": true
+  },
+  "icon-mask": {
+    "width": 144,
+    "height": 144,
+    "bytes": 13324,
+    "alpha": true
+  },
+  "icon-cards": {
+    "width": 144,
+    "height": 144,
+    "bytes": 13496,
+    "alpha": true
+  },
+  "icon-letter": {
+    "width": 144,
+    "height": 144,
+    "bytes": 10148,
+    "alpha": true
+  }
+}

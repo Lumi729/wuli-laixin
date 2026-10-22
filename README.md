@@ -1,5 +1,29 @@
 # 雾里来信
 
-SillyTavern 美化。背景、透明装饰和按钮分开保存，通过外链加载。
+淡粉白、细线玫瑰与月相的 SillyTavern 主题。角色和用户使用相同的大头像卡片结构。
 
-素材与主题正在整理。
+## 导入
+
+下载 [Wuli-Laixin.json](https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/theme/Wuli-Laixin.json)，在酒馆的用户设置 → 主题中导入。主题名固定为「雾里来信」。如果提示同名主题已存在，请先导出备份旧主题，再删除旧的同名主题后导入。
+
+请用此文件替换旧主题，不要把新 CSS 追加在旧 CSS 后面。图片通过本仓库外链加载，首次打开需要能访问 raw.githubusercontent.com。
+
+## 文件
+
+- `theme/Wuli-Laixin.json`：可直接导入的主题。
+- `theme/wuli-laixin.css`：便于修改的 CSS 源文件，使用相对路径。
+- `assets/v1/`：独立的透明 WebP 装饰、小图标，以及单独的纸面背景；没有整张卡片背景。
+- `assets/manifest.json`：图片尺寸、大小和透明通道记录。
+- `docs/preview.webp`、`docs/long-message.webp`：使用原生消息 DOM 和样例文本渲染的预览，非手机实机截图。
+
+## 布局与性能
+
+花饰不随正文拉伸；连续细线和星链负责延长。底部装饰定位于整条消息底部，包含正文后插入的插件按钮。三个原生计数保持一行，不伪造缺失的计时。头像不设置 object-fit、object-position 或 transform，保留裁剪插件控制。
+
+本版没有内嵌 Base64 图片、JavaScript、动画或背景模糊。图像可由浏览器缓存，同一装饰重复使用同一个链接。外链及压缩不能保证解决插件或聊天内容导致的所有卡顿。
+
+已在 Chromium 的 360、390、430、800 像素宽度样例页检查横向溢出、姓名居中、计数同行及按钮点击；尚未验证用户手机和全部插件组合。
+
+预览头像为此前生成的示意插画，不包含聊天记录或真实用户照片。
+
+![预览](docs/preview.webp)

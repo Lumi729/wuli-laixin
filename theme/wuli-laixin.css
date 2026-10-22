@@ -1,0 +1,168 @@
+/* 雾里来信 · external assets v1. No script, embedded images, animation or blur. */
+:root {
+  --wl-ink: #4b3540;
+  --wl-line: #795560;
+  --wl-paper: #fff6f3;
+  --wl-avatar-ratio: 16 / 9;
+}
+#sheld { background: #f9e8ed !important; box-shadow:none !important; backdrop-filter:none !important; }
+#chat { padding:8px !important; background:transparent !important; }
+#chat .mes {
+  box-sizing:border-box; position:relative; isolation:isolate;
+  display:flex !important; flex-direction:column !important; align-items:stretch !important;
+  width:100% !important; max-width:none !important; min-width:0 !important;
+  margin:12px 0 22px !important; padding:clamp(42px,11vw,65px) 25px 62px !important;
+  gap:0 !important; border:0 !important; border-radius:0 !important;
+  box-shadow:none !important; backdrop-filter:none !important; color:var(--wl-ink);
+  background-color:var(--wl-paper) !important;
+  background-image:
+    linear-gradient(transparent 10px,var(--wl-line) 10px,var(--wl-line) calc(100% - 10px),transparent calc(100% - 10px)),
+    linear-gradient(transparent 10px,var(--wl-line) 10px,var(--wl-line) calc(100% - 10px),transparent calc(100% - 10px)),
+    linear-gradient(transparent 10px,#b18a94 10px,#b18a94 calc(100% - 10px),transparent calc(100% - 10px)),
+    linear-gradient(transparent 10px,#b18a94 10px,#b18a94 calc(100% - 10px),transparent calc(100% - 10px)),url('../assets/v1/paper.webp') !important;
+  background-position:8px 0,calc(100% - 8px) 0,12px 0,calc(100% - 12px) 0,center !important;
+  background-size:1px 100%,1px 100%,1px 100%,1px 100%,320px 240px !important;
+  background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,repeat !important;
+}
+/* Only ornamental overlays: clicks pass through. Their paper is completely transparent. */
+#chat .mes::before,#chat .mes::after {
+  content:""; position:absolute; left:0; right:0; pointer-events:none; z-index:2;
+  background-repeat:no-repeat;
+}
+#chat .mes::before {
+  top:0; height:clamp(110px,30vw,180px);
+  background-image:url('../assets/v1/rose-top-left.webp'),url('../assets/v1/rose-top-right.webp'),url('../assets/v1/moon-crown.webp');
+  background-size:32% auto,32% auto,36.3% auto;
+  background-position:left top,right top,center top;
+}
+#chat .mes::after {
+  bottom:0; height:clamp(104px,30vw,180px);
+  background-image:url('../assets/v1/rose-bottom-left.webp'),url('../assets/v1/rose-bottom-right.webp'),url('../assets/v1/moon-footer.webp');
+  background-size:32% auto,32% auto,36.3% auto;
+  background-position:left bottom,right bottom,center bottom;
+}
+/* Same layout for user and character. Avatar crop/position are left to the crop plugin. */
+#chat .mes > .mesAvatarWrapper {
+  position:relative !important; display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-rows:auto 27px;
+  width:100% !important; max-width:none !important; min-width:0 !important;
+  margin:0 !important; padding:0 !important; gap:0 !important; flex:none !important;
+}
+#chat .mes > .mesAvatarWrapper > .avatar {
+  grid-column:1/-1; grid-row:1; box-sizing:border-box;
+  width:100% !important; max-width:none !important; height:auto !important;
+  aspect-ratio:var(--wl-avatar-ratio); margin:0 !important; padding:0 !important;
+  border:1px solid var(--wl-line); border-radius:2px !important; box-shadow:none !important;
+}
+#chat .mes > .mesAvatarWrapper > .avatar img {
+  width:100%; height:100%; border-radius:0; box-shadow:none;
+}
+#chat .mes .mesIDDisplay,#chat .mes .mes_timer,#chat .mes .tokenCounterDisplay {
+  position:static !important; grid-row:2; align-self:center; justify-self:stretch;
+  width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;
+  line-height:27px !important; font-size:11px !important; text-align:center !important;
+  white-space:nowrap; color:var(--wl-ink); opacity:1;
+}
+#chat .mes .mesIDDisplay { grid-column:1; }
+#chat .mes .mes_timer { grid-column:2; }
+#chat .mes .tokenCounterDisplay { grid-column:3; }
+#chat .mes > .mes_block {
+  position:relative; display:block !important; box-sizing:border-box; overflow:visible;
+  flex:auto !important; width:100% !important; max-width:none !important; min-width:0 !important;
+  margin:0 !important; padding:0 0 18px !important; background:transparent !important;
+}
+#chat .mes > .mes_block::before,#chat .mes > .mes_block::after {
+  content:""; position:absolute; top:38px; bottom:0; width:7px;
+  pointer-events:none; background:url('../assets/v1/star-chain.svg') center top/7px 84px repeat-y;
+}
+#chat .mes > .mes_block::before { left:-9px; }
+#chat .mes > .mes_block::after { right:-9px; }
+#chat .mes .ch_name {
+  position:relative; display:flex !important; align-items:center !important; justify-content:center !important;
+  width:100%; min-height:36px; margin:0 !important; padding:0 !important;
+  border-top:1px solid #bd9ba4;
+  background:url('../assets/v1/name-ribbon.webp') center/160px 36px no-repeat;
+}
+#chat .mes .ch_name > .flex1 {
+  display:flex !important; flex:0 1 135px !important; justify-content:center !important;
+  align-items:center !important; min-width:0; text-align:center;
+}
+#chat .mes .ch_name .alignItemsBaseline {
+  display:flex !important; justify-content:center !important; align-items:center !important;
+  flex-wrap:wrap; width:100%; min-width:0;
+}
+#chat .mes .name_text {
+  display:block !important; max-width:100%; margin:0 !important; padding:2px 0 !important;
+  text-align:center !important; color:var(--wl-ink); font-size:14px; font-weight:400;
+  line-height:1.3; overflow-wrap:anywhere; background:none !important;
+}
+#chat .mes .timestamp { font-size:9px; }
+#chat .mes .mes_buttons {
+  position:absolute !important; top:calc(100% + 3px); right:0; z-index:3;
+  max-width:95%; flex-wrap:wrap; font-size:11px;
+}
+#chat .mes .mes_text {
+  position:relative; box-sizing:border-box; width:100% !important; max-width:none !important;
+  min-width:0 !important; margin:0 !important; padding:29px 0 8px !important;
+  min-height:0 !important; background:none !important; line-height:1.8; overflow-wrap:anywhere;
+}
+#chat .mes .mes_text p { margin:.4em 0 .8em; }
+#chat .mes > .for_checkbox { position:absolute; left:0; top:0; }
+#chat .mes > .swipe_left { position:absolute; left:8px; bottom:20px; z-index:3; }
+#chat .mes > .swipe_right { position:absolute; right:8px; bottom:20px; z-index:3; }
+/* Retain a decorative toolbar frame, with no title text. */
+#top-bar {
+  background-color:#fff1f5 !important;
+  background-image:url('../assets/v1/toolbar-left.webp'),url('../assets/v1/toolbar-right.webp'),url('../assets/v1/page-background.webp') !important;
+  background-position:left center,right center,center !important;
+  background-size:auto 100%,auto 100%,320px 240px !important;
+  background-repeat:no-repeat,no-repeat,repeat !important;
+  border-block:1px solid #99717e !important; box-shadow:none !important; backdrop-filter:none !important;
+}
+#top-settings-holder > .drawer,#top-settings-holder .drawer-toggle,#top-settings-holder .drawer-icon {
+  opacity:1 !important; filter:none !important;
+}
+#top-settings-holder .drawer-icon { background-position:center !important; background-size:24px 24px !important; background-repeat:no-repeat !important; }
+/* Separate paper and transparent flourishes for the input frame. */
+#send_form {
+  position:relative; background-color:var(--wl-paper) !important;
+  background-image:url('../assets/v1/input-left.webp'),url('../assets/v1/input-right.webp'),url('../assets/v1/paper.webp') !important;
+  background-position:left center,right center,center !important;
+  background-size:auto 100%,auto 100%,320px 240px !important;
+  background-repeat:no-repeat,no-repeat,repeat !important;
+  border:1px solid #ad8592 !important; border-radius:10px !important;
+  padding:7px 10px !important; box-shadow:none !important; backdrop-filter:none !important;
+}
+#send_textarea { background:transparent !important; color:var(--wl-ink) !important; }
+#send_but { align-self:center !important; background-position:center !important; }
+/* Hide bars only; do not alter overflow or scrolling. */
+:where(*) { scrollbar-width:none; }
+::-webkit-scrollbar { width:0; height:0; display:none; }
+@media(min-width:700px) {
+  #chat .mes { padding-top:70px !important; padding-bottom:100px !important; padding-inline:35px !important; }
+  #chat .mes::before { background-size:190px auto,190px auto,216px auto; }
+  #chat .mes::after { background-size:190px auto,190px auto,216px auto; }
+}
+
+#top-settings-holder #leftNavDrawerIcon{background-image:url('../assets/v1/icon-pendulum.webp') !important;}#top-settings-holder #leftNavDrawerIcon::before{content:"" !important;}
+
+#top-settings-holder #API-status-top{background-image:url('../assets/v1/icon-moons.webp') !important;}#top-settings-holder #API-status-top::before{content:"" !important;}
+
+#top-settings-holder #advanced-formatting-button .drawer-icon{background-image:url('../assets/v1/icon-quill.webp') !important;}#top-settings-holder #advanced-formatting-button .drawer-icon::before{content:"" !important;}
+
+#top-settings-holder #WIDrawerIcon{background-image:url('../assets/v1/icon-book.webp') !important;}#top-settings-holder #WIDrawerIcon::before{content:"" !important;}
+
+#top-settings-holder #user-settings-button .drawer-icon{background-image:url('../assets/v1/icon-mirror.webp') !important;}#top-settings-holder #user-settings-button .drawer-icon::before{content:"" !important;}
+
+#top-settings-holder #backgrounds-button .drawer-icon{background-image:url('../assets/v1/icon-landscape.webp') !important;}#top-settings-holder #backgrounds-button .drawer-icon::before{content:"" !important;}
+
+#top-settings-holder #extensions-settings-button .drawer-icon{background-image:url('../assets/v1/icon-gift.webp') !important;}#top-settings-holder #extensions-settings-button .drawer-icon::before{content:"" !important;}
+
+#top-settings-holder #persona-management-button .drawer-icon{background-image:url('../assets/v1/icon-mask.webp') !important;}#top-settings-holder #persona-management-button .drawer-icon::before{content:"" !important;}
+
+#top-settings-holder #rightNavDrawerIcon{background-image:url('../assets/v1/icon-cards.webp') !important;}#top-settings-holder #rightNavDrawerIcon::before{content:"" !important;}
+#options_button{background:url('../assets/v1/icon-book.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#options_button::before{content:"" !important;}
+#extensionsMenuButton{background:url('../assets/v1/icon-quill.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#extensionsMenuButton::before{content:"" !important;}
+#mes_impersonate{background:url('../assets/v1/icon-mask.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#mes_impersonate::before{content:"" !important;}
+#mes_continue{background:url('../assets/v1/icon-moons.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#mes_continue::before{content:"" !important;}
+#send_but{background:url('../assets/v1/icon-letter.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#send_but::before{content:"" !important;}

@@ -120,7 +120,7 @@
 /* Retain a decorative toolbar frame, with no title text. */
 #top-bar {
   background-color:#fff1f5 !important;
-  background-image:url('../assets/v1/toolbar-left.webp'),url('../assets/v1/toolbar-right.webp'),url('../assets/v1/page-background.webp') !important;
+  background-image:none !important;
   background-position:left center,right center,center !important;
   background-size:auto 100%,auto 100%,320px 240px !important;
   background-repeat:no-repeat,no-repeat,repeat !important;
@@ -134,7 +134,7 @@
 /* Separate paper and transparent flourishes for the input frame. */
 #send_form {
   position:relative; background-color:var(--wl-paper) !important;
-  background-image:url('../assets/v1/input-left.webp'),url('../assets/v1/input-right.webp'),url('../assets/v1/paper.webp') !important;
+  background-image:none !important;
   background-position:left center,right center,center !important;
   background-size:auto 100%,auto 100%,320px 240px !important;
   background-repeat:no-repeat,no-repeat,repeat !important;
@@ -160,7 +160,7 @@
 
 #top-settings-holder #WIDrawerIcon{background-image:url('../assets/v1/icon-book.webp') !important;}#top-settings-holder #WIDrawerIcon::before{content:"" !important;}
 
-#top-settings-holder #user-settings-button .drawer-icon{background-image:url('../assets/v1/icon-mirror.webp') !important;}#top-settings-holder #user-settings-button .drawer-icon::before{content:"" !important;}
+#top-settings-holder #user-settings-button .drawer-icon{background-image:url('../assets/v3/icon-mirror.webp') !important;}#top-settings-holder #user-settings-button .drawer-icon::before{content:"" !important;}
 
 #top-settings-holder #backgrounds-button .drawer-icon{background-image:url('../assets/v1/icon-landscape.webp') !important;}#top-settings-holder #backgrounds-button .drawer-icon::before{content:"" !important;}
 

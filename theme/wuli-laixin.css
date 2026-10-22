@@ -1,4 +1,4 @@
-/* 雾里来信 · external assets v1. No script, embedded images, animation or blur. */
+/* 玫瑰月相 · external assets v1. No script, embedded images, animation or blur. */
 :root {
   --wl-ink: #4b3540;
   --wl-line: #795560;
@@ -303,3 +303,11 @@
 }
 #chat .mes .mes_reasoning_header_title::after {display:block;line-height:1;margin:0;padding:0;}
 #chat .mes .mes_reasoning_arrow {position:absolute;top:50%;transform:translateY(-50%);}
+
+/* Tighter spacing without changing the painted frame proportions. */
+#sheld {background:rgba(249,232,237,.75)!important;}
+#chat .mes .ch_name {row-gap:0!important;}
+#chat .mes .mes_buttons {min-height:66px;margin:0 auto!important;padding:14px 36px;}
+#chat .mes .mes_buttons::before {inset:-14px 0;background-size:contain;}
+#chat .mes .mes_reasoning_details {margin:-8px 0 0!important;}
+#chat .mes .mes_reasoning_summary {padding:0!important;row-gap:0;}

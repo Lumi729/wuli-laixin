@@ -77,11 +77,11 @@
 }
 /* Each side remains continuous through the moon and chain: no mid-motif seam. */
 #chat .mes > .mes_block::before,#chat .mes > .mes_block::after {
- content:"";position:absolute;top:0;width:calc(31.25% + 12.5px);height:auto;aspect-ratio:284/249;
+ content:"";position:absolute;top:0;width:calc(31.25% + 12.5px);height:auto;aspect-ratio:284/289;
  pointer-events:none;background-size:100% auto;background-repeat:no-repeat;
 }
-#chat .mes > .mes_block::before{left:-20px;background-image:url('../assets/v7/name-left.webp')}
-#chat .mes > .mes_block::after{right:-20px;background-image:url('../assets/v7/name-right.webp')}
+#chat .mes > .mes_block::before{left:-20px;background-image:url('../assets/v8/name-left.webp')}
+#chat .mes > .mes_block::after{right:-20px;background-image:url('../assets/v8/name-right.webp')}
 #chat .mes .ch_name {
   position:relative; display:flex !important; align-items:center !important; justify-content:center !important;
   width:calc(100% + 40px); max-width:none!important; min-height:36px; margin:0 -20px !important; padding:0 !important;
@@ -239,4 +239,30 @@
 #chat .mes .mes_reasoning_header_title::after {
  content:"𝔰𝔲𝔟 𝔩𝔲𝔫𝔞 𝔯𝔬𝔰𝔢𝔞.";
  font-family:serif; font-size:15px; line-height:1.5; white-space:nowrap;
+}
+
+/* Compact controls; keep native button hit targets and document flow. */
+#chat .mes .mes_buttons {
+ margin:7px auto 0; padding:5px 14px; gap:7px;
+ border:1px solid #b77c91; border-image:none;
+ border-radius:18px 5px 18px 5px;
+ background:linear-gradient(110deg,#f9dce5cc,#fff8f5cc,#f9dce5cc);
+ outline:1px solid #ecd0d8; outline-offset:-4px;
+ min-height:32px;
+}
+#chat .mes .mes_reasoning_details { margin:8px 0 4px!important; }
+#chat .mes .mes_text { padding-top:10px!important; }
+/* Original frame rails aligned to the same coordinates at every height. */
+#chat .mes {
+ background-position:2.55% 0,97.45% 0,3.72% 0,96.28% 0,center!important;
+}
+#chat .mes::after {
+ height:auto; aspect-ratio:941/324;
+ background-size:31.88% auto,31.88% auto,36.3% auto;
+ mask-image:linear-gradient(to bottom,transparent,black 12px);
+ -webkit-mask-image:linear-gradient(to bottom,transparent,black 12px);
+}
+#chat .mes > .mes_block::before,#chat .mes > .mes_block::after {
+ mask-image:linear-gradient(to right,transparent,black 7%,black 93%,transparent);
+ -webkit-mask-image:linear-gradient(to right,transparent,black 7%,black 93%,transparent);
 }

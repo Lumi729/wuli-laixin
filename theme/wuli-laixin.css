@@ -80,8 +80,8 @@
  content:"";position:absolute;top:0;width:calc(31.25% + 12.5px);height:auto;aspect-ratio:284/289;
  pointer-events:none;background-size:100% auto;background-repeat:no-repeat;
 }
-#chat .mes > .mes_block::before{left:-20px;background-image:url('../assets/v8/name-left.webp')}
-#chat .mes > .mes_block::after{right:-20px;background-image:url('../assets/v8/name-right.webp')}
+#chat .mes > .mes_block::before{left:-20px;background-image:url('../assets/v10/name-left.webp')}
+#chat .mes > .mes_block::after{right:-20px;background-image:url('../assets/v10/name-right.webp')}
 #chat .mes .ch_name {
   position:relative; display:flex !important; align-items:center !important; justify-content:center !important;
   width:calc(100% + 40px); max-width:none!important; min-height:36px; margin:0 -20px !important; padding:0 !important;

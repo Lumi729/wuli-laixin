@@ -292,3 +292,14 @@
 #chat .mes .mes_buttons {width:280px;max-width:calc(100% - 32px);min-height:94px;padding:26px 36px;}
 #chat .mes .mes_buttons::before {background-size:contain;}
 #chat .mes .mes_reasoning_header {width:285px;min-height:76px;max-width:100%;background-size:contain;}
+
+/* Keep the caption centered independently of native header alignment. */
+#sheld {background:rgba(249,232,237,.85)!important;}
+#chat .mes .mes_reasoning_header {position:relative!important;padding:0!important;align-items:center!important;}
+#chat .mes .mes_reasoning_header_title {
+ position:absolute!important;inset:0 18% 0 23%!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ margin:0!important;padding:0!important;line-height:1!important;
+}
+#chat .mes .mes_reasoning_header_title::after {display:block;line-height:1;margin:0;padding:0;}
+#chat .mes .mes_reasoning_arrow {position:absolute;top:50%;transform:translateY(-50%);}

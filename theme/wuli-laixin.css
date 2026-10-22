@@ -267,23 +267,14 @@
  -webkit-mask-image:linear-gradient(to right,transparent,black 7%,black 93%,transparent);
 }
 
-/* Complete hand-painted transparent assets: no slicing or fading. */
+/* Short painted controls frame; all other styling retained. */
 #chat .mes .mes_buttons {
- width:100%; max-width:100%; min-height:66px; margin:6px auto 0;
- padding:16px 17%; border:0; border-radius:0; outline:none;
- background:transparent; box-shadow:none; position:relative!important;
- gap:6px; overflow:visible;
+ width:260px; max-width:calc(100% - 40px); min-height:60px;
+ margin:7px auto 0; padding:17px 34px; gap:6px;
+ border:0; border-radius:0; outline:none; background:transparent;
+ box-shadow:none; position:relative!important; overflow:visible;
 }
 #chat .mes .mes_buttons::before {
  content:""; position:absolute; inset:0; pointer-events:none; z-index:-1;
  background:url('../assets/v9/controls-frame.webp') center/100% 100% no-repeat;
 }
-#chat .mes > .mes_block::before,#chat .mes > .mes_block::after {
- top:0; width:74px; height:150px; aspect-ratio:auto;
- background-image:url('../assets/v9/pendant.webp');
- background-size:contain; background-position:center top;
- mask-image:none; -webkit-mask-image:none; pointer-events:none;
-}
-#chat .mes > .mes_block::before {left:-23px;}
-#chat .mes > .mes_block::after {right:-23px;transform:scaleX(-1);}
-#chat .mes .mes_reasoning_details {margin-top:4px!important;}

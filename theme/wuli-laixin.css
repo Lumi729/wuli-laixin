@@ -248,12 +248,14 @@
 
 /* Wider message canvas; artwork always retains its natural proportions. */
 #chat {padding-inline:2px!important; gap:0!important;}
-#chat .mes {margin:0 0 8px!important;}
-/* Keep one continuous paper surface between messages; no separate divider strip. */
+#chat .mes {margin:0 0 24px!important;}
+/* Retain the small divider ornament on the shared, continuous paper surface. */
 #chat .mes + .mes::before {
- top:0; height:auto; aspect-ratio:941/574;
- background-image:url('../assets/v7/portrait-surround.webp');
- background-position:center top; background-size:100% auto;
+ top:-24px; height:calc(100cqw * 574 / 941 + 24px); aspect-ratio:auto;
+ background-image:url('../assets/v7/portrait-surround.webp'),url('../assets/v11/message-divider.webp');
+ background-position:center bottom,center top;
+ background-size:100% auto,auto 22px;
+ background-repeat:no-repeat;
 }
 #chat .mes::after {
  mask-image:linear-gradient(to bottom,transparent,black 12px,black 65%,#0009);
@@ -290,17 +292,17 @@
    Native display toggles remain in charge of opening/closing the extra actions. */
 #chat .mes .mes_buttons {
  position:relative!important; inset:auto!important; isolation:isolate;
- box-sizing:border-box; width:300px; max-width:calc(100% - 32px);
- min-height:86px; height:auto; margin:0 auto!important;
- padding:32px 62px 26px; gap:6px; flex-wrap:wrap!important;
+ box-sizing:border-box; width:340px; max-width:calc(100% - 16px);
+ min-height:68px; height:auto; margin:0 auto!important;
+ padding:24px 44px 20px; gap:4px; flex-wrap:wrap!important;
  align-self:center; align-items:center; justify-content:center;
  overflow:visible; border:0; border-radius:0; outline:none;
  background:transparent; box-shadow:none; font-size:11px;
 }
 #chat .mes .mes_buttons::before {
  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
- border-style:solid; border-color:transparent; border-width:32px 62px 26px;
- border-image:url('../assets/v9/controls-frame.webp') 115 240 90 240 / 32px 62px 26px / 0 stretch;
+ border-style:solid; border-color:transparent; border-width:24px 44px 20px;
+ border-image:url('../assets/v9/controls-frame.webp') 115 240 90 240 / 24px 44px 20px / 0 stretch;
 }
 #chat .mes .mes_buttons .extraMesButtons {
  position:static!important; inset:auto!important; transform:none!important;

@@ -219,3 +219,24 @@
   max-height:240px; overflow:auto; background:#fff7f9; color:var(--wl-ink);
   border:1px solid #bb93a3; border-radius:5px;
 }
+
+/* Centered message controls and lunar reasoning label. */
+#chat .mes .ch_name { flex-direction:column; background-position:center top; }
+#chat .mes .ch_name > .flex1 { flex:0 1 auto!important; min-height:36px; width:135px; }
+#chat .mes .mes_buttons {
+ position:relative!important; top:auto; right:auto; left:auto;
+ width:fit-content; max-width:calc(100% - 40px); box-sizing:border-box;
+ margin:10px auto 0; padding:7px 12px; gap:8px;
+ align-self:center; justify-content:center; align-items:center;
+ border:8px solid transparent;
+ border-image:url('../assets/v4/bar-frame.webp') 22 45 / 8px 14px / 0 stretch;
+ background-color:#fff5f8;
+}
+#chat .mes .mes_reasoning_summary { justify-content:center; }
+#chat .mes .mes_reasoning_header_block { width:100%; justify-content:center; }
+#chat .mes .mes_reasoning_header { margin-inline:auto; }
+#chat .mes .mes_reasoning_header_title { font-size:0!important; text-align:center; }
+#chat .mes .mes_reasoning_header_title::after {
+ content:"𝔰𝔲𝔟 𝔩𝔲𝔫𝔞 𝔯𝔬𝔰𝔢𝔞.";
+ font-family:serif; font-size:15px; line-height:1.5; white-space:nowrap;
+}

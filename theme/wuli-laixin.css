@@ -311,3 +311,11 @@
 #chat .mes .mes_buttons::before {inset:-14px 0;background-size:contain;}
 #chat .mes .mes_reasoning_details {margin:-8px 0 0!important;}
 #chat .mes .mes_reasoning_summary {padding:0!important;row-gap:0;}
+
+/* Equal prose insets and justified full lines; final lines stay naturally aligned. */
+#chat .mes .mes_text {padding-inline:0!important;}
+#chat .mes .mes_text > p {
+ box-sizing:border-box;width:auto;max-width:100%;
+ margin-inline:0!important;padding-inline:0!important;
+ text-align:justify;text-align-last:start;text-justify:inter-character;
+}

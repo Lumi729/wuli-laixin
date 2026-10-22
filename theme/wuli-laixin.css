@@ -6,12 +6,12 @@
   --wl-avatar-ratio: 16 / 9;
 }
 #sheld { background: #f9e8ed !important; box-shadow:none !important; backdrop-filter:none !important; }
-#chat { padding:8px !important; background:transparent !important; }
+#chat { padding:8px !important; background:transparent !important; container-type:inline-size; }
 #chat .mes {
   box-sizing:border-box; position:relative; isolation:isolate;
   display:flex !important; flex-direction:column !important; align-items:stretch !important;
   width:100% !important; max-width:none !important; min-width:0 !important;
-  margin:12px 0 22px !important; padding:clamp(42px,11vw,65px) 25px 62px !important;
+  margin:12px 0 22px !important; padding:calc(100cqw * 114 / 941) calc(100cqw * 65 / 941) 62px !important;
   gap:0 !important; border:0 !important; border-radius:0 !important;
   box-shadow:none !important; backdrop-filter:none !important; color:var(--wl-ink);
   background-color:var(--wl-paper) !important;
@@ -30,10 +30,9 @@
   background-repeat:no-repeat;
 }
 #chat .mes::before {
-  top:0; height:clamp(110px,30vw,180px);
-  background-image:url('../assets/v1/rose-top-left.webp'),url('../assets/v1/rose-top-right.webp'),url('../assets/v1/moon-crown.webp');
-  background-size:32% auto,32% auto,36.3% auto;
-  background-position:left top,right top,center top;
+  top:0; height:auto; aspect-ratio:941/574;
+  background-image:url('../assets/v7/portrait-surround.webp');
+  background-size:100% auto; background-position:center top;
 }
 #chat .mes::after {
   bottom:0; height:clamp(132px,38vw,210px);
@@ -49,10 +48,6 @@
   margin:0 !important; padding:0 !important; gap:0 !important; flex:none !important;
 }
 /* Independent overlays restore the portrait/metadata transition. */
-#chat .mes > .mesAvatarWrapper::before {
- content:"";position:absolute;inset:0 -20px 27px;pointer-events:none;z-index:1;
- background:url('../assets/v5/avatar-left.webp') 18px bottom/42px 35px no-repeat,url('../assets/v5/avatar-right.webp') calc(100% - 18px) bottom/42px 35px no-repeat,url('../assets/v5/side-left.webp') left bottom/17px 120px no-repeat,url('../assets/v5/side-right.webp') right bottom/17px 120px no-repeat;
-}
 #chat .mes > .mesAvatarWrapper::after {
  content:"";position:absolute;left:-20px;right:-20px;bottom:0;height:27px;pointer-events:none;
  background:url('../assets/v5/counter-frame.webp') center/100% 100% no-repeat;
@@ -82,11 +77,11 @@
 }
 /* Each side remains continuous through the moon and chain: no mid-motif seam. */
 #chat .mes > .mes_block::before,#chat .mes > .mes_block::after {
- content:"";position:absolute;top:0;width:calc(31.25% + 12.5px);height:auto;aspect-ratio:284/244;
+ content:"";position:absolute;top:0;width:calc(31.25% + 12.5px);height:auto;aspect-ratio:284/249;
  pointer-events:none;background-size:100% auto;background-repeat:no-repeat;
 }
-#chat .mes > .mes_block::before{left:-20px;background-image:url('../assets/v6/name-side-left.webp')}
-#chat .mes > .mes_block::after{right:-20px;background-image:url('../assets/v6/name-side-right.webp')}
+#chat .mes > .mes_block::before{left:-20px;background-image:url('../assets/v7/name-left.webp')}
+#chat .mes > .mes_block::after{right:-20px;background-image:url('../assets/v7/name-right.webp')}
 #chat .mes .ch_name {
   position:relative; display:flex !important; align-items:center !important; justify-content:center !important;
   width:calc(100% + 40px); max-width:none!important; min-height:36px; margin:0 -20px !important; padding:0 !important;
@@ -149,8 +144,8 @@
 :where(*) { scrollbar-width:none; }
 ::-webkit-scrollbar { width:0; height:0; display:none; }
 @media(min-width:700px) {
-  #chat .mes { padding-top:70px !important; padding-bottom:100px !important; padding-inline:35px !important; }
-  #chat .mes::before { background-size:190px auto,190px auto,216px auto; }
+  #chat .mes { padding-bottom:100px !important; }
+
   #chat .mes::after { background-size:190px auto,190px auto,216px auto; }
 }
 
@@ -196,26 +191,25 @@
 }
 #chat .mes .mes_reasoning_header_block { min-width:0; }
 #chat .mes .mes_reasoning_header {
-  box-sizing:border-box; max-width:100%; margin:0; padding:4px 20px 4px 24px;
-  color:var(--wl-ink); background-color:#fff3f7;
-  background-image:url('../assets/v1/icon-letter.webp');
-  background-position:3px center; background-size:19px 19px; background-repeat:no-repeat;
-  border:8px solid transparent; border-radius:0;
-  border-image:url('../assets/v4/bar-frame.webp') 22 45 / 8px 13px / 0 stretch;
-  box-shadow:none; text-shadow:none; font-size:13px; line-height:1.5;
+  box-sizing:border-box; width:255px; max-width:100%; min-height:48px;
+  margin:0; padding:12px 45px 12px 62px;
+  justify-content:center; position:relative;
+  color:var(--wl-ink); background:transparent url('../assets/v7/reasoning-ribbon.webp') center/100% auto no-repeat;
+  border:0; border-image:none; border-radius:0;
+  box-shadow:none; text-shadow:none; font-size:12px; line-height:1.5;
 }
 #chat .mes .mes_reasoning_header_title { color:var(--wl-ink); overflow-wrap:anywhere; }
-#chat .mes .mes_reasoning_arrow { color:#956578; right:3px; }
+#chat .mes .mes_reasoning_arrow { color:#956578; right:34px; font-size:10px; }
 #chat .mes .mes_reasoning_actions { gap:7px; color:#956578; }
 #chat .mes .mes_reasoning {
   box-sizing:border-box; width:100%; min-width:0; min-height:0;
   max-height:240px; max-height:min(240px,32dvh);
   overflow-y:auto; overflow-x:auto; overscroll-behavior-y:contain;
   -webkit-overflow-scrolling:touch;
-  margin:8px 0 0; padding:12px 14px;
-  color:var(--wl-ink); background:#fff7f9;
-  border:9px solid transparent; border-radius:0;
-  border-image:url('../assets/v4/bar-frame.webp') 22 45 / 8px 13px / 0 stretch;
+  margin:6px 0 0; padding:14px 16px;
+  color:var(--wl-ink); background:#fff7f9 url('../assets/v1/paper.webp') center/400px auto;
+  border:1px solid #c28b9e; border-radius:12px 3px 12px 3px;
+  border-image:none; outline:1px solid #e5becb; outline-offset:-5px;
   box-shadow:none; text-shadow:none; font-size:.92em; line-height:1.75;
   overflow-wrap:anywhere;
 }

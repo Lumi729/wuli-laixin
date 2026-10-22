@@ -48,6 +48,15 @@
   width:100% !important; max-width:none !important; min-width:0 !important;
   margin:0 !important; padding:0 !important; gap:0 !important; flex:none !important;
 }
+/* Independent overlays restore the portrait/metadata transition. */
+#chat .mes > .mesAvatarWrapper::before {
+ content:"";position:absolute;inset:0 -20px 27px;pointer-events:none;z-index:1;
+ background:url('../assets/v5/avatar-left.webp') 18px bottom/42px 35px no-repeat,url('../assets/v5/avatar-right.webp') calc(100% - 18px) bottom/42px 35px no-repeat,url('../assets/v5/side-left.webp') left bottom/17px 120px no-repeat,url('../assets/v5/side-right.webp') right bottom/17px 120px no-repeat;
+}
+#chat .mes > .mesAvatarWrapper::after {
+ content:"";position:absolute;left:-20px;right:-20px;bottom:0;height:27px;pointer-events:none;
+ background:url('../assets/v5/counter-frame.webp') center/100% 100% no-repeat;
+}
 #chat .mes > .mesAvatarWrapper > .avatar {
   grid-column:1/-1; grid-row:1; box-sizing:border-box;
   width:100% !important; max-width:none !important; height:auto !important;
@@ -63,24 +72,24 @@
   line-height:27px !important; font-size:11px !important; text-align:center !important;
   white-space:nowrap; color:var(--wl-ink); opacity:1;
 }
-#chat .mes .mesIDDisplay { grid-column:1; }
+#chat .mes .mesIDDisplay { grid-column:1; padding-left:24px!important; }
 #chat .mes .mes_timer { grid-column:2; }
-#chat .mes .tokenCounterDisplay { grid-column:3; }
+#chat .mes .tokenCounterDisplay { grid-column:3; padding-right:24px!important; }
 #chat .mes > .mes_block {
   position:relative; display:block !important; box-sizing:border-box; overflow:visible;
   flex:auto !important; width:100% !important; max-width:none !important; min-width:0 !important;
   margin:0 !important; padding:0 0 18px !important; background:transparent !important;
 }
 #chat .mes > .mes_block::before,#chat .mes > .mes_block::after {
- content:"";position:absolute;top:0;width:34px;height:100px;pointer-events:none;background-size:contain;background-repeat:no-repeat;
+ content:"";position:absolute;top:31px;width:42px;height:60px;pointer-events:none;background-size:100% auto;background-repeat:no-repeat;
 }
-#chat .mes > .mes_block::before{left:-17px;background-image:url('../assets/v1/pendant-left.webp')}
-#chat .mes > .mes_block::after{right:-17px;background-image:url('../assets/v1/pendant-right.webp')}
+#chat .mes > .mes_block::before{left:-12px;background-image:url('../assets/v5/chain-left.webp')}
+#chat .mes > .mes_block::after{right:-12px;background-image:url('../assets/v5/chain-right.webp')}
 #chat .mes .ch_name {
   position:relative; display:flex !important; align-items:center !important; justify-content:center !important;
-  width:100%; min-height:36px; margin:0 !important; padding:0 !important;
-  border-top:1px solid #bd9ba4;
-  background:url('../assets/v1/name-ribbon.webp') center/160px 36px no-repeat;
+  width:calc(100% + 40px); max-width:none!important; min-height:36px; margin:0 -20px !important; padding:0 !important;
+  border-top:0;
+  background:url('../assets/v1/name-ribbon.webp') center/146px 34px no-repeat,url('../assets/v5/name-left.webp') left top/31.25% auto no-repeat,url('../assets/v5/name-right.webp') right top/31.25% auto no-repeat;
 }
 #chat .mes .ch_name > .flex1 {
   display:flex !important; flex:0 1 135px !important; justify-content:center !important;
@@ -102,7 +111,7 @@
 }
 #chat .mes .mes_text {
   position:relative; box-sizing:border-box; width:100% !important; max-width:none !important;
-  min-width:0 !important; margin:0 !important; padding:29px 0 8px !important;
+  min-width:0 !important; margin:0 !important; padding:37px 0 8px !important;
   min-height:0 !important; background:none !important; line-height:1.8; overflow-wrap:anywhere;
 }
 #chat .mes .mes_text p { margin:.4em 0 .8em; }

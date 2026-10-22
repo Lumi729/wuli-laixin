@@ -292,17 +292,17 @@
    Native display toggles remain in charge of opening/closing the extra actions. */
 #chat .mes .mes_buttons {
  position:relative!important; inset:auto!important; isolation:isolate;
- box-sizing:border-box; width:340px; max-width:calc(100% - 16px);
+ box-sizing:border-box; width:280px; max-width:calc(100% - 88px);
  min-height:68px; height:auto; margin:0 auto!important;
- padding:24px 44px 20px; gap:4px; flex-wrap:wrap!important;
+ padding:24px 32px 20px; gap:4px; flex-wrap:wrap!important;
  align-self:center; align-items:center; justify-content:center;
  overflow:visible; border:0; border-radius:0; outline:none;
  background:transparent; box-shadow:none; font-size:11px;
 }
 #chat .mes .mes_buttons::before {
  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
- border-style:solid; border-color:transparent; border-width:24px 44px 20px;
- border-image:url('../assets/v9/controls-frame.webp') 115 240 90 240 / 24px 44px 20px / 0 stretch;
+ border-style:solid; border-color:transparent; border-width:24px 32px 20px;
+ border-image:url('../assets/v9/controls-frame.webp') 115 240 90 240 / 24px 32px 20px / 0 stretch;
 }
 #chat .mes .mes_buttons .extraMesButtons {
  position:static!important; inset:auto!important; transform:none!important;

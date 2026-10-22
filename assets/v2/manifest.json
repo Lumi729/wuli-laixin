@@ -1,0 +1,93 @@
+{
+  "rose-left": {
+    "size": [
+      328,
+      356
+    ],
+    "alpha": true
+  },
+  "rose-right": {
+    "size": [
+      322,
+      356
+    ],
+    "alpha": true
+  },
+  "rose-vine-left": {
+    "size": [
+      269,
+      388
+    ],
+    "alpha": true
+  },
+  "rose-vine-right": {
+    "size": [
+      269,
+      389
+    ],
+    "alpha": true
+  },
+  "moon-header": {
+    "size": [
+      487,
+      142
+    ],
+    "alpha": true
+  },
+  "ribbon": {
+    "size": [
+      415,
+      72
+    ],
+    "alpha": true
+  },
+  "pendant-left": {
+    "size": [
+      147,
+      324
+    ],
+    "alpha": true
+  },
+  "pendant-right": {
+    "size": [
+      129,
+      321
+    ],
+    "alpha": true
+  },
+  "footer-crescent": {
+    "size": [
+      316,
+      301
+    ],
+    "alpha": true
+  },
+  "counter-star": {
+    "size": [
+      178,
+      228
+    ],
+    "alpha": true
+  },
+  "footer-flower-left": {
+    "size": [
+      338,
+      181
+    ],
+    "alpha": true
+  },
+  "footer-flower-right": {
+    "size": [
+      341,
+      176
+    ],
+    "alpha": true
+  },
+  "avatar-frame": {
+    "size": [
+      890,
+      715
+    ],
+    "alpha": true
+  }
+}

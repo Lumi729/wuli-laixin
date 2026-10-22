@@ -1,11 +1,9 @@
 # 素材说明
 
-透明母版使用内置图像工具从此前确认的空白装饰稿提取；背景纸面单独裁取。随后按原坐标裁成独立图块，保存为带 Alpha 的 WebP。运行时不加载整张母版。
+本版使用内置图像工具重新分离参考稿中的装饰与框线；图像工具会重绘细节，并非原图逐像素复刻。透明母版拆成独立 WebP 文件，运行时仅加载这些单独文件。
 
-提取提示词：
+核心提取提示：保留淡粉花瓣与细黑墨线；把玫瑰、月相、姓名缎带、月牙珠链、底部月亮分别隔开；保留真实 Alpha；不带矩形框线、纸面或整张卡片。另一轮仅提取透明框线与卷草角花，去除花朵、挂件及背景。
 
-> Use case: background-extraction. Edit target is this exact UI ornamental artwork. Remove ALL pale pink/white paper backdrop and paper texture throughout the entire image, including inside every frame and empty area. Keep the exact existing black ink fine lines, roses, pink petals and ribbons, moon phases, star chains and borders in their EXACT positions, shapes, colors and scale. Preserve pink fill INSIDE rose petals and the pink name ribbons only. Everything else must become genuine transparent alpha, not white or checkerboard. Do not redesign or rearrange anything. No text, no additional objects. Output same tall aspect ratio, crisp fine dark outlines, no shadows/blur. This transparent master will be sliced into independent ornamental assets.
+`avatar-frame.webp` 只有透明框线，CSS border-image 只延长边线、保留角花尺寸。真实头像仍由酒馆加载，不包含在美化资产里。外框和头像框分别定位，玫瑰花另行叠放。背景、按钮仍使用独立的 v1 文件。
 
-`rose-top-*` 为上角花饰，`rose-bottom-*` 为下角花饰，`moon-crown` 为顶端月相，`moon-footer` 为底部月亮，`name-ribbon` 为姓名缎带；`pendant-*` 和 `star` 为备用独立挂饰。按钮采用此前生成的清透小图案，每个按钮单独保存。
-
-`star-chain.svg` 是连续重复用的小点与星形链条；`paper.webp` 与 `page-background.webp` 是不透明背景。修改背景不会影响透明花饰，修改头像尺寸也不会拉长花饰。
+预览使用之前生成的示意头像、虚构文本及模拟插件按钮，不是用户的聊天截图。

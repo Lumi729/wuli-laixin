@@ -276,7 +276,7 @@
 
 /* Tighter spacing without changing the painted frame proportions. */
 #sheld {background:rgba(249,232,237,.75)!important;}
-#chat .mes .ch_name {row-gap:0!important;}
+#chat .mes .ch_name {row-gap:0!important; container-type:inline-size;}
 #chat .mes .mes_reasoning_details {margin:-8px 0 0!important;}
 #chat .mes .mes_reasoning_summary {padding:0!important;row-gap:0;}
 
@@ -292,17 +292,18 @@
    Native display toggles remain in charge of opening/closing the extra actions. */
 #chat .mes .mes_buttons {
  position:relative!important; inset:auto!important; isolation:isolate;
- box-sizing:border-box; width:280px; max-width:calc(100% - 88px);
- min-height:68px; height:auto; margin:0 auto!important;
- padding:24px 32px 20px; gap:4px; flex-wrap:wrap!important;
+ --wl-controls-width:min(280px, calc(100cqw - 88px));
+ box-sizing:border-box; width:var(--wl-controls-width); max-width:calc(100% - 88px);
+ min-height:calc(var(--wl-controls-width) * .333); height:auto; margin:0 auto!important;
+ padding:calc(var(--wl-controls-width) * .115) calc(var(--wl-controls-width) * .18) calc(var(--wl-controls-width) * .09); gap:3px; flex-wrap:wrap!important;
  align-self:center; align-items:center; justify-content:center;
  overflow:visible; border:0; border-radius:0; outline:none;
  background:transparent; box-shadow:none; font-size:11px;
 }
 #chat .mes .mes_buttons::before {
  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
- border-style:solid; border-color:transparent; border-width:24px 32px 20px;
- border-image:url('../assets/v9/controls-frame.webp') 115 240 90 240 / 24px 32px 20px / 0 stretch;
+ border-style:solid; border-color:transparent; border-width:calc(var(--wl-controls-width) * .115) calc(var(--wl-controls-width) * .24) calc(var(--wl-controls-width) * .09);
+ border-image:url('../assets/v9/controls-frame.webp') 115 240 90 240 / calc(var(--wl-controls-width) * .115) calc(var(--wl-controls-width) * .24) calc(var(--wl-controls-width) * .09) / 0 stretch;
 }
 #chat .mes .mes_buttons .extraMesButtons {
  position:static!important; inset:auto!important; transform:none!important;
@@ -312,6 +313,6 @@
  gap:6px; margin:0; padding:0; overflow:visible;
 }
 #chat .mes .mes_buttons .mes_button {
- box-sizing:border-box; flex:0 0 auto; min-width:24px; min-height:24px;
- padding:4px; line-height:16px; text-align:center;
+ box-sizing:border-box; flex:0 0 auto; min-width:20px; min-height:24px;
+ padding:4px 2px; line-height:16px; text-align:center;
 }

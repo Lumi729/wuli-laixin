@@ -329,3 +329,23 @@
 #chat .mes .name_text {font-size:clamp(12px,3.6vw,18px);}
 #chat .mes .mes_buttons {--wl-controls-width:min(280px,calc(100cqw * .78));max-width:100%;min-height:calc(var(--wl-controls-width) * .25);padding:calc(var(--wl-controls-width) * .091) calc(var(--wl-controls-width) * .18) calc(var(--wl-controls-width) * .055);margin-top:2px!important;}
 #chat .mes .mes_buttons::before {border-image-source:url('../assets/ink-continuous-v4/controls.svg');border-image-slice:75 200 45 200;border-width:calc(var(--wl-controls-width) * .091) calc(var(--wl-controls-width) * .243) calc(var(--wl-controls-width) * .055);border-image-width:calc(var(--wl-controls-width) * .091) calc(var(--wl-controls-width) * .243) calc(var(--wl-controls-width) * .055);}
+
+/* Rose-Moon-Phases layout sync: top bar and composer only. Message styles untouched. */
+#top-bar {
+  position:relative!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  border-radius:0!important;
+}
+#send_form {
+  position:relative!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  margin:0!important;
+}
+#top-bar::after,#send_form::after {
+  inset:0!important;
+  pointer-events:none!important;
+}

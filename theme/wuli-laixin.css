@@ -186,3 +186,42 @@
 #top-settings-holder .drawer-toggle{display:flex!important;align-items:center!important;justify-content:center!important;min-height:36px}
 #top-bar{background-color:#fff8fb!important}
 #send_form{background-color:#fff8fb!important}
+
+/* Reasoning: matching stationery frame, bounded inner scroll region. */
+#chat .mes .mes_reasoning_details {
+  margin:38px 0 10px; min-width:0; max-width:100%;
+}
+#chat .mes .mes_reasoning_summary {
+  margin:0; gap:6px; align-items:center; flex-wrap:wrap;
+}
+#chat .mes .mes_reasoning_header_block { min-width:0; }
+#chat .mes .mes_reasoning_header {
+  box-sizing:border-box; max-width:100%; margin:0; padding:4px 20px 4px 24px;
+  color:var(--wl-ink); background-color:#fff3f7;
+  background-image:url('../assets/v1/icon-letter.webp');
+  background-position:3px center; background-size:19px 19px; background-repeat:no-repeat;
+  border:8px solid transparent; border-radius:0;
+  border-image:url('../assets/v4/bar-frame.webp') 22 45 / 8px 13px / 0 stretch;
+  box-shadow:none; text-shadow:none; font-size:13px; line-height:1.5;
+}
+#chat .mes .mes_reasoning_header_title { color:var(--wl-ink); overflow-wrap:anywhere; }
+#chat .mes .mes_reasoning_arrow { color:#956578; right:3px; }
+#chat .mes .mes_reasoning_actions { gap:7px; color:#956578; }
+#chat .mes .mes_reasoning {
+  box-sizing:border-box; width:100%; min-width:0; min-height:0;
+  max-height:240px; max-height:min(240px,32dvh);
+  overflow-y:auto; overflow-x:auto; overscroll-behavior-y:contain;
+  -webkit-overflow-scrolling:touch;
+  margin:8px 0 0; padding:12px 14px;
+  color:var(--wl-ink); background:#fff7f9;
+  border:9px solid transparent; border-radius:0;
+  border-image:url('../assets/v4/bar-frame.webp') 22 45 / 8px 13px / 0 stretch;
+  box-shadow:none; text-shadow:none; font-size:.92em; line-height:1.75;
+  overflow-wrap:anywhere;
+}
+#chat .mes .mes_reasoning p { margin:.35em 0 .75em; }
+#chat .mes .reasoning_edit_textarea {
+  box-sizing:border-box; width:100%; height:180px; min-height:100px;
+  max-height:240px; overflow:auto; background:#fff7f9; color:var(--wl-ink);
+  border:1px solid #bb93a3; border-radius:5px;
+}

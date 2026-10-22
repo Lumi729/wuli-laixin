@@ -278,3 +278,17 @@
  content:""; position:absolute; inset:0; pointer-events:none; z-index:-1;
  background:url('../assets/v9/controls-frame.webp') center/100% 100% no-repeat;
 }
+
+/* Wider message canvas; artwork always retains its natural proportions. */
+#chat {padding-inline:2px!important; gap:0!important;}
+#chat .mes {margin:0 0 24px!important;}
+#chat .mes + .mes::before {
+ top:-24px; height:calc(100cqw * 574 / 941 + 24px); aspect-ratio:auto;
+ background-image:url('../assets/v7/portrait-surround.webp'),url('../assets/v11/message-divider.webp');
+ background-position:center bottom,center top;
+ background-size:100% auto,auto 22px;
+ background-repeat:no-repeat;
+}
+#chat .mes .mes_buttons {width:280px;max-width:calc(100% - 32px);min-height:94px;padding:26px 36px;}
+#chat .mes .mes_buttons::before {background-size:contain;}
+#chat .mes .mes_reasoning_header {width:285px;min-height:76px;max-width:100%;background-size:contain;}

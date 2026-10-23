@@ -360,5 +360,5 @@
 #extensions_settings2 .inline-drawer-header,
 #extensions_settings .inline-drawer-header :is(b,strong,span,i,.inline-drawer-icon),
 #extensions_settings2 .inline-drawer-header :is(b,strong,span,i,.inline-drawer-icon) {
- color:#fff!important;text-shadow:0 1px 2px rgba(0,0,0,.55)!important;
+ color:#ffe1ec!important;text-shadow:0 1px 2px rgba(0,0,0,.55)!important;
 }

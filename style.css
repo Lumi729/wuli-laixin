@@ -79,3 +79,6 @@
 /* Empty labels consume no space; centre each icon or icon/label group. */
 #lfd-root .lfd-item{height:100%;justify-content:center}
 #lfd-root .lfd-name[hidden]{display:none!important}
+
+/* Keep the settings launch button horizontal under narrow themed drawers. */
+#lfd-settings .inline-drawer-content>.menu_button{display:flex!important;align-items:center;justify-content:center;width:100%!important;max-width:100%;min-width:0;box-sizing:border-box;white-space:nowrap!important;word-break:normal!important;writing-mode:horizontal-tb!important;padding:8px 12px;margin:8px 0}

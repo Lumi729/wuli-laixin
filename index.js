@@ -20,7 +20,7 @@ const tray=el('div','lfd-tray');tray.hidden=true;
 const frame=el('div','lfd-frame');frame.setAttribute('aria-hidden','true');const frameImages=[];for(const side of ['bridge','left','right']){const half=el('div','lfd-frame-'+side),img=el('img');img.alt='';half.append(img);frame.append(half);frameImages.push(img);}const row=el('div','lfd-row');tray.append(frame,row);root.append(toggle,tray);document.body.append(root);
 let opened=false,drag=null,moved=false,picking=false;
 const tracked=new Map();
-function show(value){opened=value;tray.hidden=!value;toggle.setAttribute('aria-expanded',String(value));position();}
+function show(value){if(value)sync();opened=value;tray.hidden=!value;toggle.setAttribute('aria-expanded',String(value));position();}
 function position(){
  const size=Math.max(40,Math.min(110,Number(cfg.size)||64)),vw=innerWidth,vh=innerHeight;
  let x=Math.max(4,Math.min(vw-size-4,cfg.x*(vw-size)));const y=Math.max(4,Math.min(vh-size-4,cfg.y*(vh-size)));
@@ -35,7 +35,7 @@ function position(){
 function release(n){const state=tracked.get(n);state?.observer?.disconnect();if(state){if(state.value)n.style.setProperty('display',state.value,state.priority);else n.style.removeProperty('display');}n.classList.remove('lfd-stored');tracked.delete(n);}
 function hideOriginal(n){const state={value:n.style.getPropertyValue('display'),priority:n.style.getPropertyPriority('display'),observer:null};const apply=()=>{if(n.style.getPropertyValue('display')!=='none'||n.style.getPropertyPriority('display')!=='important'){state.value=n.style.getPropertyValue('display');state.priority=n.style.getPropertyPriority('display');n.style.setProperty('display','none','important');}};apply();state.observer=new MutationObserver(apply);state.observer.observe(n,{attributes:true,attributeFilter:['style']});n.classList.add('lfd-stored');tracked.set(n,state);}
 function restore(){for(const n of [...tracked.keys()])release(n);}
-function resolve(item){const n=find(item.selector);if(!n||owned(n)||['BODY','HTML'].includes(n.tagName)||protectedNode(n))return null;return n;}
+function resolve(item){let n=find(item.selector);if(item.selector.startsWith('#pear-nai-host'))n=document.querySelector('#pear-nai-host')?.shadowRoot?.querySelector('.fab');if(!n||owned(n)||['BODY','HTML'].includes(n.tagName)||protectedNode(n))return null;return n;}
 const views=new Map();
 function imageUrl(target){
  if(!target)return '';
@@ -59,7 +59,10 @@ function updateVisual(view,item,target){
  else if(symbol){const i=el('i',symbol.className);view.visual.append(i);}
  else view.visual.textContent=signature;
 }
+let pearScope=null,pearObserver=null;
+function watchPear(){const scope=document.querySelector('#pear-nai-host')?.shadowRoot;if(scope===pearScope)return;pearObserver?.disconnect();pearScope=scope;if(scope){pearObserver=new MutationObserver(()=>{if(!timer)timer=setTimeout(()=>{timer=null;sync();},250);});pearObserver.observe(scope,{childList:true,subtree:true,attributes:true,attributeFilter:['src']});}}
 function sync(){
+ watchPear();
  root.hidden=!cfg.enabled;root.dataset.theme=cfg.theme==='lily'?'lily':'rose';const frameSrc=asset(root.dataset.theme+'-frame');for(const img of frameImages)if(img.getAttribute('src')!==frameSrc)img.src=frameSrc;
  const src=safeUrl(cfg.icon)||asset(root.dataset.theme+'-launcher');if(icon.getAttribute('src')!==src){icon.src=src;icon.onerror=()=>{icon.onerror=null;const fallback=asset(root.dataset.theme+'-launcher');if(icon.src!==fallback)icon.src=fallback;};}
  const targets=new Set();const keys=new Set();
@@ -81,13 +84,13 @@ toggle.onpointerdown=e=>{if(e.button!==0)return;drag={x:e.clientX,y:e.clientY,le
 toggle.onpointermove=e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.hypot(dx,dy)>6)moved=true;if(moved){const s=parseFloat(root.style.getPropertyValue('--lfd-size'));cfg.x=Math.max(0,Math.min(1,(drag.left+dx)/Math.max(1,innerWidth-s)));cfg.y=Math.max(0,Math.min(1,(drag.top+dy)/Math.max(1,innerHeight-s)));position();}};
 toggle.onpointerup=()=>{if(drag&&moved)save();drag=null;};toggle.onpointercancel=()=>{drag=null;};
 window.addEventListener('resize',position);document.addEventListener('pointerdown',e=>{if(!root.contains(e.target))show(false);});
-function selector(n){const scope=n.getRootNode();if(scope.host){const inner=n.id?'#'+CSS.escape(n.id):localSelector(n,scope);return selector(scope.host)+' >>> '+inner;}if(n.id)return '#'+CSS.escape(n.id);let p=n;const parts=[];while(p&&p!==document.body){if(p.id){parts.unshift('#'+CSS.escape(p.id));break;}const siblings=[...p.parentElement.children].filter(x=>x.tagName===p.tagName);parts.unshift(p.tagName.toLowerCase()+`:nth-of-type(${siblings.indexOf(p)+1})`);p=p.parentElement;}return parts.join(' > ');}
+function selector(n){const scope=n.getRootNode();if(scope.host){if(scope.host.id==='pear-nai-host'&&n.matches('.fab'))return '#pear-nai-host >>> .fab';const inner=n.id?'#'+CSS.escape(n.id):localSelector(n,scope);return selector(scope.host)+' >>> '+inner;}if(n.id)return '#'+CSS.escape(n.id);let p=n;const parts=[];while(p&&p!==document.body){if(p.id){parts.unshift('#'+CSS.escape(p.id));break;}const siblings=[...p.parentElement.children].filter(x=>x.tagName===p.tagName);parts.unshift(p.tagName.toLowerCase()+`:nth-of-type(${siblings.indexOf(p)+1})`);p=p.parentElement;}return parts.join(' > ');}
 function localSelector(n,scope){const parts=[];for(let p=n;p&&p!==scope;p=p.parentElement){if(p.id){parts.unshift('#'+CSS.escape(p.id));break;}const peers=[...(p.parentNode?.children||[])].filter(x=>x.tagName===p.tagName);parts.unshift(p.tagName.toLowerCase()+`:nth-of-type(${peers.indexOf(p)+1})`);}return parts.join(' > ');}
 function label(n){return (n.getAttribute('aria-label')||n.title||n.querySelector('img')?.alt||n.textContent?.trim()||n.id||'悬浮按钮').slice(0,40);}
-function add(n){if(!n||owned(n)||protectedNode(n)||['HTML','BODY'].includes(n.tagName))return;const s=selector(n);if(!cfg.items.some(x=>x.selector===s)){cfg.items.push({selector:s,name:label(n),icon:'',originalIcon:imageUrl(n)});save();sync();}}
+function add(n){if(n?.id==='pear-nai-host')n=n.shadowRoot?.querySelector('.fab');if(!n||owned(n)||protectedNode(n)||['HTML','BODY'].includes(n.tagName))return;const s=selector(n);if(!cfg.items.some(x=>x.selector===s)){cfg.items.push({selector:s,name:label(n),icon:'',originalIcon:imageUrl(n)});save();sync();}}
 function candidates(){
- const all=deepNodes(document.body);
- return all.filter(n=>{if(owned(n)||(protectedNode(n)||n.closest('dialog,#extensions_settings,#extensions_settings2,#extensionsMenu,.lfd-stored'))||['STYLE','SCRIPT','LINK','IFRAME'].includes(n.tagName))return false;
+ const all=deepNodes(document.documentElement);
+ return all.filter(n=>{if(n.id==='pear-nai-host'||owned(n)||(protectedNode(n)||n.closest('dialog,#extensions_settings,#extensions_settings2,#extensionsMenu,.lfd-stored'))||['STYLE','SCRIPT','LINK','IFRAME'].includes(n.tagName))return false;
  const s=getComputedStyle(n),r=n.getBoundingClientRect();if(s.display==='none'||s.visibility==='hidden'||r.width<16||r.width>240||r.height<16||r.height>240||r.right<0||r.bottom<0)return false;
  const anchor=floatingAncestor(n);if(!anchor)return false;const box=anchor.getBoundingClientRect();return s.position==='fixed'||s.position==='absolute'||(box.width>0&&box.width<=260&&box.height>0&&box.height<=260);
  }).filter((n,i,a)=>!a.some(p=>p!==n&&(p.contains(n)||p.contains(n.getRootNode()?.host))));
@@ -106,7 +109,8 @@ function mountEntries(){
  const host=document.querySelector('#extensions_settings2')||document.querySelector('#extensions_settings');
  if(host&&!document.querySelector('#lfd-settings')){const settings=el('div');settings.id='lfd-settings';settings.className='extension-settings';const drawer=el('div','inline-drawer'),header=el('div','inline-drawer-toggle inline-drawer-header'),content=el('div','inline-drawer-content');header.append(el('b','','浮窗收纳'),el('div','inline-drawer-icon fa-solid fa-circle-chevron-down'));content.append(button('打开收纳设置',openEditor));drawer.append(header,content);settings.append(drawer);host.append(settings);}
  const menu=document.querySelector('#extensionsMenu');if(menu&&!menu.querySelector('[data-lfd-entry="wand"]')){const b=el('div','list-group-item flex-container flexGap5 interactable');b.dataset.lfdEntry='wand';b.tabIndex=0;b.setAttribute('role','button');b.append(el('i','fa-solid fa-box-archive'),el('span','','浮窗收纳'));b.onclick=()=>{document.querySelector('#extensionsMenuButton')?.click();openEditor();};b.onkeydown=e=>{if(e.key==='Enter'||e.key===' ')b.click();};menu.append(b);}
- const qrMain=document.querySelector('#qr-assistant-page-main');if(qrMain&&!qrMain.querySelector('[data-lfd-entry="qr-settings"]')){const b=button('浮窗收纳设置',openEditor);b.dataset.lfdEntry='qr-settings';qrMain.append(b);}
+ const qrList=document.querySelector('#qr-list-left');
+ if(qrList&&!qrList.querySelector('[data-lfd-entry="qr-menu"]')){const b=button('浮窗收纳设置',openEditor);b.className='action-item';b.dataset.lfdEntry='qr-menu';b.replaceChildren(el('span','','浮窗收纳设置'));qrList.append(b);}
  // QR helper canvas variants: attach beside its preset control without moving other UI.
  const preset=[...document.querySelectorAll('button,.menu_button')].find(n=>!owned(n)&&n.textContent.trim()==='画布预设设置');
  if(preset?.parentElement&&!preset.parentElement.querySelector('[data-lfd-entry="qr"]')){const b=button('浮窗收纳',openEditor);b.dataset.lfdEntry='qr';preset.parentElement.append(b);}
@@ -121,7 +125,7 @@ async function installQr(){const api=globalThis.quickReplyApi;if(qrReady||qrBusy
 let timer;
 new MutationObserver(records=>{
  if(picking||records.every(r=>owned(r.target)))return;
- const needsSync=records.some(r=>[...r.addedNodes,...r.removedNodes].some(n=>n.nodeType===1&&!owned(n)))||records.some(r=>r.type==='attributes'&&cfg.items.some(i=>{const t=resolve(i);return t&&(t===r.target||t.contains(r.target));}));
+ const needsSync=records.some(r=>r.target.nodeType===1&&r.target.matches('style')||r.target.parentElement?.matches('style'))||records.some(r=>[...r.addedNodes,...r.removedNodes].some(n=>n.nodeType===1&&!owned(n)))||records.some(r=>r.type==='attributes'&&cfg.items.some(i=>{const t=resolve(i);return t&&(t===r.target||t.contains(r.target)||r.target.contains?.(t));}));
  if(!needsSync)return;if(timer)return;timer=setTimeout(()=>{timer=null;mountEntries();installQr();sync();},250);
-}).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['src']});
+}).observe(document.documentElement,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['src','style','class','data-art']});
 mountEntries();installQr();sync();

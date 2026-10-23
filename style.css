@@ -36,3 +36,17 @@
 #lfd-root .lfd-item img{width:clamp(24px,calc(var(--lfd-tray-width) * .073),42px);height:clamp(24px,calc(var(--lfd-tray-width) * .073),42px)}
 #lfd-root .lfd-item span{font-size:11px;line-height:14px}
 #lfd-root .lfd-edit{position:absolute;bottom:0;left:50%;transform:translateX(-50%);margin:0;background:var(--lfd-paper);border-radius:8px}
+/* 1.1: side drawer, original button art, no settings button on the chat surface. */
+#lfd-root{transition:left .18s ease}
+#lfd-root .lfd-tray{bottom:auto;animation:lfd-slide-in .18s ease;transform-origin:left center}
+#lfd-root[data-side=left] .lfd-tray{transform-origin:right center}
+@keyframes lfd-slide-in{from{opacity:0;transform:scaleX(.85)}to{opacity:1;transform:scaleX(1)}}
+#lfd-root .lfd-row{height:calc(var(--lfd-tray-width) * .13)}
+#lfd-root .lfd-item{gap:0;flex-basis:52px;width:52px}
+#lfd-root .lfd-item .lfd-visual{display:flex;align-items:center;justify-content:center;flex:none;width:clamp(20px,calc(var(--lfd-tray-width) * .07),40px);height:clamp(20px,calc(var(--lfd-tray-width) * .07),40px);font-size:20px;line-height:1;overflow:visible}
+#lfd-root .lfd-item .lfd-visual img{width:100%;height:100%;object-fit:contain}
+#lfd-root .lfd-item .lfd-name{font-size:11px;line-height:13px}
+#lfd-settings{margin:8px 0}
+#lfd-settings summary{cursor:pointer;font-weight:bold;padding:8px}
+[data-lfd-entry=qr]{white-space:nowrap}
+@media(prefers-reduced-motion:reduce){#lfd-root{transition:none}#lfd-root .lfd-tray{animation:none}}

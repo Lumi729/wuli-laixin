@@ -8,7 +8,6 @@
 #lfd-root .lfd-tray{position:absolute;top:calc(var(--lfd-size) + 6px);box-sizing:border-box;min-height:112px;padding:27px 35px 22px;isolation:isolate;background:transparent}
 #lfd-root .lfd-tray::before{content:'';position:absolute;inset:0;z-index:-1;background-image:url('./assets/floating-dock/rose-frame.png');background-size:100% 100%;background-repeat:no-repeat;pointer-events:none}
 #lfd-root .lfd-tray::after{content:'';position:absolute;inset:22px 28px;z-index:-2;background:var(--lfd-paper);opacity:.96;border-radius:12px;pointer-events:none}
-#lfd-root[data-theme=lily] .lfd-tray::before{background-image:url('./assets/floating-dock/lily-frame.png')}
 #lfd-root .lfd-above{top:auto;bottom:calc(var(--lfd-size) + 6px)}
 #lfd-root .lfd-row{display:flex;gap:10px;overflow-x:auto;overscroll-behavior:contain;scrollbar-width:none;align-items:center;min-height:66px}
 #lfd-root .lfd-item{flex:0 0 60px;width:60px;border:0;padding:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:3px;box-shadow:none}

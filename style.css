@@ -108,3 +108,7 @@
 #lfd-root .lfd-item .lfd-visual,#lfd-root .lfd-item .lfd-visual img{width:var(--lfd-fit-icon)!important;height:var(--lfd-fit-icon)!important;min-height:0!important;min-width:0!important;margin:0!important;padding:0!important;flex-shrink:0}
 #lfd-root .lfd-item .lfd-visual{font-size:var(--lfd-fit-icon)!important;line-height:1!important}
 #lfd-root .lfd-item .lfd-name{display:block;margin:0!important;padding:0!important;flex:0 0 12px!important;height:12px!important;min-height:0!important;font-size:11px!important;line-height:12px!important}
+
+/* Match each hit area to its rendered icon and compact single-line label. */
+#lfd-root .lfd-row{gap:4px!important}
+#lfd-root .lfd-item{flex:0 0 var(--lfd-slot-width)!important;width:var(--lfd-slot-width)!important;min-width:0!important;max-width:var(--lfd-slot-width)!important}

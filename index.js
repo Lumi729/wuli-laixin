@@ -27,9 +27,10 @@ function position(){
  const side=x+size/2<vw/2?'right':'left';
  if(opened){x=side==='right'?4:vw-size-4;}
  const available=Math.max(80,vw-size-16),requested=Math.max(.6,Math.min(1.6,(Number(cfg.frameScale)||100)/100));
- const itemSize=Math.max(20,Math.min(90,Number(cfg.itemSize)||44)),count=Math.max(1,cfg.items.length),itemWidth=itemSize+8,gap=8;
+ const itemSize=Math.max(20,Math.min(90,Number(cfg.itemSize)||44)),count=Math.max(1,cfg.items.length),itemWidth=itemSize+4,gap=4;
  const scale=Math.min(requested,(vh-8)/184,Math.max(.25,(available-itemWidth)/140));
- const contentWidth=cfg.items.length?count*itemWidth+(count-1)*gap:120;
+ const widths=cfg.items.map(item=>{const named=!!item.name?.trim(),fit=Math.min(itemSize,Math.max(8,70*scale-(named?13:0)-4)),labelWidth=named?Math.min(44,Array.from(item.name.trim()).length*11):0;const width=Math.max(24,fit+4,labelWidth+2);views.get(item.selector)?.b.style.setProperty('--lfd-slot-width',width+'px');return width;});
+ const contentWidth=widths.length?widths.reduce((sum,n)=>sum+n,0)+(count-1)*gap:120;
  const width=Math.min(available,Math.max(260*scale,140*scale+contentWidth+2)),baseWidth=width/scale;
  row.style.overflowX=contentWidth>width-140*scale?'auto':'hidden';
  root.style.setProperty('--lfd-frame-scale',scale);root.style.setProperty('--lfd-frame-base-width',baseWidth+'px');root.style.setProperty('--lfd-item-size',Math.max(20,Math.min(90,Number(cfg.itemSize)||44))+'px');

@@ -1,7 +1,7 @@
 import { getContext } from '../../../extensions.js';
 const KEY='lumiFloatingDock';
 const ctx=getContext();
-const defaults={enabled:true,theme:'rose',icon:'',size:64,x:0.85,y:0.65,items:[]};
+const defaults={enabled:true,theme:'rose',icon:'',size:64,frameScale:100,itemSize:44,x:0.85,y:0.65,items:[]};
 const cfg=ctx.extensionSettings[KEY]??=structuredClone(defaults);
 for(const [k,v] of Object.entries(defaults))if(cfg[k]===undefined)cfg[k]=v;
 const asset=n=>new URL(`./assets/floating-dock/${n}.png`,import.meta.url).href;
@@ -26,11 +26,12 @@ function position(){
  let x=Math.max(4,Math.min(vw-size-4,cfg.x*(vw-size)));const y=Math.max(4,Math.min(vh-size-4,cfg.y*(vh-size)));
  const side=x+size/2<vw/2?'right':'left';
  if(opened){x=side==='right'?4:vw-size-4;}
- const width=Math.min(580,Math.max(100,vw-size-20));
- root.style.setProperty('--lfd-size',size+'px');root.style.setProperty('--lfd-tray-width',width+'px');root.style.setProperty('--lfd-bridge-scale',String(Math.max(1,(width-258)/2)));root.dataset.side=side;
+ const available=Math.max(100,vw-size-20),baseWidth=Math.min(420,available),requested=Math.max(.6,Math.min(1.6,(Number(cfg.frameScale)||100)/100)),scale=Math.min(requested,available/baseWidth,(vh-8)/184),width=baseWidth*scale;
+ root.style.setProperty('--lfd-frame-scale',scale);root.style.setProperty('--lfd-frame-base-width',baseWidth+'px');root.style.setProperty('--lfd-item-size',Math.max(20,Math.min(90,Number(cfg.itemSize)||44))+'px');
+ root.style.setProperty('--lfd-size',size+'px');root.style.setProperty('--lfd-tray-width',width+'px');root.style.setProperty('--lfd-bridge-scale',String(Math.max(1,(baseWidth-258)/2)));root.dataset.side=side;
  root.style.left=x+'px';root.style.top=Math.max(4,Math.min(vh-size-4,y))+'px';
  tray.style.width=width+'px';tray.style.left=side==='right'?(size+4)+'px':'auto';tray.style.right=side==='left'?(size+4)+'px':'auto';
- const height=184;tray.style.top=Math.max(4-parseFloat(root.style.top),Math.min((size-height)/2,vh-4-parseFloat(root.style.top)-height))+'px';
+ const height=184*scale;tray.style.top=Math.max(4-parseFloat(root.style.top),Math.min((size-height)/2,vh-4-parseFloat(root.style.top)-height))+'px';
 }
 function release(n){const state=tracked.get(n);state?.observer?.disconnect();if(state){if(state.value)n.style.setProperty('display',state.value,state.priority);else n.style.removeProperty('display');}n.classList.remove('lfd-stored');tracked.delete(n);}
 function hideOriginal(n){const state={value:n.style.getPropertyValue('display'),priority:n.style.getPropertyPriority('display'),observer:null};const apply=()=>{if(n.style.getPropertyValue('display')!=='none'||n.style.getPropertyPriority('display')!=='important'){state.value=n.style.getPropertyValue('display');state.priority=n.style.getPropertyPriority('display');n.style.setProperty('display','none','important');}};apply();state.observer=new MutationObserver(apply);state.observer.observe(n,{attributes:true,attributeFilter:['style']});n.classList.add('lfd-stored');tracked.set(n,state);}
@@ -102,6 +103,7 @@ function button(text,fn){const b=el('button','menu_button',text);b.type='button'
 function openEditor(){document.querySelector('#lfd-editor')?.remove();const d=el('dialog');d.id='lfd-editor';const title=el('h3','','浮窗收纳');d.append(title);const close=button('完成',()=>d.close());d.append(close);d.addEventListener('close',()=>d.remove());
 const enabled=el('label','lfd-field','启用收纳');const cb=el('input');cb.type='checkbox';cb.checked=cfg.enabled;cb.onchange=()=>{cfg.enabled=cb.checked;save();sync();};enabled.append(cb);d.append(enabled);
 const themes=el('select');for(const [v,t] of [['rose','玫瑰月相'],['lily','百合羽信']]){const o=el('option','',t);o.value=v;themes.append(o);}themes.value=cfg.theme;themes.onchange=()=>{cfg.theme=themes.value;save();sync();};d.append(themes,input('入口图片链接（留空使用内置）',cfg.icon,v=>{cfg.icon=v;save();sync();}),input('入口大小（40–110）',cfg.size,v=>{cfg.size=Math.max(40,Math.min(110,Number(v)||64));save();sync();},'number'));
+d.append(input('装饰框等比大小（60–160%，超出屏幕时自动适配）',cfg.frameScale,v=>{cfg.frameScale=Math.max(60,Math.min(160,Number(v)||100));save();sync();},'number'),input('收纳图标大小（20–90）',cfg.itemSize,v=>{cfg.itemSize=Math.max(20,Math.min(90,Number(v)||44));save();sync();},'number'));
 d.append(button('点选一个悬浮按钮',()=>{d.close();startPick();}),button('一键扫描并全部收纳',()=>{collectAll();openEditor();}));
 for(const [i,item] of cfg.items.entries()){const box=el('div','lfd-entry');box.append(input('名字',item.name,v=>{item.name=v;save();sync();}),input('图案链接（留空沿用原图）',item.icon,v=>{item.icon=v;save();sync();}),input('按钮定位（高级）',item.selector,v=>{item.selector=v;save();sync();}));box.append(button('前移',()=>{if(i){[cfg.items[i-1],cfg.items[i]]=[cfg.items[i],cfg.items[i-1]];save();sync();openEditor();}}),button('移出',()=>{cfg.items.splice(i,1);save();sync();openEditor();}));d.append(box);}
 d.append(button('恢复全部原按钮',()=>{cfg.enabled=false;save();sync();openEditor();}));document.body.append(d);d.showModal();}

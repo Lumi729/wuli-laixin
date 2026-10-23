@@ -82,3 +82,12 @@
 
 /* Keep the settings launch button horizontal under narrow themed drawers. */
 #lfd-settings .inline-drawer-content>.menu_button{display:flex!important;align-items:center;justify-content:center;width:100%!important;max-width:100%;min-width:0;box-sizing:border-box;white-space:nowrap!important;word-break:normal!important;writing-mode:horizontal-tb!important;padding:8px 12px;margin:8px 0}
+
+/* Scale only the decorative layer; icon dimensions are independently controlled. */
+#lfd-root .lfd-tray{height:calc(184px * var(--lfd-frame-scale));padding:calc(60px * var(--lfd-frame-scale)) calc(40px * var(--lfd-frame-scale)) calc(54px * var(--lfd-frame-scale))}
+#lfd-root .lfd-frame{width:var(--lfd-frame-base-width);height:184px;inset:0 auto auto 0;transform:scale(var(--lfd-frame-scale));transform-origin:top left}
+#lfd-root .lfd-tray::after{inset:calc(61px * var(--lfd-frame-scale)) calc(28px * var(--lfd-frame-scale)) calc(55px * var(--lfd-frame-scale))}
+#lfd-root .lfd-row{height:calc(70px * var(--lfd-frame-scale));overflow-y:auto}
+#lfd-root .lfd-item{flex-basis:calc(var(--lfd-item-size) + 20px);width:calc(var(--lfd-item-size) + 20px);min-height:min-content}
+#lfd-root .lfd-item .lfd-visual,#lfd-root .lfd-item .lfd-visual img{width:var(--lfd-item-size)!important;height:var(--lfd-item-size)!important}
+#lfd-root .lfd-item .lfd-visual{font-size:var(--lfd-item-size)}

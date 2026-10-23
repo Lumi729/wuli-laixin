@@ -507,3 +507,11 @@
   height:calc(100% - var(--topBarBlockSize,64px))!important;
  }
 }
+
+/* 平板正文：直接覆盖文字层字号，避免继承到内层固定的小字号。 */
+@media screen and (min-width:600px) {
+ #chat .mes .mes_text,
+ #chat .mes .mes_text :is(p,div,span,li,blockquote,em,strong,b,i,a,font,section,article):not(:where(button,button *,[role="button"],[role="button"] *,pre,pre *,code,code *,svg,svg *,.fa,.fas,.far,.fab,.fa-solid,.fa-regular,.fa-brands)) {
+  font-size:22px!important;
+ }
+}

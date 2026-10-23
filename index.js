@@ -17,7 +17,7 @@ const root=el('div');root.id='lfd-root';
 const toggle=el('button','lfd-toggle');toggle.type='button';toggle.title='浮窗收纳（拖动可移动）';toggle.setAttribute('aria-label','展开浮窗收纳');
 const icon=el('img');icon.alt='';toggle.append(icon);
 const tray=el('div','lfd-tray');tray.hidden=true;
-const frame=el('div','lfd-frame');frame.setAttribute('aria-hidden','true');const frameImages=[];for(const side of ['bridge','left','right']){const half=el('div','lfd-frame-'+side),img=el('img');img.alt='';half.append(img);frame.append(half);frameImages.push(img);}const row=el('div','lfd-row');tray.append(frame,row);root.append(toggle,tray);document.body.append(root);
+const frame=el('div','lfd-frame');frame.setAttribute('aria-hidden','true');const frameImages=[];for(const side of ['bridge','left','right','center']){const half=el('div','lfd-frame-'+side),img=el('img');img.alt='';half.append(img);frame.append(half);frameImages.push(img);}const row=el('div','lfd-row');tray.append(frame,row);root.append(toggle,tray);document.body.append(root);
 let opened=false,drag=null,moved=false,picking=false;
 const tracked=new Map();
 function show(value){if(value)sync();opened=value;tray.hidden=!value;toggle.setAttribute('aria-expanded',String(value));position();}
@@ -70,8 +70,8 @@ let pearScope=null,pearObserver=null;
 function watchPear(){const scope=document.querySelector('#pear-nai-host')?.shadowRoot;if(scope===pearScope)return;pearObserver?.disconnect();pearScope=scope;if(scope){pearObserver=new MutationObserver(()=>{if(!timer)timer=setTimeout(()=>{timer=null;sync();},250);});pearObserver.observe(scope,{childList:true,subtree:true,attributes:true,attributeFilter:['src']});}}
 function sync(){
  watchPear();
- root.hidden=!cfg.enabled;root.dataset.theme=cfg.theme==='lily'?'lily':'rose';const frameSrc=asset(root.dataset.theme+'-frame');for(const img of frameImages)if(img.getAttribute('src')!==frameSrc)img.src=frameSrc;
- const src=safeUrl(cfg.icon)||asset(root.dataset.theme+'-launcher');if(icon.getAttribute('src')!==src){icon.src=src;icon.onerror=()=>{icon.onerror=null;const fallback=asset(root.dataset.theme+'-launcher');if(icon.src!==fallback)icon.src=fallback;};}
+ root.hidden=!cfg.enabled;root.dataset.theme=cfg.theme==='lily'?'lily':'rose';const frameSrc=asset(root.dataset.theme==='lily'?'lily-ink-frame':'rose-frame');for(const img of frameImages)if(img.getAttribute('src')!==frameSrc)img.src=frameSrc;
+ const src=safeUrl(cfg.icon)||asset(root.dataset.theme==='lily'?'lily-ink-launcher':'rose-launcher');if(icon.getAttribute('src')!==src){icon.src=src;icon.onerror=()=>{icon.onerror=null;const fallback=asset(root.dataset.theme==='lily'?'lily-ink-launcher':'rose-launcher');if(icon.src!==fallback)icon.src=fallback;};}
  const targets=new Set();const keys=new Set();
  for(const item of cfg.items){const target=resolve(item);if(cfg.enabled&&target)targets.add(target);keys.add(item.selector);
  let v=views.get(item.selector);if(!v){const b=el('button','lfd-item');b.type='button';const visual=el('span','lfd-visual'),name=el('span','lfd-name');b.append(visual,name);v={b,visual,name,signature:null};views.set(item.selector,v);}

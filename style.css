@@ -112,3 +112,11 @@
 /* Match each hit area to its rendered icon and compact single-line label. */
 #lfd-root .lfd-row{gap:4px!important}
 #lfd-root .lfd-item{flex:0 0 var(--lfd-slot-width)!important;width:var(--lfd-slot-width)!important;min-width:0!important;max-width:var(--lfd-slot-width)!important}
+
+/* Lily ink artwork: proportional endcaps, clear middle strip and separate centre stars. */
+#lfd-root .lfd-frame-center{display:none}
+#lfd-root[data-theme=lily]{--lfd-paper:#fff;--lfd-ink:#202020}
+#lfd-root[data-theme=lily] .lfd-frame img{width:630px!important;height:252px!important;top:-27px}
+#lfd-root[data-theme=lily] .lfd-frame-bridge img{left:-200px}
+#lfd-root[data-theme=lily] .lfd-frame-center{display:block;left:calc(50% - 16px);width:32px!important;z-index:1}
+#lfd-root[data-theme=lily] .lfd-frame-center img{left:-299px}

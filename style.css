@@ -100,3 +100,11 @@
 /* The centre grows with its contents, independently of endcap scale. */
 #lfd-root .lfd-row{gap:8px;justify-content:flex-start;flex-wrap:nowrap}
 #lfd-root .lfd-item{flex:0 0 calc(var(--lfd-item-size) + 8px);width:calc(var(--lfd-item-size) + 8px)}
+
+/* Compact icon/label groups; fit the painted opening at small frame sizes. */
+#lfd-root .lfd-row{overflow-y:hidden;align-items:center!important}
+#lfd-root .lfd-item{--lfd-label-space:13px;--lfd-fit-icon:min(var(--lfd-item-size),max(8px,calc(70px * var(--lfd-frame-scale) - var(--lfd-label-space) - 4px)));height:auto!important;min-height:0!important;max-height:100%;padding:0!important;margin:0!important;gap:1px!important;justify-content:center!important;align-items:center!important}
+#lfd-root .lfd-item:has(.lfd-name[hidden]){--lfd-label-space:0px;gap:0!important}
+#lfd-root .lfd-item .lfd-visual,#lfd-root .lfd-item .lfd-visual img{width:var(--lfd-fit-icon)!important;height:var(--lfd-fit-icon)!important;min-height:0!important;min-width:0!important;margin:0!important;padding:0!important;flex-shrink:0}
+#lfd-root .lfd-item .lfd-visual{font-size:var(--lfd-fit-icon)!important;line-height:1!important}
+#lfd-root .lfd-item .lfd-name{display:block;margin:0!important;padding:0!important;flex:0 0 12px!important;height:12px!important;min-height:0!important;font-size:11px!important;line-height:12px!important}

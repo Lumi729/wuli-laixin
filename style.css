@@ -69,3 +69,13 @@
 #lfd-root .lfd-frame>div{width:130px}
 #lfd-root .lfd-frame::before{content:'';position:absolute;left:129px;right:129px;top:62px;bottom:55px;border-top:3px double #897278;border-bottom:3px double #897278;pointer-events:none}
 #lfd-root[data-theme=lily] .lfd-frame::before{top:58px;bottom:55px;border-color:#77716b}
+
+/* 1.1.3: bridge with a strip from the actual artwork, matching its exact lines. */
+#lfd-root .lfd-frame::before{display:none!important}
+#lfd-root .lfd-frame>.lfd-frame-bridge{left:129px;right:auto;width:2px!important;transform:scaleX(var(--lfd-bridge-scale));transform-origin:left center;z-index:0}
+#lfd-root .lfd-frame-bridge img{left:-129px;right:auto}
+#lfd-root .lfd-frame-left,#lfd-root .lfd-frame-right{z-index:1}
+
+/* Empty labels consume no space; centre each icon or icon/label group. */
+#lfd-root .lfd-item{height:100%;justify-content:center}
+#lfd-root .lfd-name[hidden]{display:none!important}

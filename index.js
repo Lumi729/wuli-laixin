@@ -17,7 +17,7 @@ const root=el('div');root.id='lfd-root';
 const toggle=el('button','lfd-toggle');toggle.type='button';toggle.title='浮窗收纳（拖动可移动）';toggle.setAttribute('aria-label','展开浮窗收纳');
 const icon=el('img');icon.alt='';toggle.append(icon);
 const tray=el('div','lfd-tray');tray.hidden=true;
-const frame=el('div','lfd-frame');frame.setAttribute('aria-hidden','true');const frameImages=[];for(const side of ['left','right']){const half=el('div','lfd-frame-'+side),img=el('img');img.alt='';half.append(img);frame.append(half);frameImages.push(img);}const row=el('div','lfd-row');tray.append(frame,row);root.append(toggle,tray);document.body.append(root);
+const frame=el('div','lfd-frame');frame.setAttribute('aria-hidden','true');const frameImages=[];for(const side of ['bridge','left','right']){const half=el('div','lfd-frame-'+side),img=el('img');img.alt='';half.append(img);frame.append(half);frameImages.push(img);}const row=el('div','lfd-row');tray.append(frame,row);root.append(toggle,tray);document.body.append(root);
 let opened=false,drag=null,moved=false,picking=false;
 const tracked=new Map();
 function show(value){opened=value;tray.hidden=!value;toggle.setAttribute('aria-expanded',String(value));position();}
@@ -27,12 +27,14 @@ function position(){
  const side=x+size/2<vw/2?'right':'left';
  if(opened){x=side==='right'?4:vw-size-4;}
  const width=Math.min(580,Math.max(100,vw-size-20));
- root.style.setProperty('--lfd-size',size+'px');root.style.setProperty('--lfd-tray-width',width+'px');root.dataset.side=side;
+ root.style.setProperty('--lfd-size',size+'px');root.style.setProperty('--lfd-tray-width',width+'px');root.style.setProperty('--lfd-bridge-scale',String(Math.max(1,(width-258)/2)));root.dataset.side=side;
  root.style.left=x+'px';root.style.top=Math.max(4,Math.min(vh-size-4,y))+'px';
  tray.style.width=width+'px';tray.style.left=side==='right'?(size+4)+'px':'auto';tray.style.right=side==='left'?(size+4)+'px':'auto';
  const height=184;tray.style.top=Math.max(4-parseFloat(root.style.top),Math.min((size-height)/2,vh-4-parseFloat(root.style.top)-height))+'px';
 }
-function restore(){for(const n of tracked.keys())n.classList.remove('lfd-stored');tracked.clear();}
+function release(n){const state=tracked.get(n);state?.observer?.disconnect();if(state){if(state.value)n.style.setProperty('display',state.value,state.priority);else n.style.removeProperty('display');}n.classList.remove('lfd-stored');tracked.delete(n);}
+function hideOriginal(n){const state={value:n.style.getPropertyValue('display'),priority:n.style.getPropertyPriority('display'),observer:null};const apply=()=>{if(n.style.getPropertyValue('display')!=='none'||n.style.getPropertyPriority('display')!=='important'){state.value=n.style.getPropertyValue('display');state.priority=n.style.getPropertyPriority('display');n.style.setProperty('display','none','important');}};apply();state.observer=new MutationObserver(apply);state.observer.observe(n,{attributes:true,attributeFilter:['style']});n.classList.add('lfd-stored');tracked.set(n,state);}
+function restore(){for(const n of [...tracked.keys()])release(n);}
 function resolve(item){const n=find(item.selector);if(!n||owned(n)||['BODY','HTML'].includes(n.tagName)||protectedNode(n))return null;return n;}
 const views=new Map();
 function imageUrl(target){
@@ -64,10 +66,11 @@ function sync(){
  for(const item of cfg.items){const target=resolve(item);if(cfg.enabled&&target)targets.add(target);keys.add(item.selector);
  let v=views.get(item.selector);if(!v){const b=el('button','lfd-item');b.type='button';const visual=el('span','lfd-visual'),name=el('span','lfd-name');b.append(visual,name);v={b,visual,name,signature:null};views.set(item.selector,v);}
  v.b.disabled=!target;v.b.title=target?item.name:item.name+'（当前未找到）';if(v.name.textContent!==item.name)v.name.textContent=item.name;
+ v.name.hidden=!item.name?.trim();v.b.setAttribute('aria-label',item.name?.trim()||label(target||v.b)||'悬浮按钮');
  updateVisual(v,item,target);v.b.onclick=()=>{const t=resolve(item);if(t){show(false);t.click();}};
  }
- for(const n of tracked.keys())if(!targets.has(n)){n.classList.remove('lfd-stored');tracked.delete(n);}
- for(const n of targets)if(!tracked.has(n)){const scope=n.getRootNode();if(scope.host&&!scope.querySelector('style[data-lfd-hide]')){const style=el('style');style.dataset.lfdHide='true';style.textContent='.lfd-stored,.lfd-stored *{visibility:hidden!important;pointer-events:none!important}';scope.append(style);}n.classList.add('lfd-stored');tracked.set(n,true);}
+ for(const n of tracked.keys())if(!targets.has(n)){release(n);}
+ for(const n of targets)if(!tracked.has(n)){const scope=n.getRootNode();if(scope.host&&!scope.querySelector('style[data-lfd-hide]')){const style=el('style');style.dataset.lfdHide='true';style.textContent='.lfd-stored,.lfd-stored *{visibility:hidden!important;pointer-events:none!important}';scope.append(style);}hideOriginal(n);}
  for(const [key,v] of views)if(!keys.has(key)){v.b.remove();views.delete(key);}
  const ordered=cfg.items.map(x=>views.get(x.selector).b);ordered.forEach((node,i)=>{if(row.children[i]!==node)row.insertBefore(node,row.children[i]||null);});
  let empty=row.querySelector('.lfd-empty');if(cfg.items.length){empty?.remove();}else if(!empty){empty=el('span','lfd-empty','请从扩展页或魔法棒打开设置');row.append(empty);}
@@ -97,12 +100,13 @@ function openEditor(){document.querySelector('#lfd-editor')?.remove();const d=el
 const enabled=el('label','lfd-field','启用收纳');const cb=el('input');cb.type='checkbox';cb.checked=cfg.enabled;cb.onchange=()=>{cfg.enabled=cb.checked;save();sync();};enabled.append(cb);d.append(enabled);
 const themes=el('select');for(const [v,t] of [['rose','玫瑰月相'],['lily','百合羽信']]){const o=el('option','',t);o.value=v;themes.append(o);}themes.value=cfg.theme;themes.onchange=()=>{cfg.theme=themes.value;save();sync();};d.append(themes,input('入口图片链接（留空使用内置）',cfg.icon,v=>{cfg.icon=v;save();sync();}),input('入口大小（40–110）',cfg.size,v=>{cfg.size=Math.max(40,Math.min(110,Number(v)||64));save();sync();},'number'));
 d.append(button('点选一个悬浮按钮',()=>{d.close();startPick();}),button('一键扫描并全部收纳',()=>{collectAll();openEditor();}));
-for(const [i,item] of cfg.items.entries()){const box=el('div','lfd-entry');box.append(input('名字',item.name,v=>{item.name=v||'悬浮按钮';save();sync();}),input('图案链接（留空沿用原图）',item.icon,v=>{item.icon=v;save();sync();}),input('按钮定位（高级）',item.selector,v=>{item.selector=v;save();sync();}));box.append(button('前移',()=>{if(i){[cfg.items[i-1],cfg.items[i]]=[cfg.items[i],cfg.items[i-1]];save();sync();openEditor();}}),button('移出',()=>{cfg.items.splice(i,1);save();sync();openEditor();}));d.append(box);}
+for(const [i,item] of cfg.items.entries()){const box=el('div','lfd-entry');box.append(input('名字',item.name,v=>{item.name=v;save();sync();}),input('图案链接（留空沿用原图）',item.icon,v=>{item.icon=v;save();sync();}),input('按钮定位（高级）',item.selector,v=>{item.selector=v;save();sync();}));box.append(button('前移',()=>{if(i){[cfg.items[i-1],cfg.items[i]]=[cfg.items[i],cfg.items[i-1]];save();sync();openEditor();}}),button('移出',()=>{cfg.items.splice(i,1);save();sync();openEditor();}));d.append(box);}
 d.append(button('恢复全部原按钮',()=>{cfg.enabled=false;save();sync();openEditor();}));document.body.append(d);d.showModal();}
 function mountEntries(){
  const host=document.querySelector('#extensions_settings2')||document.querySelector('#extensions_settings');
- if(host&&!document.querySelector('#lfd-settings')){const settings=el('div');settings.id='lfd-settings';const details=el('details');details.append(el('summary','','浮窗收纳'),button('打开收纳设置',openEditor));settings.append(details);host.append(settings);}
+ if(host&&!document.querySelector('#lfd-settings')){const settings=el('div');settings.id='lfd-settings';settings.className='extension-settings';const drawer=el('div','inline-drawer'),header=el('div','inline-drawer-toggle inline-drawer-header'),content=el('div','inline-drawer-content');header.append(el('b','','浮窗收纳'),el('div','inline-drawer-icon fa-solid fa-circle-chevron-down'));content.append(button('打开收纳设置',openEditor));drawer.append(header,content);settings.append(drawer);host.append(settings);}
  const menu=document.querySelector('#extensionsMenu');if(menu&&!menu.querySelector('[data-lfd-entry="wand"]')){const b=el('div','list-group-item flex-container flexGap5 interactable');b.dataset.lfdEntry='wand';b.tabIndex=0;b.setAttribute('role','button');b.append(el('i','fa-solid fa-box-archive'),el('span','','浮窗收纳'));b.onclick=()=>{document.querySelector('#extensionsMenuButton')?.click();openEditor();};b.onkeydown=e=>{if(e.key==='Enter'||e.key===' ')b.click();};menu.append(b);}
+ const qrMain=document.querySelector('#qr-assistant-page-main');if(qrMain&&!qrMain.querySelector('[data-lfd-entry="qr-settings"]')){const b=button('浮窗收纳设置',openEditor);b.dataset.lfdEntry='qr-settings';qrMain.append(b);}
  // QR helper canvas variants: attach beside its preset control without moving other UI.
  const preset=[...document.querySelectorAll('button,.menu_button')].find(n=>!owned(n)&&n.textContent.trim()==='画布预设设置');
  if(preset?.parentElement&&!preset.parentElement.querySelector('[data-lfd-entry="qr"]')){const b=button('浮窗收纳',openEditor);b.dataset.lfdEntry='qr';preset.parentElement.append(b);}

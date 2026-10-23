@@ -224,7 +224,7 @@
 #chat .mes .mes_reasoning_header { margin-inline:auto; }
 #chat .mes .mes_reasoning_header_title { font-size:0!important; text-align:center; }
 #chat .mes .mes_reasoning_header_title::after {
- content:"𝔰𝔲𝔟 𝔩𝔲𝔫𝔞 𝔯𝔬𝔰𝔢𝔞.";
+ content:"𝓁𝑒𝓉𝓉𝓇𝑒 𝒶𝓊 𝓁𝓎𝓈.";
  font-family:serif; font-size:15px; line-height:1.5; white-space:nowrap;
 }
 
@@ -397,4 +397,24 @@
 #extensions_settings2 .inline-drawer-header :is(b,strong,span,i,.inline-drawer-icon) {
  color:#fff!important;
  text-shadow:0 1px 2px rgba(0,0,0,.55)!important;
+}
+
+/* Lily reasoning ribbon; native expand/collapse and bounded scroll retained. */
+#chat .mes .mes_reasoning_header {
+ width:285px;max-width:100%;height:auto;min-height:0;aspect-ratio:3/1;
+ background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/lily-reasoning/lily-feather-ribbon.webp');
+ background-size:contain;background-position:center;
+}
+#chat .mes .mes_reasoning_header_title {
+ inset:63% 20% auto 28%!important;height:24px;transform:translateY(-50%);
+}
+#chat .mes .mes_reasoning_header_title::after {content:"𝓁𝑒𝓉𝓉𝓇𝑒 𝒶𝓊 𝓁𝓎𝓈.";font-size:15px;}
+#chat .mes .mes_reasoning_arrow {top:63%;right:19%;}
+#chat .mes .mes_reasoning {
+ max-height:min(240px,32dvh);overflow-y:auto;overscroll-behavior-y:contain;
+ background-color:#fbfbfb;border:1px solid #a6a6a6;
+ border-radius:12px 3px 12px 3px;outline:1px solid #d2d2d2;outline-offset:-5px;
+}
+@media(min-width:600px) and (orientation:portrait) {
+ #chat .mes .mes_reasoning_header {width:calc(var(--t) * 285);min-height:0;}
 }

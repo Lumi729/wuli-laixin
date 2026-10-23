@@ -93,7 +93,7 @@
 #lfd-root .lfd-item .lfd-visual{font-size:var(--lfd-item-size)}
 
 /* Reserve the painted endcaps so icons never pass beneath flowers. */
-#lfd-root .lfd-tray{padding-left:calc(112px * var(--lfd-frame-scale));padding-right:calc(112px * var(--lfd-frame-scale))}
+#lfd-root .lfd-tray{padding-left:calc(70px * var(--lfd-frame-scale));padding-right:calc(70px * var(--lfd-frame-scale))}
 #lfd-editor .lfd-field:has(>input[type=checkbox]){flex-direction:row;align-items:center;justify-content:space-between}
 #lfd-editor input[type=checkbox]{appearance:auto!important;-webkit-appearance:checkbox!important;display:inline-block!important;flex:0 0 20px!important;width:20px!important;height:20px!important;min-width:20px!important;max-width:20px!important;min-height:20px!important;max-height:20px!important;padding:0!important;margin:0!important;transform:none!important;box-shadow:none!important;accent-color:#b77991}
 

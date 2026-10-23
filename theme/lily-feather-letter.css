@@ -461,3 +461,49 @@
         line-height: 1.8 !important;
     }
 }
+
+/* ===== 平板阅读与操作尺寸 ===== */
+@media screen and (min-width:600px) {
+ :root { --topBarBlockSize:64px!important; }
+ #chat .mes .mes_text {
+  font-size:22px!important;line-height:1.8!important;
+ }
+ #chat .mes .mes_text :where(p,li,blockquote) {
+  font-size:inherit!important;line-height:inherit!important;
+ }
+ #chat .mes .mes_text :where(p,li,blockquote) :where(span,em,strong,b,i,a) {
+  font-size:inherit!important;
+ }
+ #top-bar {height:64px!important;min-height:64px!important;box-sizing:border-box!important;}
+ #top-settings-holder {height:64px!important;min-height:64px!important;align-items:center!important;}
+ #top-settings-holder > .drawer {min-width:0!important;flex:1 1 0!important;}
+ #top-settings-holder .drawer-toggle {
+  height:56px!important;min-height:56px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+ }
+ #top-settings-holder .drawer-icon {
+  flex:0 0 48px!important;width:48px!important;height:48px!important;
+  min-width:48px!important;min-height:48px!important;
+  background-size:40px 40px!important;font-size:32px!important;
+  align-items:center!important;justify-content:center!important;
+ }
+ #top-bar::after,#send_form::after {
+  border-width:12px!important;border-image-width:12px 24px!important;
+ }
+ #send_form {
+  min-height:84px!important;padding:12px 16px!important;box-sizing:border-box!important;
+ }
+ #send_textarea {
+  font-size:22px!important;line-height:1.5!important;min-height:56px!important;
+  padding:10px 8px!important;box-sizing:border-box!important;
+ }
+ #send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {
+  width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important;
+  background-size:36px 36px!important;font-size:30px!important;
+  background-position:center!important;align-self:center!important;
+ }
+ .fillLeft,.fillRight {
+  top:var(--topBarBlockSize,64px)!important;
+  height:calc(100% - var(--topBarBlockSize,64px))!important;
+ }
+}

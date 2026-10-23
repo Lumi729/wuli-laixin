@@ -389,3 +389,12 @@
 @media (min-width:600px) {
  #chat .mes .mes_buttons {--wl-controls-width:calc(100cqw * 280 / 412);}
 }
+
+/* White labels on extension accordion headers only. */
+#extensions_settings .inline-drawer-header,
+#extensions_settings2 .inline-drawer-header,
+#extensions_settings .inline-drawer-header :is(b,strong,span,i,.inline-drawer-icon),
+#extensions_settings2 .inline-drawer-header :is(b,strong,span,i,.inline-drawer-icon) {
+ color:#fff!important;
+ text-shadow:0 1px 2px rgba(0,0,0,.55)!important;
+}

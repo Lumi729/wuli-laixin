@@ -418,3 +418,46 @@
 @media(min-width:600px) and (orientation:portrait) {
  #chat .mes .mes_reasoning_header {width:calc(var(--t) * 285);min-height:0;}
 }
+
+/* ===== 平板修复合集 ===== */
+
+/* 背景钉死，键盘白条消失 */
+#bg1 {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    transform: translateZ(0) !important;
+    will-change: transform !important;
+    contain: layout style paint !important;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1366px) {
+    /* 面板不挡按钮栏 */
+    .fillLeft,
+    .fillRight {
+        top: var(--topBarBlockSize, 45px) !important;
+        height: calc(100% - var(--topBarBlockSize, 45px)) !important;
+        padding-top: 0 !important;
+    }
+
+    .fillLeft .scrollableInner,
+    .fillRight .scrollableInner {
+        padding-top: 0 !important;
+    }
+
+    /* 隐藏锁头和提示栏 */
+    #clickSlidersTips,
+    #lm_button_panel_pin_div,
+    #rm_button_panel_pin_div,
+    .topRightInset {
+        display: none !important;
+    }
+
+    /* 平板字体放大 */
+    #chat .mes .mes_text {
+        font-size: 18px !important;
+        line-height: 1.8 !important;
+    }
+}

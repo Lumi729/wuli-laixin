@@ -26,7 +26,12 @@ function position(){
  let x=Math.max(4,Math.min(vw-size-4,cfg.x*(vw-size)));const y=Math.max(4,Math.min(vh-size-4,cfg.y*(vh-size)));
  const side=x+size/2<vw/2?'right':'left';
  if(opened){x=side==='right'?4:vw-size-4;}
- const available=Math.max(100,vw-size-20),baseWidth=Math.min(420,available),requested=Math.max(.6,Math.min(1.6,(Number(cfg.frameScale)||100)/100)),scale=Math.min(requested,available/baseWidth,(vh-8)/184),width=baseWidth*scale;
+ const available=Math.max(80,vw-size-16),requested=Math.max(.6,Math.min(1.6,(Number(cfg.frameScale)||100)/100));
+ const itemSize=Math.max(20,Math.min(90,Number(cfg.itemSize)||44)),count=Math.max(1,cfg.items.length),itemWidth=itemSize+8,gap=8;
+ const scale=Math.min(requested,(vh-8)/184,Math.max(.25,(available-itemWidth)/224));
+ const contentWidth=cfg.items.length?count*itemWidth+(count-1)*gap:120;
+ const width=Math.min(available,Math.max(260*scale,224*scale+contentWidth+2)),baseWidth=width/scale;
+ row.style.overflowX=contentWidth>width-224*scale?'auto':'hidden';
  root.style.setProperty('--lfd-frame-scale',scale);root.style.setProperty('--lfd-frame-base-width',baseWidth+'px');root.style.setProperty('--lfd-item-size',Math.max(20,Math.min(90,Number(cfg.itemSize)||44))+'px');
  root.style.setProperty('--lfd-size',size+'px');root.style.setProperty('--lfd-tray-width',width+'px');root.style.setProperty('--lfd-bridge-scale',String(Math.max(1,(baseWidth-258)/2)));root.dataset.side=side;
  root.style.left=x+'px';root.style.top=Math.max(4,Math.min(vh-size-4,y))+'px';

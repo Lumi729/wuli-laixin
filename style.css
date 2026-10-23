@@ -50,3 +50,22 @@
 #lfd-settings summary{cursor:pointer;font-weight:bold;padding:8px}
 [data-lfd-entry=qr]{white-space:nowrap}
 @media(prefers-reduced-motion:reduce){#lfd-root{transition:none}#lfd-root .lfd-tray{animation:none}}
+/* 1.1.1: explicit absolute image URLs, non-negative frame layers, fixed readable icons. */
+#lfd-root .lfd-tray{height:184px;padding:60px 40px 54px;overflow:visible;background:transparent!important}
+#lfd-root .lfd-tray::before{display:none!important}
+#lfd-root .lfd-tray::after{z-index:0;inset:61px 28px 55px;opacity:.97}
+#lfd-root .lfd-frame{position:absolute;inset:0;z-index:1;pointer-events:none;display:block!important;visibility:visible!important}
+#lfd-root .lfd-frame>div{position:absolute;top:0;bottom:0;width:50%;overflow:hidden;pointer-events:none}
+#lfd-root .lfd-frame-left{left:0}
+#lfd-root .lfd-frame-right{right:0}
+#lfd-root .lfd-frame img{position:absolute;top:0;height:184px!important;width:552px!important;max-width:none!important;max-height:none!important;object-fit:contain!important;opacity:1!important;visibility:visible!important;display:block!important;pointer-events:none}
+#lfd-root .lfd-frame-left img{left:0}
+#lfd-root .lfd-frame-right img{right:0}
+#lfd-root .lfd-row{position:relative;z-index:2;height:70px;align-items:center;gap:12px}
+#lfd-root .lfd-item{flex:0 0 64px;width:64px;gap:3px}
+#lfd-root .lfd-item .lfd-visual{width:44px!important;height:44px!important;font-size:32px}
+#lfd-root .lfd-item .lfd-visual img{width:44px!important;height:44px!important;max-width:none!important;object-fit:contain}
+#lfd-root .lfd-item .lfd-name{font-size:12px;line-height:16px}
+#lfd-root .lfd-frame>div{width:130px}
+#lfd-root .lfd-frame::before{content:'';position:absolute;left:129px;right:129px;top:62px;bottom:55px;border-top:3px double #897278;border-bottom:3px double #897278;pointer-events:none}
+#lfd-root[data-theme=lily] .lfd-frame::before{top:58px;bottom:55px;border-color:#77716b}

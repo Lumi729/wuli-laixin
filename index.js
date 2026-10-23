@@ -14,7 +14,7 @@ const root=el('div');root.id='lfd-root';
 const toggle=el('button','lfd-toggle');toggle.type='button';toggle.title='浮窗收纳（拖动可移动）';toggle.setAttribute('aria-label','展开浮窗收纳');
 const icon=el('img');icon.alt='';toggle.append(icon);
 const tray=el('div','lfd-tray');tray.hidden=true;
-const row=el('div','lfd-row');tray.append(row);root.append(toggle,tray);document.body.append(root);
+const frame=el('div','lfd-frame');frame.setAttribute('aria-hidden','true');const frameImages=[];for(const side of ['left','right']){const half=el('div','lfd-frame-'+side),img=el('img');img.alt='';half.append(img);frame.append(half);frameImages.push(img);}const row=el('div','lfd-row');tray.append(frame,row);root.append(toggle,tray);document.body.append(root);
 let opened=false,drag=null,moved=false,picking=false;
 const tracked=new Map();
 function show(value){opened=value;tray.hidden=!value;toggle.setAttribute('aria-expanded',String(value));position();}
@@ -27,7 +27,7 @@ function position(){
  root.style.setProperty('--lfd-size',size+'px');root.style.setProperty('--lfd-tray-width',width+'px');root.dataset.side=side;
  root.style.left=x+'px';root.style.top=Math.max(4,Math.min(vh-size-4,y))+'px';
  tray.style.width=width+'px';tray.style.left=side==='right'?(size+4)+'px':'auto';tray.style.right=side==='left'?(size+4)+'px':'auto';
- const height=width/3;tray.style.top=Math.max(4-parseFloat(root.style.top),Math.min((size-height)/2,vh-4-parseFloat(root.style.top)-height))+'px';
+ const height=184;tray.style.top=Math.max(4-parseFloat(root.style.top),Math.min((size-height)/2,vh-4-parseFloat(root.style.top)-height))+'px';
 }
 function restore(){for(const n of tracked.keys())n.classList.remove('lfd-stored');tracked.clear();}
 function resolve(item){const n=find(item.selector);if(!n||owned(n)||['BODY','HTML'].includes(n.tagName)||n.closest('#chat,#top-bar,#send_form'))return null;return n;}
@@ -52,7 +52,7 @@ function updateVisual(view,item,target){
  else view.visual.textContent=signature;
 }
 function sync(){
- root.hidden=!cfg.enabled;root.dataset.theme=cfg.theme==='lily'?'lily':'rose';
+ root.hidden=!cfg.enabled;root.dataset.theme=cfg.theme==='lily'?'lily':'rose';const frameSrc=asset(root.dataset.theme+'-frame');for(const img of frameImages)if(img.getAttribute('src')!==frameSrc)img.src=frameSrc;
  const src=safeUrl(cfg.icon)||asset(root.dataset.theme+'-launcher');if(icon.getAttribute('src')!==src){icon.src=src;icon.onerror=()=>{icon.onerror=null;const fallback=asset(root.dataset.theme+'-launcher');if(icon.src!==fallback)icon.src=fallback;};}
  const targets=new Set();const keys=new Set();
  for(const item of cfg.items){const target=resolve(item);if(cfg.enabled&&target)targets.add(target);keys.add(item.selector);

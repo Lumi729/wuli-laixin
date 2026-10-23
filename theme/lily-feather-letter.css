@@ -384,3 +384,8 @@
  background:transparent!important;box-shadow:none!important;border:0!important;
  padding:0!important;border-radius:0!important;white-space:nowrap;
 }
+
+/* Tablet controls occupy the same share of chat width as on a 412px phone. */
+@media (min-width:600px) {
+ #chat .mes .mes_buttons {--wl-controls-width:calc(100cqw * 280 / 412);}
+}

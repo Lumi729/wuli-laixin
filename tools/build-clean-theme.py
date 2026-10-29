@@ -9,7 +9,7 @@ ART = BASE + 'assets/blue-modular-v2/'
 css = (ROOT / 'theme/rose-moon-phases.css').read_text()
 mapping = {
     'assets/v1/paper.webp': 'assets/thin-mist/v1/paper.webp',
-    'assets/v7/portrait-surround.webp': 'assets/blue-clean-v1/portrait-surround.webp',
+    'assets/v7/portrait-surround.webp': 'assets/blue-refined-v5/portrait-surround.webp',
     'assets/v6/bottom-left.webp': 'assets/blue-modular-v2/bottom-left.webp',
     'assets/v6/bottom-right.webp': 'assets/blue-modular-v2/bottom-right.webp',
     'assets/v1/moon-footer.webp': 'assets/blue-modular-v2/bottom-center.webp',
@@ -145,6 +145,27 @@ css += f'''
 @media (min-width:600px) and (orientation:portrait) {{
  #chat .mes + .mes::before {{background-size:100% auto,calc(var(--c) * 160) auto;}}
 }}
+'''
+
+# Enlarge only bar ornament/icon paint; keep input and avatar layout intact.
+css += '''
+#top-bar,#send_form {
+ border-color:transparent!important;outline:none!important;box-shadow:none!important;
+}
+#top-bar::after,#send_form::after {
+ inset:-2px 0!important;border-image-width:12px 24px!important;
+}
+#top-settings-holder .drawer-icon {
+ flex-basis:32px!important;width:32px!important;min-width:32px!important;
+ background-size:32px 32px!important;
+}
+#send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {
+ min-width:32px!important;min-height:32px!important;background-size:32px 32px!important;
+}
+@media (min-width:600px) {
+ #top-settings-holder .drawer-icon {background-size:36px 36px!important;}
+ #send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {background-size:36px 36px!important;}
+}
 '''
 
 theme = json.loads((ROOT / 'theme/Rose-Moon-Phases.json').read_text())

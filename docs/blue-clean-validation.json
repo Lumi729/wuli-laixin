@@ -1,6 +1,6 @@
 {
   "method": "Chromium fixture, not phone test",
-  "revision": "Restore original floral bar frame; contain counter lines; repaint original icon designs without CSS filters; redraw original garland for clarity",
+  "revision": "Enlarge bar ornament and icons; hide native border; erase unwanted portrait interior rail",
   "results": [
     {
       "width": 360,

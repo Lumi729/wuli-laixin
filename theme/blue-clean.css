@@ -31,7 +31,7 @@
 }
 #chat .mes::before {
   top:0; height:auto; aspect-ratio:941/574;
-  background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-clean-v1/portrait-surround.webp');
+  background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-refined-v5/portrait-surround.webp');
   background-size:100% auto; background-position:center top;
 }
 #chat .mes::after {
@@ -252,7 +252,7 @@
 /* Retain the small divider ornament on the shared, continuous paper surface. */
 #chat .mes + .mes::before {
  top:-24px; height:calc(100cqw * 574 / 941 + 24px); aspect-ratio:auto;
- background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-clean-v1/portrait-surround.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-redrawn-v4/message-divider.webp');
+ background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-refined-v5/portrait-surround.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-redrawn-v4/message-divider.webp');
  background-position:center bottom,center top;
  background-size:100% auto,auto 22px;
  background-repeat:no-repeat;
@@ -558,4 +558,22 @@
 #chat .mes + .mes::before {background-size:100% auto,160px auto;}
 @media (min-width:600px) and (orientation:portrait) {
  #chat .mes + .mes::before {background-size:100% auto,calc(var(--c) * 160) auto;}
+}
+
+#top-bar,#send_form {
+ border-color:transparent!important;outline:none!important;box-shadow:none!important;
+}
+#top-bar::after,#send_form::after {
+ inset:-2px 0!important;border-image-width:12px 24px!important;
+}
+#top-settings-holder .drawer-icon {
+ flex-basis:32px!important;width:32px!important;min-width:32px!important;
+ background-size:32px 32px!important;
+}
+#send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {
+ min-width:32px!important;min-height:32px!important;background-size:32px 32px!important;
+}
+@media (min-width:600px) {
+ #top-settings-holder .drawer-icon {background-size:36px 36px!important;}
+ #send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {background-size:36px 36px!important;}
 }

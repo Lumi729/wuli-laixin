@@ -1,12 +1,6 @@
 {
   "method": "Chromium fixture, not phone test",
-  "intentionalChanges": [
-    "name text optical offset -4px",
-    "separator 22px to 36px with 40px spacing",
-    "continuous toolbar outlines",
-    "icon saturation .32",
-    "natural vine endpoints"
-  ],
+  "revision": "Restore original floral bar frame; contain counter lines; repaint original icon designs without CSS filters; redraw original garland for clarity",
   "results": [
     {
       "width": 360,

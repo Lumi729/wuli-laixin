@@ -19,11 +19,11 @@ mapping = {
     'assets/v1/name-ribbon.webp': 'assets/blue-modular-v2/name-ribbon.webp',
     'assets/v4/bar-frame.webp': 'assets/thin-mist-native/bar-frame.webp',
     'assets/v7/reasoning-ribbon.webp': 'assets/blue-modular-v2/name-ribbon.webp',
-    'assets/v11/message-divider.webp': 'assets/thin-mist-cool/message-divider.webp',
+    'assets/v11/message-divider.webp': 'assets/blue-redrawn-v4/message-divider.webp',
     'assets/v9/controls-frame.webp': 'assets/blue-modular-v2/controls-frame.webp',
 }
 for path in re.findall(r'assets/v\d+/icon-[\w-]+\.webp', css):
-    mapping[path] = 'assets/blue-modular-v2/' + Path(path).name
+    mapping[path] = 'assets/blue-redrawn-v4/' + Path(path).name
 for old, new in mapping.items():
     css = css.replace(BASE + old, BASE + new)
 colors = {
@@ -111,8 +111,8 @@ css += f'''
  background-repeat:no-repeat;
 }}
 /* Muted blue artwork; filter does not change alpha or stretch the icons. */
-#top-settings-holder .drawer-icon {{filter:saturate(.32)!important;}}
-#send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {{filter:saturate(.32)!important;}}
+#top-settings-holder .drawer-icon {{filter:none!important;}}
+#send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {{filter:none!important;}}
 /* Align lettering with the paper face rather than the hanging ribbon tips. */
 #chat .mes .ch_name .name_text {{transform:translateY(-4px);}}
 /* Larger separator with its own space; preserve both artwork aspect ratios. */
@@ -125,6 +125,25 @@ css += f'''
  #chat .mes .ch_name .name_text {{transform:translateY(calc(var(--c) * -4));}}
  #chat .mes {{margin-bottom:calc(var(--c) * 40)!important;}}
  #chat .mes + .mes::before {{top:calc(var(--c) * -40);height:calc(100cqw * 594.2 / 941 + var(--c) * 40);background-size:100% auto,auto calc(var(--c) * 36);}}
+}}
+'''
+
+# Restore the user's floral perimeter, not a replacement plain-line frame.
+css += f'''
+#top-bar::after,#send_form::after {{
+ inset:0!important;border:10px solid transparent!important;border-radius:0;
+ background:none!important;
+ border-image-source:url('{BASE}assets/thin-mist-native/bar-frame.webp')!important;
+ border-image-slice:50 100!important;
+ border-image-width:10px 20px!important;
+ border-image-outset:0!important;border-image-repeat:stretch!important;
+}}
+/* Stop counter rails at the avatar bounds; no horizontal protrusions. */
+#chat .mes > .mesAvatarWrapper::after {{left:0!important;right:0!important;}}
+/* A newly drawn sparse ornament, sized for legibility without distortion. */
+#chat .mes + .mes::before {{background-size:100% auto,160px auto;}}
+@media (min-width:600px) and (orientation:portrait) {{
+ #chat .mes + .mes::before {{background-size:100% auto,calc(var(--c) * 160) auto;}}
 }}
 '''
 

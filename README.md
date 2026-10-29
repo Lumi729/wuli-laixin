@@ -1,12 +1,12 @@
 # 雾里来信
 
-## 冷白银蓝素材修复（2026-10-29）
+## 冷白银蓝独立模块修复（2026-10-29）
 
 下载 [Blue-Clean.json](https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/theme/Blue-Clean.json) 导入酒馆主题。先备份旧主题，再替换同名主题；不要把新 CSS 追加到旧 CSS 后。
 
 沿用玫瑰月相的布局与 16:9 头像尺寸，使用冷白银蓝透明素材。清理底框花枝和缎带缝隙中的灰底，修正头像下角绘制位置，花饰按自然比例显示。图片保持外链，不嵌入主题。
 
-[布局预览](docs/blue-clean-preview.webp) · [底框白底/深色底检查](docs/blue-clean-bottom-check.webp) · [修改与验证说明](docs/blue-clean-notes.md)
+[图标透明检查](docs/blue-modular-icons-check.webp) · [布局预览](docs/blue-clean-preview.webp) · [底框白底/深色底检查](docs/blue-clean-bottom-check.webp) · [修改与验证说明](docs/blue-clean-notes.md)
 
 以下为原版本说明。
 

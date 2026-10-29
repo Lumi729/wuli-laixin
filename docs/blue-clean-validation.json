@@ -1,7 +1,6 @@
 {
-  "engine": "Chromium 153",
-  "fixture": "docs/blue-clean-fixture.html",
-  "real_device_tested": false,
+  "method": "Chromium fixture, not phone test",
+  "intentionalChange": "Name row 36px to 44px on mobile; responsive equivalent on tablet",
   "results": [
     {
       "width": 360,
@@ -11,7 +10,7 @@
           "x": 2,
           "y": 46,
           "width": 356,
-          "height": 622.875
+          "height": 630.875
         },
         ".mesAvatarWrapper": {
           "x": 26.578125,
@@ -29,23 +28,23 @@
           "x": 6.578125,
           "y": 288.71875,
           "width": 346.84375,
-          "height": 122.1875
+          "height": 130.1875
         },
         ".mes_buttons": {
           "x": 50.578125,
-          "y": 324.71875,
+          "y": 332.71875,
           "width": 258.84375,
           "height": 86.1875
         },
         ".mes_text": {
           "x": 26.578125,
-          "y": 410.90625,
+          "y": 418.90625,
           "width": 306.84375,
           "height": 177.96875
         },
         "#send_form": {
           "x": 0,
-          "y": 700.875,
+          "y": 708.875,
           "width": 360,
           "height": 66
         },
@@ -96,10 +95,11 @@
         },
         "overflow": false
       },
-      "sameGeometry": true,
+      "sameGeometry": false,
       "actionsOpened": true,
-      "longMessageSameGeometry": true,
-      "longMessageOverflow": false
+      "longMessageSameGeometry": false,
+      "longMessageOverflow": false,
+      "avatarGeometryPreserved": true
     },
     {
       "width": 390,
@@ -109,7 +109,7 @@
           "x": 2,
           "y": 46,
           "width": 386,
-          "height": 648.078125
+          "height": 656.078125
         },
         ".mesAvatarWrapper": {
           "x": 28.65625,
@@ -127,23 +127,23 @@
           "x": 8.65625,
           "y": 306.875,
           "width": 372.6875,
-          "height": 129.234375
+          "height": 137.234375
         },
         ".mes_buttons": {
           "x": 55,
-          "y": 342.875,
+          "y": 350.875,
           "width": 280,
           "height": 93.234375
         },
         ".mes_text": {
           "x": 28.65625,
-          "y": 436.109375,
+          "y": 444.109375,
           "width": 332.6875,
           "height": 177.96875
         },
         "#send_form": {
           "x": 0,
-          "y": 726.078125,
+          "y": 734.078125,
           "width": 390,
           "height": 66
         },
@@ -194,10 +194,11 @@
         },
         "overflow": false
       },
-      "sameGeometry": true,
+      "sameGeometry": false,
       "actionsOpened": true,
-      "longMessageSameGeometry": true,
-      "longMessageOverflow": false
+      "longMessageSameGeometry": false,
+      "longMessageOverflow": false,
+      "avatarGeometryPreserved": true
     },
     {
       "width": 430,
@@ -207,7 +208,7 @@
           "x": 2,
           "y": 46,
           "width": 426,
-          "height": 672.3125
+          "height": 680.3125
         },
         ".mesAvatarWrapper": {
           "x": 31.421875,
@@ -225,23 +226,23 @@
           "x": 11.421875,
           "y": 331.109375,
           "width": 407.15625,
-          "height": 129.234375
+          "height": 137.234375
         },
         ".mes_buttons": {
           "x": 75,
-          "y": 367.109375,
+          "y": 375.109375,
           "width": 280,
           "height": 93.234375
         },
         ".mes_text": {
           "x": 31.421875,
-          "y": 460.34375,
+          "y": 468.34375,
           "width": 367.15625,
           "height": 177.96875
         },
         "#send_form": {
           "x": 0,
-          "y": 750.3125,
+          "y": 758.3125,
           "width": 430,
           "height": 66
         },
@@ -292,10 +293,11 @@
         },
         "overflow": false
       },
-      "sameGeometry": true,
+      "sameGeometry": false,
       "actionsOpened": true,
-      "longMessageSameGeometry": true,
-      "longMessageOverflow": false
+      "longMessageSameGeometry": false,
+      "longMessageOverflow": false,
+      "avatarGeometryPreserved": true
     },
     {
       "width": 800,
@@ -305,7 +307,7 @@
           "x": 2,
           "y": 62,
           "width": 796,
-          "height": 1170.3125
+          "height": 1185.140625
         },
         ".mesAvatarWrapper": {
           "x": 56.96875,
@@ -323,17 +325,17 @@
           "x": 18.328125,
           "y": 596.484375,
           "width": 763.34375,
-          "height": 239.4375
+          "height": 254.265625
         },
         ".mes_buttons": {
           "x": 140.609375,
-          "y": 663.171875,
+          "y": 678,
           "width": 518.765625,
           "height": 172.75
         },
         ".mes_text": {
           "x": 56.96875,
-          "y": 835.921875,
+          "y": 850.75,
           "width": 686.0625,
           "height": 241.84375
         },
@@ -390,10 +392,11 @@
         },
         "overflow": false
       },
-      "sameGeometry": true,
+      "sameGeometry": false,
       "actionsOpened": true,
-      "longMessageSameGeometry": true,
-      "longMessageOverflow": false
+      "longMessageSameGeometry": false,
+      "longMessageOverflow": false,
+      "avatarGeometryPreserved": true
     }
   ]
 }

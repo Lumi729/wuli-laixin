@@ -5,25 +5,25 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/'
-ART = BASE + 'assets/blue-clean-v1/'
+ART = BASE + 'assets/blue-modular-v2/'
 css = (ROOT / 'theme/rose-moon-phases.css').read_text()
 mapping = {
     'assets/v1/paper.webp': 'assets/thin-mist/v1/paper.webp',
     'assets/v7/portrait-surround.webp': 'assets/blue-clean-v1/portrait-surround.webp',
-    'assets/v6/bottom-left.webp': 'assets/blue-clean-v1/bottom.webp',
-    'assets/v6/bottom-right.webp': 'assets/blue-clean-v1/bottom.webp',
-    'assets/v1/moon-footer.webp': 'assets/blue-clean-v1/bottom.webp',
+    'assets/v6/bottom-left.webp': 'assets/blue-modular-v2/bottom-left.webp',
+    'assets/v6/bottom-right.webp': 'assets/blue-modular-v2/bottom-right.webp',
+    'assets/v1/moon-footer.webp': 'assets/blue-modular-v2/bottom-center.webp',
     'assets/v5/counter-frame.webp': 'assets/thin-mist-cool/flower-left.webp',
-    'assets/v10/name-left.webp': 'assets/blue-clean-v1/name-left.webp',
-    'assets/v10/name-right.webp': 'assets/blue-clean-v1/name-right.webp',
-    'assets/v1/name-ribbon.webp': 'assets/blue-clean-v1/name-ribbon.webp',
+    'assets/v10/name-left.webp': 'assets/blue-modular-v2/name-left.webp',
+    'assets/v10/name-right.webp': 'assets/blue-modular-v2/name-right.webp',
+    'assets/v1/name-ribbon.webp': 'assets/blue-modular-v2/name-ribbon.webp',
     'assets/v4/bar-frame.webp': 'assets/thin-mist-native/bar-frame.webp',
-    'assets/v7/reasoning-ribbon.webp': 'assets/blue-clean-v1/name-ribbon.webp',
+    'assets/v7/reasoning-ribbon.webp': 'assets/blue-modular-v2/name-ribbon.webp',
     'assets/v11/message-divider.webp': 'assets/thin-mist-cool/message-divider.webp',
-    'assets/v9/controls-frame.webp': 'assets/blue-clean-v1/controls-frame.webp',
+    'assets/v9/controls-frame.webp': 'assets/blue-modular-v2/controls-frame.webp',
 }
 for path in re.findall(r'assets/v\d+/icon-[\w-]+\.webp', css):
-    mapping[path] = 'assets/thin-mist-cool/' + Path(path).name
+    mapping[path] = 'assets/blue-modular-v2/' + Path(path).name
 for old, new in mapping.items():
     css = css.replace(BASE + old, BASE + new)
 colors = {
@@ -54,15 +54,18 @@ css += f'''
 @media (min-width:600px) and (orientation:portrait) {{
  #chat .mes + .mes::before {{height:calc(100cqw * 594.2 / 941 + var(--c) * 24);}}
 }}
-#chat .mes::after {{
- background-image:url('{ART}bottom.webp')!important;
- background-size:100% auto!important;
- background-position:center bottom!important;
- background-repeat:no-repeat!important;
-}}
 #chat .mes .ch_name {{background-size:146px auto!important;}}
+#chat .mes .ch_name > .flex1 {{min-height:44px;}}
+/* The two sparse vines keep their own natural aspect and connect across the
+   existing counter row. Do not collapse or move the counters or avatar. */
+#chat .mes > .mes_block::before,#chat .mes > .mes_block::after {{
+ top:-27px;aspect-ratio:1091 / 1441;
+ mask-image:none;-webkit-mask-image:none;
+}}
 @media (min-width:600px) and (orientation:portrait) {{
  #chat .mes .ch_name {{background-size:calc(var(--c) * 146) auto!important;}}
+ #chat .mes .ch_name > .flex1 {{min-height:calc(var(--c) * 44);}}
+ #chat .mes > .mes_block::before,#chat .mes > .mes_block::after {{top:calc(var(--c) * -27);}}
 }}
 #chat .mes .mes_buttons::before {{
  /* Keep the complete frame proportional, including when more actions open. */
@@ -79,18 +82,22 @@ css += f'''
 @media (min-width:600px) and (orientation:portrait) {{
  #chat .mes > .mesAvatarWrapper::after {{background-size:calc(var(--c) * 22) auto,calc(var(--c) * 22) auto,100% 1px,100% 1px;}}
 }}
-/* Native canvas slices: equal x/y scale for corners; straight rails repeat. */
+/* Four independent square corner modules, with CSS rails between them.
+   No full-frame bitmap is squeezed into a toolbar or input rectangle. */
 #top-bar::after,#send_form::after {{
- border-image-slice:66 135;
- border-image-width:calc(18px * 22 / 45) 18px!important;
- border-image-repeat:repeat;
+ border:0!important;border-image:none!important;
+ background-image:url('{ART}corner-tl.webp'),url('{ART}corner-tr.webp'),url('{ART}corner-bl.webp'),url('{ART}corner-br.webp'),linear-gradient(#93a6bb,#93a6bb),linear-gradient(#93a6bb,#93a6bb),linear-gradient(#93a6bb,#93a6bb),linear-gradient(#93a6bb,#93a6bb);
+ background-size:18px 18px,18px 18px,18px 18px,18px 18px,calc(100% - 36px) 1px,calc(100% - 36px) 1px,1px calc(100% - 36px),1px calc(100% - 36px);
+ background-position:left top,right top,left bottom,right bottom,center 3.6px,center calc(100% - 3.6px),3.4px center,calc(100% - 3.4px) center;
+ background-repeat:no-repeat;
+}}
+#top-settings-holder .drawer-icon {{background-size:24px 24px!important;}}
+#send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {{
+ background-size:26px 26px!important;
 }}
 @media (min-width:600px) {{
- #top-bar::after,#send_form::after {{border-image-width:calc(20px * 22 / 45) 20px!important;}}
-}}
-#top-settings-holder .drawer-icon,
-#send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {{
- background-size:contain!important;
+ #top-settings-holder .drawer-icon {{background-size:32px 32px!important;}}
+ #send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {{background-size:30px 30px!important;}}
 }}
 '''
 
@@ -107,6 +114,7 @@ urls = sorted(set(re.findall(r"url\(['\"]?([^)'\"]+)", css)))
 for url in urls:
     assert url.startswith(BASE), url
     assert (ROOT / url.removeprefix(BASE)).is_file(), url
+    assert (ROOT / url.removeprefix(BASE)).stat().st_size > 100, url
 assert 'data:image' not in css
 assert '--wl-avatar-ratio: 16 / 9' in css
 print(f'Theme: {len(css.encode()):,} CSS bytes; {len(urls)} distinct external assets')

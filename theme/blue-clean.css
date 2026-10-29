@@ -36,7 +36,7 @@
 }
 #chat .mes::after {
   bottom:0; height:clamp(132px,38vw,210px);
-  background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-clean-v1/bottom.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-clean-v1/bottom.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-clean-v1/bottom.webp');
+  background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/bottom-left.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/bottom-right.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/bottom-center.webp');
   background-size:32% auto,32% auto,36.3% auto;
   background-position:left bottom,right bottom,center bottom;
 }
@@ -80,13 +80,13 @@
  content:"";position:absolute;top:0;width:calc(31.25% + 12.5px);height:auto;aspect-ratio:284/289;
  pointer-events:none;background-size:100% auto;background-repeat:no-repeat;
 }
-#chat .mes > .mes_block::before{left:-20px;background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-clean-v1/name-left.webp')}
-#chat .mes > .mes_block::after{right:-20px;background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-clean-v1/name-right.webp')}
+#chat .mes > .mes_block::before{left:-20px;background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/name-left.webp')}
+#chat .mes > .mes_block::after{right:-20px;background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/name-right.webp')}
 #chat .mes .ch_name {
   position:relative; display:flex !important; align-items:center !important; justify-content:center !important;
   width:calc(100% + 40px); max-width:none!important; min-height:36px; margin:0 -20px !important; padding:0 !important;
   border-top:0;
-  background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-clean-v1/name-ribbon.webp') center/146px 34px no-repeat;
+  background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/name-ribbon.webp') center/146px 34px no-repeat;
 }
 #chat .mes .ch_name > .flex1 {
   display:flex !important; flex:0 1 135px !important; justify-content:center !important;
@@ -145,28 +145,28 @@
   #chat .mes::after { background-size:190px auto,190px auto,216px auto; }
 }
 
-#top-settings-holder #leftNavDrawerIcon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-pendulum.webp') !important;}#top-settings-holder #leftNavDrawerIcon::before{content:"" !important;}
+#top-settings-holder #leftNavDrawerIcon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-pendulum.webp') !important;}#top-settings-holder #leftNavDrawerIcon::before{content:"" !important;}
 
-#top-settings-holder #API-status-top{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-moons.webp') !important;}#top-settings-holder #API-status-top::before{content:"" !important;}
+#top-settings-holder #API-status-top{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-moons.webp') !important;}#top-settings-holder #API-status-top::before{content:"" !important;}
 
-#top-settings-holder #advanced-formatting-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-quill.webp') !important;}#top-settings-holder #advanced-formatting-button .drawer-icon::before{content:"" !important;}
+#top-settings-holder #advanced-formatting-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-quill.webp') !important;}#top-settings-holder #advanced-formatting-button .drawer-icon::before{content:"" !important;}
 
-#top-settings-holder #WIDrawerIcon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-book.webp') !important;}#top-settings-holder #WIDrawerIcon::before{content:"" !important;}
+#top-settings-holder #WIDrawerIcon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-book.webp') !important;}#top-settings-holder #WIDrawerIcon::before{content:"" !important;}
 
-#top-settings-holder #user-settings-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-mirror.webp') !important;}#top-settings-holder #user-settings-button .drawer-icon::before{content:"" !important;}
+#top-settings-holder #user-settings-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-mirror.webp') !important;}#top-settings-holder #user-settings-button .drawer-icon::before{content:"" !important;}
 
-#top-settings-holder #backgrounds-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-landscape.webp') !important;}#top-settings-holder #backgrounds-button .drawer-icon::before{content:"" !important;}
+#top-settings-holder #backgrounds-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-landscape.webp') !important;}#top-settings-holder #backgrounds-button .drawer-icon::before{content:"" !important;}
 
-#top-settings-holder #extensions-settings-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-gift.webp') !important;}#top-settings-holder #extensions-settings-button .drawer-icon::before{content:"" !important;}
+#top-settings-holder #extensions-settings-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-gift.webp') !important;}#top-settings-holder #extensions-settings-button .drawer-icon::before{content:"" !important;}
 
-#top-settings-holder #persona-management-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-mask.webp') !important;}#top-settings-holder #persona-management-button .drawer-icon::before{content:"" !important;}
+#top-settings-holder #persona-management-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-mask.webp') !important;}#top-settings-holder #persona-management-button .drawer-icon::before{content:"" !important;}
 
-#top-settings-holder #rightNavDrawerIcon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-cards.webp') !important;}#top-settings-holder #rightNavDrawerIcon::before{content:"" !important;}
-#options_button{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-book.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#options_button::before{content:"" !important;}
-#extensionsMenuButton{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-quill.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#extensionsMenuButton::before{content:"" !important;}
-#mes_impersonate{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-mask.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#mes_impersonate::before{content:"" !important;}
-#mes_continue{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-moons.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#mes_continue::before{content:"" !important;}
-#send_but{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-cool/icon-letter.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#send_but::before{content:"" !important;}
+#top-settings-holder #rightNavDrawerIcon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-cards.webp') !important;}#top-settings-holder #rightNavDrawerIcon::before{content:"" !important;}
+#options_button{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-book.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#options_button::before{content:"" !important;}
+#extensionsMenuButton{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-quill.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#extensionsMenuButton::before{content:"" !important;}
+#mes_impersonate{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-mask.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#mes_impersonate::before{content:"" !important;}
+#mes_continue{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-moons.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#mes_continue::before{content:"" !important;}
+#send_but{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/icon-letter.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#send_but::before{content:"" !important;}
 
 /* Perimeter only. No fill keyword, no image painted across the middle. */
 #top-bar::after,#send_form::after{
@@ -190,7 +190,7 @@
   box-sizing:border-box; width:255px; max-width:100%; min-height:48px;
   margin:0; padding:12px 45px 12px 62px;
   justify-content:center; position:relative;
-  color:var(--wl-ink); background:transparent url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-clean-v1/name-ribbon.webp') center/100% auto no-repeat;
+  color:var(--wl-ink); background:transparent url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/name-ribbon.webp') center/100% auto no-repeat;
   border:0; border-image:none; border-radius:0;
   box-shadow:none; text-shadow:none; font-size:12px; line-height:1.5;
 }
@@ -303,7 +303,7 @@
 #chat .mes .mes_buttons::before {
  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
  border-style:solid; border-color:transparent; border-width:calc(var(--wl-controls-width) * .115) calc(var(--wl-controls-width) * .24) calc(var(--wl-controls-width) * .09);
- border-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-clean-v1/controls-frame.webp') 115 240 90 240 / calc(var(--wl-controls-width) * .115) calc(var(--wl-controls-width) * .24) calc(var(--wl-controls-width) * .09) / 0 stretch;
+ border-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/controls-frame.webp') 115 240 90 240 / calc(var(--wl-controls-width) * .115) calc(var(--wl-controls-width) * .24) calc(var(--wl-controls-width) * .09) / 0 stretch;
 }
 #chat .mes .mes_buttons .extraMesButtons {
  position:static!important; inset:auto!important; transform:none!important;
@@ -474,20 +474,23 @@
 @media (min-width:600px) and (orientation:portrait) {
  #chat .mes + .mes::before {height:calc(100cqw * 594.2 / 941 + var(--c) * 24);}
 }
-#chat .mes::after {
- background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-clean-v1/bottom.webp')!important;
- background-size:100% auto!important;
- background-position:center bottom!important;
- background-repeat:no-repeat!important;
-}
 #chat .mes .ch_name {background-size:146px auto!important;}
+#chat .mes .ch_name > .flex1 {min-height:44px;}
+/* The two sparse vines keep their own natural aspect and connect across the
+   existing counter row. Do not collapse or move the counters or avatar. */
+#chat .mes > .mes_block::before,#chat .mes > .mes_block::after {
+ top:-27px;aspect-ratio:1091 / 1441;
+ mask-image:none;-webkit-mask-image:none;
+}
 @media (min-width:600px) and (orientation:portrait) {
  #chat .mes .ch_name {background-size:calc(var(--c) * 146) auto!important;}
+ #chat .mes .ch_name > .flex1 {min-height:calc(var(--c) * 44);}
+ #chat .mes > .mes_block::before,#chat .mes > .mes_block::after {top:calc(var(--c) * -27);}
 }
 #chat .mes .mes_buttons::before {
  /* Keep the complete frame proportional, including when more actions open. */
  border:0;border-image:none;
- background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-clean-v1/controls-frame.webp') center / contain no-repeat;
+ background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/controls-frame.webp') center / contain no-repeat;
 }
 /* Counter decorations are separate proportional flowers, not a stretched image. */
 #chat .mes > .mesAvatarWrapper::after {
@@ -499,16 +502,20 @@
 @media (min-width:600px) and (orientation:portrait) {
  #chat .mes > .mesAvatarWrapper::after {background-size:calc(var(--c) * 22) auto,calc(var(--c) * 22) auto,100% 1px,100% 1px;}
 }
-/* Native canvas slices: equal x/y scale for corners; straight rails repeat. */
+/* Four independent square corner modules, with CSS rails between them.
+   No full-frame bitmap is squeezed into a toolbar or input rectangle. */
 #top-bar::after,#send_form::after {
- border-image-slice:66 135;
- border-image-width:calc(18px * 22 / 45) 18px!important;
- border-image-repeat:repeat;
+ border:0!important;border-image:none!important;
+ background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/corner-tl.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/corner-tr.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/corner-bl.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/corner-br.webp'),linear-gradient(#93a6bb,#93a6bb),linear-gradient(#93a6bb,#93a6bb),linear-gradient(#93a6bb,#93a6bb),linear-gradient(#93a6bb,#93a6bb);
+ background-size:18px 18px,18px 18px,18px 18px,18px 18px,calc(100% - 36px) 1px,calc(100% - 36px) 1px,1px calc(100% - 36px),1px calc(100% - 36px);
+ background-position:left top,right top,left bottom,right bottom,center 3.6px,center calc(100% - 3.6px),3.4px center,calc(100% - 3.4px) center;
+ background-repeat:no-repeat;
+}
+#top-settings-holder .drawer-icon {background-size:24px 24px!important;}
+#send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {
+ background-size:26px 26px!important;
 }
 @media (min-width:600px) {
- #top-bar::after,#send_form::after {border-image-width:calc(20px * 22 / 45) 20px!important;}
-}
-#top-settings-holder .drawer-icon,
-#send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {
- background-size:contain!important;
+ #top-settings-holder .drawer-icon {background-size:32px 32px!important;}
+ #send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {background-size:30px 30px!important;}
 }

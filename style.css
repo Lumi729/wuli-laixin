@@ -119,3 +119,5 @@
 #lfd-root[data-theme=lily] .lfd-frame-bridge img{left:-200px}
 #lfd-root[data-theme=lily] .lfd-frame-center{display:block;left:calc(50% - 16px);width:32px!important;z-index:1}
 #lfd-root[data-theme=lily] .lfd-frame-center img{left:-299px}
+
+#lfd-root[data-theme=mist]{--lfd-paper:#f7fbff;--lfd-ink:#414b5b}

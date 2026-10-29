@@ -1,0 +1,399 @@
+{
+  "engine": "Chromium 153",
+  "fixture": "docs/blue-clean-fixture.html",
+  "real_device_tested": false,
+  "results": [
+    {
+      "width": 360,
+      "missing": [],
+      "clean": {
+        ".mes": {
+          "x": 2,
+          "y": 46,
+          "width": 356,
+          "height": 622.875
+        },
+        ".mesAvatarWrapper": {
+          "x": 26.578125,
+          "y": 89.125,
+          "width": 306.84375,
+          "height": 199.59375
+        },
+        ".avatar": {
+          "x": 26.578125,
+          "y": 89.125,
+          "width": 306.84375,
+          "height": 172.59375
+        },
+        ".ch_name": {
+          "x": 6.578125,
+          "y": 288.71875,
+          "width": 346.84375,
+          "height": 122.1875
+        },
+        ".mes_buttons": {
+          "x": 50.578125,
+          "y": 324.71875,
+          "width": 258.84375,
+          "height": 86.1875
+        },
+        ".mes_text": {
+          "x": 26.578125,
+          "y": 410.90625,
+          "width": 306.84375,
+          "height": 177.96875
+        },
+        "#send_form": {
+          "x": 0,
+          "y": 700.875,
+          "width": 360,
+          "height": 66
+        },
+        "overflow": false
+      },
+      "original": {
+        ".mes": {
+          "x": 2,
+          "y": 46,
+          "width": 356,
+          "height": 622.875
+        },
+        ".mesAvatarWrapper": {
+          "x": 26.578125,
+          "y": 89.125,
+          "width": 306.84375,
+          "height": 199.59375
+        },
+        ".avatar": {
+          "x": 26.578125,
+          "y": 89.125,
+          "width": 306.84375,
+          "height": 172.59375
+        },
+        ".ch_name": {
+          "x": 6.578125,
+          "y": 288.71875,
+          "width": 346.84375,
+          "height": 122.1875
+        },
+        ".mes_buttons": {
+          "x": 50.578125,
+          "y": 324.71875,
+          "width": 258.84375,
+          "height": 86.1875
+        },
+        ".mes_text": {
+          "x": 26.578125,
+          "y": 410.90625,
+          "width": 306.84375,
+          "height": 177.96875
+        },
+        "#send_form": {
+          "x": 0,
+          "y": 700.875,
+          "width": 360,
+          "height": 66
+        },
+        "overflow": false
+      },
+      "sameGeometry": true,
+      "actionsOpened": true,
+      "longMessageSameGeometry": true,
+      "longMessageOverflow": false
+    },
+    {
+      "width": 390,
+      "missing": [],
+      "clean": {
+        ".mes": {
+          "x": 2,
+          "y": 46,
+          "width": 386,
+          "height": 648.078125
+        },
+        ".mesAvatarWrapper": {
+          "x": 28.65625,
+          "y": 92.75,
+          "width": 332.6875,
+          "height": 214.125
+        },
+        ".avatar": {
+          "x": 28.65625,
+          "y": 92.75,
+          "width": 332.6875,
+          "height": 187.125
+        },
+        ".ch_name": {
+          "x": 8.65625,
+          "y": 306.875,
+          "width": 372.6875,
+          "height": 129.234375
+        },
+        ".mes_buttons": {
+          "x": 55,
+          "y": 342.875,
+          "width": 280,
+          "height": 93.234375
+        },
+        ".mes_text": {
+          "x": 28.65625,
+          "y": 436.109375,
+          "width": 332.6875,
+          "height": 177.96875
+        },
+        "#send_form": {
+          "x": 0,
+          "y": 726.078125,
+          "width": 390,
+          "height": 66
+        },
+        "overflow": false
+      },
+      "original": {
+        ".mes": {
+          "x": 2,
+          "y": 46,
+          "width": 386,
+          "height": 648.078125
+        },
+        ".mesAvatarWrapper": {
+          "x": 28.65625,
+          "y": 92.75,
+          "width": 332.6875,
+          "height": 214.125
+        },
+        ".avatar": {
+          "x": 28.65625,
+          "y": 92.75,
+          "width": 332.6875,
+          "height": 187.125
+        },
+        ".ch_name": {
+          "x": 8.65625,
+          "y": 306.875,
+          "width": 372.6875,
+          "height": 129.234375
+        },
+        ".mes_buttons": {
+          "x": 55,
+          "y": 342.875,
+          "width": 280,
+          "height": 93.234375
+        },
+        ".mes_text": {
+          "x": 28.65625,
+          "y": 436.109375,
+          "width": 332.6875,
+          "height": 177.96875
+        },
+        "#send_form": {
+          "x": 0,
+          "y": 726.078125,
+          "width": 390,
+          "height": 66
+        },
+        "overflow": false
+      },
+      "sameGeometry": true,
+      "actionsOpened": true,
+      "longMessageSameGeometry": true,
+      "longMessageOverflow": false
+    },
+    {
+      "width": 430,
+      "missing": [],
+      "clean": {
+        ".mes": {
+          "x": 2,
+          "y": 46,
+          "width": 426,
+          "height": 672.3125
+        },
+        ".mesAvatarWrapper": {
+          "x": 31.421875,
+          "y": 97.59375,
+          "width": 367.15625,
+          "height": 233.515625
+        },
+        ".avatar": {
+          "x": 31.421875,
+          "y": 97.59375,
+          "width": 367.140625,
+          "height": 206.515625
+        },
+        ".ch_name": {
+          "x": 11.421875,
+          "y": 331.109375,
+          "width": 407.15625,
+          "height": 129.234375
+        },
+        ".mes_buttons": {
+          "x": 75,
+          "y": 367.109375,
+          "width": 280,
+          "height": 93.234375
+        },
+        ".mes_text": {
+          "x": 31.421875,
+          "y": 460.34375,
+          "width": 367.15625,
+          "height": 177.96875
+        },
+        "#send_form": {
+          "x": 0,
+          "y": 750.3125,
+          "width": 430,
+          "height": 66
+        },
+        "overflow": false
+      },
+      "original": {
+        ".mes": {
+          "x": 2,
+          "y": 46,
+          "width": 426,
+          "height": 672.3125
+        },
+        ".mesAvatarWrapper": {
+          "x": 31.421875,
+          "y": 97.59375,
+          "width": 367.15625,
+          "height": 233.515625
+        },
+        ".avatar": {
+          "x": 31.421875,
+          "y": 97.59375,
+          "width": 367.140625,
+          "height": 206.515625
+        },
+        ".ch_name": {
+          "x": 11.421875,
+          "y": 331.109375,
+          "width": 407.15625,
+          "height": 129.234375
+        },
+        ".mes_buttons": {
+          "x": 75,
+          "y": 367.109375,
+          "width": 280,
+          "height": 93.234375
+        },
+        ".mes_text": {
+          "x": 31.421875,
+          "y": 460.34375,
+          "width": 367.15625,
+          "height": 177.96875
+        },
+        "#send_form": {
+          "x": 0,
+          "y": 750.3125,
+          "width": 430,
+          "height": 66
+        },
+        "overflow": false
+      },
+      "sameGeometry": true,
+      "actionsOpened": true,
+      "longMessageSameGeometry": true,
+      "longMessageOverflow": false
+    },
+    {
+      "width": 800,
+      "missing": [],
+      "clean": {
+        ".mes": {
+          "x": 2,
+          "y": 62,
+          "width": 796,
+          "height": 1170.3125
+        },
+        ".mesAvatarWrapper": {
+          "x": 56.96875,
+          "y": 158.421875,
+          "width": 686.0625,
+          "height": 438.0625
+        },
+        ".avatar": {
+          "x": 56.96875,
+          "y": 158.421875,
+          "width": 686.0625,
+          "height": 385.90625
+        },
+        ".ch_name": {
+          "x": 18.328125,
+          "y": 596.484375,
+          "width": 763.34375,
+          "height": 239.4375
+        },
+        ".mes_buttons": {
+          "x": 140.609375,
+          "y": 663.171875,
+          "width": 518.765625,
+          "height": 172.75
+        },
+        ".mes_text": {
+          "x": 56.96875,
+          "y": 835.921875,
+          "width": 686.0625,
+          "height": 241.84375
+        },
+        "#send_form": {
+          "x": 0,
+          "y": 1199,
+          "width": 800,
+          "height": 102
+        },
+        "overflow": false
+      },
+      "original": {
+        ".mes": {
+          "x": 2,
+          "y": 62,
+          "width": 796,
+          "height": 1170.3125
+        },
+        ".mesAvatarWrapper": {
+          "x": 56.96875,
+          "y": 158.421875,
+          "width": 686.0625,
+          "height": 438.0625
+        },
+        ".avatar": {
+          "x": 56.96875,
+          "y": 158.421875,
+          "width": 686.0625,
+          "height": 385.90625
+        },
+        ".ch_name": {
+          "x": 18.328125,
+          "y": 596.484375,
+          "width": 763.34375,
+          "height": 239.4375
+        },
+        ".mes_buttons": {
+          "x": 140.609375,
+          "y": 663.171875,
+          "width": 518.765625,
+          "height": 172.75
+        },
+        ".mes_text": {
+          "x": 56.96875,
+          "y": 835.921875,
+          "width": 686.0625,
+          "height": 241.84375
+        },
+        "#send_form": {
+          "x": 0,
+          "y": 1199,
+          "width": 800,
+          "height": 102
+        },
+        "overflow": false
+      },
+      "sameGeometry": true,
+      "actionsOpened": true,
+      "longMessageSameGeometry": true,
+      "longMessageOverflow": false
+    }
+  ]
+}

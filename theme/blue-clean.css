@@ -80,8 +80,8 @@
  content:"";position:absolute;top:0;width:calc(31.25% + 12.5px);height:auto;aspect-ratio:284/289;
  pointer-events:none;background-size:100% auto;background-repeat:no-repeat;
 }
-#chat .mes > .mes_block::before{left:-20px;background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/name-left.webp')}
-#chat .mes > .mes_block::after{right:-20px;background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/name-right.webp')}
+#chat .mes > .mes_block::before{left:-20px;background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-refined-v3/name-left.webp')}
+#chat .mes > .mes_block::after{right:-20px;background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-refined-v3/name-right.webp')}
 #chat .mes .ch_name {
   position:relative; display:flex !important; align-items:center !important; justify-content:center !important;
   width:calc(100% + 40px); max-width:none!important; min-height:36px; margin:0 -20px !important; padding:0 !important;
@@ -518,4 +518,28 @@
 @media (min-width:600px) {
  #top-settings-holder .drawer-icon {background-size:32px 32px!important;}
  #send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {background-size:30px 30px!important;}
+}
+
+/* Continuous visible toolbar outlines, independent of proportional corner art. */
+#top-bar::after,#send_form::after {
+ inset:3px!important;border:1px solid #7e92a5!important;border-radius:3px;
+ background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/corner-tl.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/corner-tr.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/corner-bl.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/blue-modular-v2/corner-br.webp');
+ background-size:22px 22px;background-position:left top,right top,left bottom,right bottom;
+ background-repeat:no-repeat;
+}
+/* Muted blue artwork; filter does not change alpha or stretch the icons. */
+#top-settings-holder .drawer-icon {filter:saturate(.32)!important;}
+#send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {filter:saturate(.32)!important;}
+/* Align lettering with the paper face rather than the hanging ribbon tips. */
+#chat .mes .ch_name .name_text {transform:translateY(-4px);}
+/* Larger separator with its own space; preserve both artwork aspect ratios. */
+#chat .mes {margin-bottom:40px!important;}
+#chat .mes + .mes::before {
+ top:-40px;height:calc(100cqw * 594.2 / 941 + 40px);
+ background-size:100% auto,auto 36px;
+}
+@media (min-width:600px) and (orientation:portrait) {
+ #chat .mes .ch_name .name_text {transform:translateY(calc(var(--c) * -4));}
+ #chat .mes {margin-bottom:calc(var(--c) * 40)!important;}
+ #chat .mes + .mes::before {top:calc(var(--c) * -40);height:calc(100cqw * 594.2 / 941 + var(--c) * 40);background-size:100% auto,auto calc(var(--c) * 36);}
 }

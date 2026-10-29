@@ -1,6 +1,12 @@
 {
   "method": "Chromium fixture, not phone test",
-  "intentionalChange": "Name row 36px to 44px on mobile; responsive equivalent on tablet",
+  "intentionalChanges": [
+    "name text optical offset -4px",
+    "separator 22px to 36px with 40px spacing",
+    "continuous toolbar outlines",
+    "icon saturation .32",
+    "natural vine endpoints"
+  ],
   "results": [
     {
       "width": 360,
@@ -44,7 +50,7 @@
         },
         "#send_form": {
           "x": 0,
-          "y": 708.875,
+          "y": 724.875,
           "width": 360,
           "height": 66
         },
@@ -98,8 +104,7 @@
       "sameGeometry": false,
       "actionsOpened": true,
       "longMessageSameGeometry": false,
-      "longMessageOverflow": false,
-      "avatarGeometryPreserved": true
+      "longMessageOverflow": false
     },
     {
       "width": 390,
@@ -143,7 +148,7 @@
         },
         "#send_form": {
           "x": 0,
-          "y": 734.078125,
+          "y": 750.078125,
           "width": 390,
           "height": 66
         },
@@ -197,8 +202,7 @@
       "sameGeometry": false,
       "actionsOpened": true,
       "longMessageSameGeometry": false,
-      "longMessageOverflow": false,
-      "avatarGeometryPreserved": true
+      "longMessageOverflow": false
     },
     {
       "width": 430,
@@ -242,7 +246,7 @@
         },
         "#send_form": {
           "x": 0,
-          "y": 758.3125,
+          "y": 774.3125,
           "width": 430,
           "height": 66
         },
@@ -296,8 +300,7 @@
       "sameGeometry": false,
       "actionsOpened": true,
       "longMessageSameGeometry": false,
-      "longMessageOverflow": false,
-      "avatarGeometryPreserved": true
+      "longMessageOverflow": false
     },
     {
       "width": 800,
@@ -395,8 +398,7 @@
       "sameGeometry": false,
       "actionsOpened": true,
       "longMessageSameGeometry": false,
-      "longMessageOverflow": false,
-      "avatarGeometryPreserved": true
+      "longMessageOverflow": false
     }
   ]
 }

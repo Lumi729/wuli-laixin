@@ -14,8 +14,8 @@ mapping = {
     'assets/v6/bottom-right.webp': 'assets/blue-modular-v2/bottom-right.webp',
     'assets/v1/moon-footer.webp': 'assets/blue-modular-v2/bottom-center.webp',
     'assets/v5/counter-frame.webp': 'assets/thin-mist-cool/flower-left.webp',
-    'assets/v10/name-left.webp': 'assets/blue-modular-v2/name-left.webp',
-    'assets/v10/name-right.webp': 'assets/blue-modular-v2/name-right.webp',
+    'assets/v10/name-left.webp': 'assets/blue-refined-v3/name-left.webp',
+    'assets/v10/name-right.webp': 'assets/blue-refined-v3/name-right.webp',
     'assets/v1/name-ribbon.webp': 'assets/blue-modular-v2/name-ribbon.webp',
     'assets/v4/bar-frame.webp': 'assets/thin-mist-native/bar-frame.webp',
     'assets/v7/reasoning-ribbon.webp': 'assets/blue-modular-v2/name-ribbon.webp',
@@ -98,6 +98,33 @@ css += f'''
 @media (min-width:600px) {{
  #top-settings-holder .drawer-icon {{background-size:32px 32px!important;}}
  #send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {{background-size:30px 30px!important;}}
+}}
+'''
+
+# Targeted follow-up corrections from the user's phone screenshot.
+css += f'''
+/* Continuous visible toolbar outlines, independent of proportional corner art. */
+#top-bar::after,#send_form::after {{
+ inset:3px!important;border:1px solid #7e92a5!important;border-radius:3px;
+ background-image:url('{ART}corner-tl.webp'),url('{ART}corner-tr.webp'),url('{ART}corner-bl.webp'),url('{ART}corner-br.webp');
+ background-size:22px 22px;background-position:left top,right top,left bottom,right bottom;
+ background-repeat:no-repeat;
+}}
+/* Muted blue artwork; filter does not change alpha or stretch the icons. */
+#top-settings-holder .drawer-icon {{filter:saturate(.32)!important;}}
+#send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {{filter:saturate(.32)!important;}}
+/* Align lettering with the paper face rather than the hanging ribbon tips. */
+#chat .mes .ch_name .name_text {{transform:translateY(-4px);}}
+/* Larger separator with its own space; preserve both artwork aspect ratios. */
+#chat .mes {{margin-bottom:40px!important;}}
+#chat .mes + .mes::before {{
+ top:-40px;height:calc(100cqw * 594.2 / 941 + 40px);
+ background-size:100% auto,auto 36px;
+}}
+@media (min-width:600px) and (orientation:portrait) {{
+ #chat .mes .ch_name .name_text {{transform:translateY(calc(var(--c) * -4));}}
+ #chat .mes {{margin-bottom:calc(var(--c) * 40)!important;}}
+ #chat .mes + .mes::before {{top:calc(var(--c) * -40);height:calc(100cqw * 594.2 / 941 + var(--c) * 40);background-size:100% auto,auto calc(var(--c) * 36);}}
 }}
 '''
 

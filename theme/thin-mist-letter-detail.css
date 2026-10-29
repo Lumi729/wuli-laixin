@@ -1,0 +1,498 @@
+/* 薄雾来信 · 沿用玫瑰月相的布局与外链素材。 */
+:root {
+  --wl-ink: #383f48;
+  --wl-line: #5a6674;
+  --wl-paper: #f5f9fd;
+  --wl-avatar-ratio: 16 / 9;
+}
+#sheld { background: #ebf0f6 !important; box-shadow:none !important; backdrop-filter:none !important; }
+#chat { padding:8px !important; background:var(--wl-paper) url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist/v1/paper.webp') center/320px 240px !important; container-type:inline-size; }
+#chat .mes {
+  box-sizing:border-box; position:relative; isolation:isolate;
+  display:flex !important; flex-direction:column !important; align-items:stretch !important;
+  width:100% !important; max-width:none !important; min-width:0 !important;
+  margin:12px 0 22px !important; padding:calc(100cqw * 114 / 941) calc(100cqw * 65 / 941) 62px !important;
+  gap:0 !important; border:0 !important; border-radius:0 !important;
+  box-shadow:none !important; backdrop-filter:none !important; color:var(--wl-ink);
+  background-color:transparent !important;
+  background-image:
+    linear-gradient(transparent 10px,var(--wl-line) 10px,var(--wl-line) calc(100% - 10px),transparent calc(100% - 10px)),
+    linear-gradient(transparent 10px,var(--wl-line) 10px,var(--wl-line) calc(100% - 10px),transparent calc(100% - 10px)),
+    linear-gradient(transparent 10px,#909cab 10px,#909cab calc(100% - 10px),transparent calc(100% - 10px)),
+    linear-gradient(transparent 10px,#909cab 10px,#909cab calc(100% - 10px),transparent calc(100% - 10px)) !important;
+  background-position:8px 0,calc(100% - 8px) 0,12px 0,calc(100% - 12px) 0 !important;
+  background-size:1px 100%,1px 100%,1px 100%,1px 100% !important;
+  background-repeat:no-repeat !important;
+}
+/* Only ornamental overlays: clicks pass through. Their paper is completely transparent. */
+#chat .mes::before,#chat .mes::after {
+  content:""; position:absolute; left:0; right:0; pointer-events:none; z-index:2;
+  background-repeat:no-repeat;
+}
+#chat .mes::before {
+  top:0; height:auto; aspect-ratio:941/574;
+  background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist/v7/portrait-surround.webp');
+  background-size:100% auto; background-position:center top;
+}
+#chat .mes::after {
+  bottom:0; height:clamp(132px,38vw,210px);
+  background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v6/bottom-left.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v6/bottom-right.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v1/moon-footer.webp');
+  background-size:32% auto,32% auto,36.3% auto;
+  background-position:left bottom,right bottom,center bottom;
+}
+/* Same layout for user and character. Avatar crop/position are left to the crop plugin. */
+#chat .mes > .mesAvatarWrapper {
+  position:relative !important; display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-rows:auto 27px;
+  width:100% !important; max-width:none !important; min-width:0 !important;
+  margin:0 !important; padding:0 !important; gap:0 !important; flex:none !important;
+}
+/* Independent overlays restore the portrait/metadata transition. */
+#chat .mes > .mesAvatarWrapper::after {
+ content:"";position:absolute;left:-20px;right:-20px;bottom:0;height:27px;pointer-events:none;
+ background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v5/counter-frame.webp') center/100% 100% no-repeat;
+}
+#chat .mes > .mesAvatarWrapper > .avatar {
+  grid-column:1/-1; grid-row:1; box-sizing:border-box;
+  width:100% !important; max-width:none !important; height:auto !important;
+  aspect-ratio:var(--wl-avatar-ratio); margin:0 !important; padding:0 !important;
+  border:1px solid var(--wl-line); border-radius:2px !important; box-shadow:none !important;
+}
+#chat .mes > .mesAvatarWrapper > .avatar img {
+  width:100%; height:100%; border-radius:0; box-shadow:none;
+}
+#chat .mes .mesIDDisplay,#chat .mes .mes_timer,#chat .mes .tokenCounterDisplay {
+  position:static !important; grid-row:2; align-self:center; justify-self:stretch;
+  width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;
+  line-height:27px !important; font-size:11px !important; text-align:center !important;
+  white-space:nowrap; color:var(--wl-ink); opacity:1;
+}
+#chat .mes .mesIDDisplay { grid-column:1; padding-left:24px!important; }
+#chat .mes .mes_timer { grid-column:2; }
+#chat .mes .tokenCounterDisplay { grid-column:3; padding-right:24px!important; }
+#chat .mes > .mes_block {
+  position:relative; display:block !important; box-sizing:border-box; overflow:visible;
+  flex:auto !important; width:100% !important; max-width:none !important; min-width:0 !important;
+  margin:0 !important; padding:0 0 18px !important; background:transparent !important;
+}
+/* Each side remains continuous through the moon and chain: no mid-motif seam. */
+#chat .mes > .mes_block::before,#chat .mes > .mes_block::after {
+ content:"";position:absolute;top:0;width:calc(31.25% + 12.5px);height:auto;aspect-ratio:284/289;
+ pointer-events:none;background-size:100% auto;background-repeat:no-repeat;
+}
+#chat .mes > .mes_block::before{left:-20px;background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v10/name-left.webp')}
+#chat .mes > .mes_block::after{right:-20px;background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v10/name-right.webp')}
+#chat .mes .ch_name {
+  position:relative; display:flex !important; align-items:center !important; justify-content:center !important;
+  width:calc(100% + 40px); max-width:none!important; min-height:36px; margin:0 -20px !important; padding:0 !important;
+  border-top:0;
+  background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v1/name-ribbon.webp') center/146px 34px no-repeat;
+}
+#chat .mes .ch_name > .flex1 {
+  display:flex !important; flex:0 1 135px !important; justify-content:center !important;
+  align-items:center !important; min-width:0; text-align:center;
+}
+#chat .mes .ch_name .alignItemsBaseline {
+  display:flex !important; justify-content:center !important; align-items:center !important;
+  flex-wrap:wrap; width:100%; min-width:0;
+}
+#chat .mes .name_text {
+  display:block !important; max-width:100%; margin:0 !important; padding:2px 0 !important;
+  text-align:center !important; color:var(--wl-ink); font-size:14px; font-weight:400;
+  line-height:1.3; overflow-wrap:anywhere; background:none !important;
+}
+#chat .mes .timestamp { font-size:9px; }
+#chat .mes .mes_text {
+  position:relative; box-sizing:border-box; width:100% !important; max-width:none !important;
+  min-width:0 !important; margin:0 !important; padding:54px 0 8px !important;
+  min-height:0 !important; background:none !important; line-height:1.8; overflow-wrap:anywhere;
+}
+#chat .mes .mes_text p { margin:.4em 0 .8em; }
+#chat .mes > .for_checkbox { position:absolute; left:0; top:0; }
+#chat .mes > .swipe_left { position:absolute; left:8px; bottom:20px; z-index:3; }
+#chat .mes > .swipe_right { position:absolute; right:8px; bottom:20px; z-index:3; }
+/* Retain a decorative toolbar frame, with no title text. */
+#top-bar {
+  background-color:#f3f8fd !important;
+  background-image:none !important;
+  background-position:left center,right center,center !important;
+  background-size:auto 100%,auto 100%,320px 240px !important;
+  background-repeat:no-repeat,no-repeat,repeat !important;
+  border-block:1px solid #778493 !important; box-shadow:none !important; backdrop-filter:none !important;
+}
+#top-settings-holder > .drawer,#top-settings-holder .drawer-toggle,#top-settings-holder .drawer-icon {
+  opacity:1 !important; filter:none !important;
+}
+#top-settings-holder .drawer-icon { display:inline-flex!important;flex:0 0 28px!important;width:28px!important;height:32px!important;min-width:28px!important;min-height:32px!important;background-position:center !important; background-size:24px 24px !important; background-repeat:no-repeat !important; }
+/* Separate paper and transparent flourishes for the input frame. */
+#send_form {
+  position:relative; background-color:var(--wl-paper) !important;
+  background-image:none !important;
+  background-position:left center,right center,center !important;
+  background-size:auto 100%,auto 100%,320px 240px !important;
+  background-repeat:no-repeat,no-repeat,repeat !important;
+  border:1px solid #8b98a7 !important; border-radius:10px !important;
+  padding:7px 10px !important; box-shadow:none !important; backdrop-filter:none !important;
+}
+#send_textarea { background:transparent !important; color:var(--wl-ink) !important; }
+#send_but { align-self:center !important; background-position:center !important; }
+/* Hide bars only; do not alter overflow or scrolling. */
+:where(*) { scrollbar-width:none; }
+::-webkit-scrollbar { width:0; height:0; display:none; }
+@media(min-width:700px) {
+  #chat .mes { padding-bottom:100px !important; }
+
+  #chat .mes::after { background-size:190px auto,190px auto,216px auto; }
+}
+
+#top-settings-holder #leftNavDrawerIcon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v1/icon-pendulum.webp') !important;}#top-settings-holder #leftNavDrawerIcon::before{content:"" !important;}
+
+#top-settings-holder #API-status-top{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v1/icon-moons.webp') !important;}#top-settings-holder #API-status-top::before{content:"" !important;}
+
+#top-settings-holder #advanced-formatting-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v1/icon-quill.webp') !important;}#top-settings-holder #advanced-formatting-button .drawer-icon::before{content:"" !important;}
+
+#top-settings-holder #WIDrawerIcon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v1/icon-book.webp') !important;}#top-settings-holder #WIDrawerIcon::before{content:"" !important;}
+
+#top-settings-holder #user-settings-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v3/icon-mirror.webp') !important;}#top-settings-holder #user-settings-button .drawer-icon::before{content:"" !important;}
+
+#top-settings-holder #backgrounds-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v1/icon-landscape.webp') !important;}#top-settings-holder #backgrounds-button .drawer-icon::before{content:"" !important;}
+
+#top-settings-holder #extensions-settings-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v1/icon-gift.webp') !important;}#top-settings-holder #extensions-settings-button .drawer-icon::before{content:"" !important;}
+
+#top-settings-holder #persona-management-button .drawer-icon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v1/icon-mask.webp') !important;}#top-settings-holder #persona-management-button .drawer-icon::before{content:"" !important;}
+
+#top-settings-holder #rightNavDrawerIcon{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v1/icon-cards.webp') !important;}#top-settings-holder #rightNavDrawerIcon::before{content:"" !important;}
+#options_button{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v1/icon-book.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#options_button::before{content:"" !important;}
+#extensionsMenuButton{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v1/icon-quill.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#extensionsMenuButton::before{content:"" !important;}
+#mes_impersonate{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v1/icon-mask.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#mes_impersonate::before{content:"" !important;}
+#mes_continue{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v1/icon-moons.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#mes_continue::before{content:"" !important;}
+#send_but{background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v1/icon-letter.webp') center/26px 26px no-repeat !important;opacity:1 !important;filter:none !important;}#send_but::before{content:"" !important;}
+
+/* Perimeter only. No fill keyword, no image painted across the middle. */
+#top-bar::after,#send_form::after{
+ content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+ border:9px solid transparent;
+ border-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v4/bar-frame.webp') 22 45 / 9px 18px / 0 stretch;
+}
+#top-settings-holder .drawer-toggle{display:flex!important;align-items:center!important;justify-content:center!important;min-height:36px}
+#top-bar{background-color:#f9fbfe!important}
+#send_form{background-color:#f9fbfe!important}
+
+/* Reasoning: matching stationery frame, bounded inner scroll region. */
+#chat .mes .mes_reasoning_details {
+  margin:38px 0 10px; min-width:0; max-width:100%;
+}
+#chat .mes .mes_reasoning_summary {
+  margin:0; gap:6px; align-items:center; flex-wrap:wrap;
+}
+#chat .mes .mes_reasoning_header_block { min-width:0; }
+#chat .mes .mes_reasoning_header {
+  box-sizing:border-box; width:255px; max-width:100%; min-height:48px;
+  margin:0; padding:12px 45px 12px 62px;
+  justify-content:center; position:relative;
+  color:var(--wl-ink); background:transparent url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v7/reasoning-ribbon.webp') center/100% auto no-repeat;
+  border:0; border-image:none; border-radius:0;
+  box-shadow:none; text-shadow:none; font-size:12px; line-height:1.5;
+}
+#chat .mes .mes_reasoning_header_title { color:var(--wl-ink); overflow-wrap:anywhere; }
+#chat .mes .mes_reasoning_arrow { color:#6c7c8e; right:34px; font-size:10px; }
+#chat .mes .mes_reasoning_actions { gap:7px; color:#6c7c8e; }
+#chat .mes .mes_reasoning {
+  box-sizing:border-box; width:100%; min-width:0; min-height:0;
+  max-height:240px; max-height:min(240px,32dvh);
+  overflow-y:auto; overflow-x:auto; overscroll-behavior-y:contain;
+  -webkit-overflow-scrolling:touch;
+  margin:6px 0 0; padding:14px 16px;
+  color:var(--wl-ink); background:#f8fbfe url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist/v1/paper.webp') center/400px auto;
+  border:1px solid #93a5ba; border-radius:12px 3px 12px 3px;
+  border-image:none; outline:1px solid #c4d0df; outline-offset:-5px;
+  box-shadow:none; text-shadow:none; font-size:.92em; line-height:1.75;
+  overflow-wrap:anywhere;
+}
+#chat .mes .mes_reasoning p { margin:.35em 0 .75em; }
+#chat .mes .reasoning_edit_textarea {
+  box-sizing:border-box; width:100%; height:180px; min-height:100px;
+  max-height:240px; overflow:auto; background:#f8fbfe; color:var(--wl-ink);
+  border:1px solid #99a6b5; border-radius:5px;
+}
+
+/* Centered message controls and lunar reasoning label. */
+#chat .mes .ch_name { flex-direction:column; background-position:center top; }
+#chat .mes .ch_name > .flex1 { flex:0 1 auto!important; min-height:36px; width:135px; }
+#chat .mes .mes_reasoning_summary { justify-content:center; }
+#chat .mes .mes_reasoning_header_block { width:100%; justify-content:center; }
+#chat .mes .mes_reasoning_header { margin-inline:auto; }
+#chat .mes .mes_reasoning_header_title { font-size:0!important; text-align:center; }
+#chat .mes .mes_reasoning_header_title::after {
+ content:"𝔣𝔬𝔯𝔤𝔢𝔱 𝔪𝔢 𝔫𝔬𝔱.";
+ font-family:serif; font-size:15px; line-height:1.5; white-space:nowrap;
+}
+
+/* Compact controls; keep native button hit targets and document flow. */
+#chat .mes .mes_reasoning_details { margin:8px 0 4px!important; }
+#chat .mes .mes_text { padding-top:10px!important; }
+/* Original frame rails aligned to the same coordinates at every height. */
+#chat .mes {
+ background-position:2.55% 0,97.45% 0,3.72% 0,96.28% 0!important;
+}
+#chat .mes::after {
+ height:auto; aspect-ratio:941/324;
+ background-size:31.88% auto,31.88% auto,36.3% auto;
+ mask-image:linear-gradient(to bottom,transparent,black 12px);
+ -webkit-mask-image:linear-gradient(to bottom,transparent,black 12px);
+}
+#chat .mes > .mes_block::before,#chat .mes > .mes_block::after {
+ mask-image:linear-gradient(to right,transparent,black 7%,black 93%,transparent);
+ -webkit-mask-image:linear-gradient(to right,transparent,black 7%,black 93%,transparent);
+}
+
+/* Wider message canvas; artwork always retains its natural proportions. */
+#chat {padding-inline:2px!important; gap:0!important;}
+#chat .mes {margin:0 0 24px!important;}
+/* Retain the small divider ornament on the shared, continuous paper surface. */
+#chat .mes + .mes::before {
+ top:-24px; height:calc(100cqw * 574 / 941 + 24px); aspect-ratio:auto;
+ background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist/v7/portrait-surround.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-fitted/v11/message-divider.webp');
+ background-position:center bottom,center top;
+ background-size:100% auto,auto 22px;
+ background-repeat:no-repeat;
+}
+#chat .mes::after {
+ mask-image:linear-gradient(to bottom,transparent,black 12px,black 65%,#0009);
+ -webkit-mask-image:linear-gradient(to bottom,transparent,black 12px,black 65%,#0009);
+}
+#chat .mes .mes_reasoning_header {width:285px;min-height:76px;max-width:100%;background-size:contain;}
+
+/* Keep the caption centered independently of native header alignment. */
+#sheld {background:rgba(232,241,249,.85)!important;}
+#chat .mes .mes_reasoning_header {position:relative!important;padding:0!important;align-items:center!important;}
+#chat .mes .mes_reasoning_header_title {
+ position:absolute!important;inset:0 18% 0 23%!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ margin:0!important;padding:0!important;line-height:1!important;
+}
+#chat .mes .mes_reasoning_header_title::after {display:block;line-height:1;margin:0;padding:0;}
+#chat .mes .mes_reasoning_arrow {position:absolute;top:50%;transform:translateY(-50%);}
+
+/* Tighter spacing without changing the painted frame proportions. */
+#sheld {background:rgba(232,241,249,.75)!important;}
+#chat .mes .ch_name {row-gap:0!important; container-type:inline-size;}
+#chat .mes .mes_reasoning_details {margin:-8px 0 0!important;}
+#chat .mes .mes_reasoning_summary {padding:0!important;row-gap:0;}
+
+/* Equal prose insets and justified full lines; final lines stay naturally aligned. */
+#chat .mes .mes_text {padding-inline:0!important;}
+#chat .mes .mes_text > p {
+ box-sizing:border-box;width:auto;max-width:100%;
+ margin-inline:0!important;padding-inline:0!important;
+ text-align:justify;text-align-last:start;text-justify:inter-character;
+}
+
+/* Expand actions inside a nine-slice frame, reserving space for its roses.
+   Native display toggles remain in charge of opening/closing the extra actions. */
+#chat .mes .mes_buttons {
+ position:relative!important; inset:auto!important; isolation:isolate;
+ --wl-controls-width:min(280px, calc(100cqw - 88px));
+ box-sizing:border-box; width:var(--wl-controls-width); max-width:calc(100% - 88px);
+ min-height:calc(var(--wl-controls-width) * .333); height:auto; margin:0 auto!important;
+ padding:calc(var(--wl-controls-width) * .115) calc(var(--wl-controls-width) * .18) calc(var(--wl-controls-width) * .09); gap:3px; flex-wrap:wrap!important;
+ align-self:center; align-items:center; justify-content:center;
+ overflow:visible; border:0; border-radius:0; outline:none;
+ background:transparent; box-shadow:none; font-size:11px;
+}
+#chat .mes .mes_buttons::before {
+ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+ border-style:solid; border-color:transparent; border-width:calc(var(--wl-controls-width) * .115) calc(var(--wl-controls-width) * .24) calc(var(--wl-controls-width) * .09);
+ border-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v9/controls-frame.webp') 115 240 90 240 / calc(var(--wl-controls-width) * .115) calc(var(--wl-controls-width) * .24) calc(var(--wl-controls-width) * .09) / 0 stretch;
+}
+#chat .mes .mes_buttons .extraMesButtons {
+ position:static!important; inset:auto!important; transform:none!important;
+ box-sizing:border-box; flex:1 0 100%; order:2; width:100%!important;
+ max-width:100%; min-width:0; height:auto!important;
+ flex-wrap:wrap!important; justify-content:center; align-items:center;
+ gap:6px; margin:0; padding:0; overflow:visible;
+}
+#chat .mes .mes_buttons .mes_button {
+ box-sizing:border-box; flex:0 0 auto; min-width:20px; min-height:24px;
+ padding:4px 2px; line-height:16px; text-align:center;
+}
+
+
+/* ===== 自动适配：平板竖屏(宽≥600)时画框铺满宽度；按钮框、思考框按 --wl-ui 倍率小幅放大(0.63)；字体、顶栏、输入框保持手机大小；手机上不生效 ===== */
+@media (min-width:600px) and (orientation:portrait){
+:root{--wl-ui:0.63;--c:calc(100cqw / 412);--t:calc(100cqw / 412 * var(--wl-ui));}
+#sheld{height:calc(100dvh - var(--topBarBlockSize) - 1px)!important;max-height:calc(100dvh - var(--topBarBlockSize) - 1px)!important;}
+#chat .mes{margin:0 0 calc(var(--c) * 24)!important;padding-bottom:calc(var(--c) * 62)!important;background-size:var(--c) 100%,var(--c) 100%,var(--c) 100%,var(--c) 100%!important;}
+#chat .mes .mesIDDisplay,#chat .mes .mes_timer,#chat .mes .tokenCounterDisplay{font-size:11px!important;}
+#chat .mes > .mes_block{padding-bottom:calc(var(--c) * 18)!important;}
+#chat .mes .mes_text{padding-top:calc(var(--t) * 10)!important;padding-bottom:calc(var(--t) * 8)!important;}
+#chat .mes > .swipe_left{left:calc(var(--c) * 8);bottom:calc(var(--c) * 20);}
+#chat .mes > .swipe_right{right:calc(var(--c) * 8);bottom:calc(var(--c) * 20);}
+#chat .mes .mes_reasoning_details{margin:calc(var(--c) * -8) 0 0!important;}
+#chat .mes .mes_reasoning_header{width:calc(var(--t) * 285);min-height:calc(var(--t) * 76);}
+#chat .mes .mes_reasoning_arrow{right:calc(var(--t) * 34);}
+#chat .mes .mes_reasoning{max-height:calc(var(--t) * 240);padding:calc(var(--t) * 14) calc(var(--t) * 16);border-radius:calc(var(--t) * 12) calc(var(--t) * 3) calc(var(--t) * 12) calc(var(--t) * 3);outline-offset:calc(var(--t) * -5);}
+#chat .mes .reasoning_edit_textarea{height:calc(var(--t) * 180);min-height:calc(var(--t) * 100);max-height:calc(var(--t) * 240);}
+#chat .mes .mes_buttons{--wl-controls-width:calc(var(--t) * 280);gap:calc(var(--t) * 3);}
+#chat .mes .mes_buttons .extraMesButtons{gap:calc(var(--t) * 6);}
+#chat .mes .mes_buttons .mes_button{min-width:calc(var(--t) * 20);min-height:calc(var(--t) * 24);padding:calc(var(--t) * 4) calc(var(--t) * 2);line-height:calc(var(--t) * 16);}
+
+#chat .mes > .mesAvatarWrapper{grid-template-rows:auto calc(var(--c) * 27);}
+#chat .mes > .mesAvatarWrapper::after{left:calc(var(--c) * -20);right:calc(var(--c) * -20);height:calc(var(--c) * 27);}
+#chat .mes .mesIDDisplay,#chat .mes .mes_timer,#chat .mes .tokenCounterDisplay{line-height:calc(var(--c) * 27)!important;}
+#chat .mes .mesIDDisplay{padding-left:calc(var(--c) * 24)!important;}
+#chat .mes .tokenCounterDisplay{padding-right:calc(var(--c) * 24)!important;}
+#chat .mes > .mes_block::before{left:calc(var(--c) * -20);width:calc(31.25% + var(--c) * 12.5);}
+#chat .mes > .mes_block::after{right:calc(var(--c) * -20);width:calc(31.25% + var(--c) * 12.5);}
+#chat .mes .ch_name{width:calc(100% + var(--c) * 40);min-height:calc(var(--c) * 36);margin:0 calc(var(--c) * -20)!important;background-size:calc(var(--c) * 146) calc(var(--c) * 34);}
+#chat .mes .ch_name > .flex1{min-height:calc(var(--c) * 36);width:calc(var(--c) * 135);}
+#chat .mes .name_text{padding:calc(var(--c) * 2) 0!important;}
+#chat .mes + .mes::before{top:calc(var(--c) * -24);height:calc(100cqw * 574 / 941 + var(--c) * 24);background-size:100% auto,auto calc(var(--c) * 22);}
+#chat .mes .mes_buttons{max-width:calc(100% - var(--t) * 88);}
+}
+
+/* Match tablet control-frame proportions to phone layout. */
+@media (min-width:600px) {
+ #chat .mes .mes_buttons {--wl-controls-width:calc(100cqw * 280 / 412);}
+}
+/* Improve contrast on dark extension headers. */
+#extensions_settings .inline-drawer-header,
+#extensions_settings2 .inline-drawer-header,
+#extensions_settings .inline-drawer-header :is(b,strong,span,i,.inline-drawer-icon),
+#extensions_settings2 .inline-drawer-header :is(b,strong,span,i,.inline-drawer-icon) {
+ color:#e6effa!important;text-shadow:0 1px 2px rgba(0,0,0,.55)!important;
+}
+
+/* ===== 平板修复合集 ===== */
+
+/* 背景钉死，键盘白条消失 */
+#bg1 {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    transform: translateZ(0) !important;
+    will-change: transform !important;
+    contain: layout style paint !important;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1366px) {
+    /* 面板不挡按钮栏 */
+    .fillLeft,
+    .fillRight {
+        top: var(--topBarBlockSize, 45px) !important;
+        height: calc(100% - var(--topBarBlockSize, 45px)) !important;
+        padding-top: 0 !important;
+    }
+
+    .fillLeft .scrollableInner,
+    .fillRight .scrollableInner {
+        padding-top: 0 !important;
+    }
+
+    /* 隐藏锁头和提示栏 */
+    #clickSlidersTips,
+    #lm_button_panel_pin_div,
+    #rm_button_panel_pin_div,
+    .topRightInset {
+        display: none !important;
+    }
+
+    /* 平板字体放大 */
+    #chat .mes .mes_text {
+        font-size: 18px !important;
+        line-height: 1.8 !important;
+    }
+}
+
+/* ===== 平板阅读与操作尺寸 ===== */
+@media screen and (min-width:600px) {
+ :root { --topBarBlockSize:54px!important; }
+ #chat .mes .mes_text {
+  font-size:22px!important;line-height:1.8!important;
+ }
+ #chat .mes .mes_text :where(p,li,blockquote) {
+  font-size:inherit!important;line-height:inherit!important;
+ }
+ #chat .mes .mes_text :where(p,li,blockquote) :where(span,em,strong,b,i,a) {
+  font-size:inherit!important;
+ }
+ #top-bar {height:54px!important;min-height:54px!important;box-sizing:border-box!important;}
+ #top-settings-holder {height:54px!important;min-height:54px!important;align-items:center!important;}
+ #top-settings-holder > .drawer {min-width:0!important;flex:1 1 0!important;}
+ #top-settings-holder .drawer-toggle {
+  height:46px!important;min-height:46px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+ }
+ #top-settings-holder .drawer-icon {
+  flex:0 0 40px!important;width:40px!important;height:40px!important;
+  min-width:40px!important;min-height:40px!important;
+  background-size:32px 32px!important;font-size:28px!important;
+  align-items:center!important;justify-content:center!important;
+ }
+ #top-bar::after,#send_form::after {
+  border-width:10px!important;border-image-width:10px 20px!important;
+ }
+ #send_form {
+  min-height:70px!important;padding:9px 13px!important;box-sizing:border-box!important;
+ }
+ #send_textarea {
+  font-size:22px!important;line-height:1.5!important;min-height:46px!important;
+  padding:8px 7px!important;box-sizing:border-box!important;
+ }
+ #send_form :is(#options_button,#extensionsMenuButton,#mes_impersonate,#mes_continue,#send_but) {
+  width:38px!important;min-width:38px!important;height:38px!important;min-height:38px!important;
+  background-size:30px 30px!important;font-size:26px!important;
+  background-position:center!important;align-self:center!important;
+ }
+ .fillLeft,.fillRight {
+  top:var(--topBarBlockSize,54px)!important;
+  height:calc(100% - var(--topBarBlockSize,54px))!important;
+ }
+}
+
+/* 平板正文：直接覆盖文字层字号，避免继承到内层固定的小字号。 */
+@media screen and (min-width:600px) {
+ #chat .mes .mes_text,
+ #chat .mes .mes_text :is(p,div,span,li,blockquote,em,strong,b,i,a,font,section,article):not(:where(button,button *,[role="button"],[role="button"] *,pre,pre *,code,code *,svg,svg *,.fa,.fas,.far,.fab,.fa-solid,.fa-regular,.fa-brands)) {
+  font-size:22px!important;
+ }
+}
+
+
+/* 保留花边框；让底部花饰与左右边线连成一体。 */
+#chat .mes::after {
+ background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v6/bottom-left.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v6/bottom-right.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v1/moon-footer.webp'),linear-gradient(#879eb2,#879eb2),linear-gradient(#c0d0de,#c0d0de)!important;
+ background-size:31.88% auto,31.88% auto,36.3% auto,94.9% 1px,94.9% 1px!important;
+ background-position:left bottom,right bottom,center bottom,center calc(100% - 4px),center calc(100% - 8px)!important; background-repeat:no-repeat!important;
+}
+
+/* 保持头像框结构；以连贯底饰和两侧勿忘我花枝贴近参考效果。 */
+#chat .mes::after {background-image:url("https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-match/bottom.webp")!important;background-size:100% auto!important;background-position:center bottom!important;background-repeat:no-repeat!important;aspect-ratio:3/1!important;}
+#chat .mes > .mes_block::before,#chat .mes > .mes_block::after {height:100%!important;aspect-ratio:auto!important;mask-image:none!important;-webkit-mask-image:none!important;}
+#chat .mes > .mes_block::before {background-image:url("https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v10/name-left.webp"),url("https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-match/left-vine.webp")!important;background-size:100% auto,26% auto!important;background-position:left top,left 100px!important;background-repeat:no-repeat,repeat-y!important;}
+#chat .mes > .mes_block::after {background-image:url("https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v10/name-right.webp"),url("https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-match/right-vine.webp")!important;background-size:100% auto,26% auto!important;background-position:right top,right 100px!important;background-repeat:no-repeat,repeat-y!important;}
+#chat .mes > .mesAvatarWrapper::after {background-size:100% 12px!important;background-position:center bottom!important;}
+#chat .mes .ch_name {background-size:180px 42px!important;}
+@media (min-width:600px) and (orientation:portrait) {#chat .mes .ch_name {background-size:calc(var(--c) * 180) calc(var(--c) * 42)!important;}}
+
+/* 五处细节修正：比例、外框、分隔、计数和花枝衔接。 */
+#top-bar,#send_form {border:0!important;outline:none!important;box-shadow:none!important;}
+#top-bar::after,#send_form::after {inset:-2px!important;border-image-width:12px 22px!important;}
+#chat .mes + .mes::before {background-size:100% auto,auto 36px!important;}
+#chat .mes > .mesAvatarWrapper::after {
+ background-image:linear-gradient(#a7b9ca,#a7b9ca),linear-gradient(#a7b9ca,#a7b9ca),radial-gradient(circle,#799ab8 0 2px,transparent 2.5px),radial-gradient(circle,#799ab8 0 2px,transparent 2.5px)!important;
+ background-size:100% 1px,100% 1px,7px 7px,7px 7px!important;
+ background-position:center top,center bottom,33.3% center,66.7% center!important;
+ background-repeat:no-repeat!important;
+}
+#chat .mes > .mes_block::before,#chat .mes > .mes_block::after {top:-27px!important;height:calc(100% + 27px)!important;}
+#chat .mes > .mes_block::before {background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v10/name-left.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-detail/left-vine.webp')!important;background-size:100% auto,42% auto!important;background-position:left top,left 60px!important;background-repeat:no-repeat,no-repeat!important;}
+#chat .mes > .mes_block::after {background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-repair/v10/name-right.webp'),url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/thin-mist-detail/right-vine.webp')!important;background-size:100% auto,42% auto!important;background-position:right top,right 60px!important;background-repeat:no-repeat,no-repeat!important;}
+@media (min-width:600px) and (orientation:portrait){
+ #chat .mes + .mes::before{background-size:100% auto,auto calc(var(--c) * 36)!important;}
+ #chat .mes > .mes_block::before,#chat .mes > .mes_block::after {top:calc(var(--c) * -27)!important;height:calc(100% + var(--c) * 27)!important;}
+ #chat .mes > .mes_block::before{background-position:left top,left calc(var(--c) * 60)!important;}
+ #chat .mes > .mes_block::after{background-position:right top,right calc(var(--c) * 60)!important;}
+}

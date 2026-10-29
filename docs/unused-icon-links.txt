@@ -1,0 +1,17 @@
+信封
+https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/floating-icons/thin-mist/envelope.png
+
+手镜
+https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/floating-icons/thin-mist/mirror.png
+
+钥匙
+https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/floating-icons/thin-mist/key.png
+
+音符
+https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/floating-icons/thin-mist/clef.png
+
+沙漏
+https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/floating-icons/thin-mist/hourglass.png
+
+塔罗牌
+https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/floating-icons/thin-mist/tarot.png

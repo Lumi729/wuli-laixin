@@ -1,6 +1,6 @@
 {
   "method": "Chromium fixture, not phone test",
-  "revision": "Enlarge bar ornament and icons; hide native border; erase unwanted portrait interior rail",
+  "revision": "Balance divider gap, hide upper side line tips, center name and action contents; theme name 薄雾来信",
   "results": [
     {
       "width": 360,

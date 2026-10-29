@@ -168,12 +168,33 @@ css += '''
 }
 '''
 
+# Optical alignment corrections requested from the real-phone screenshot.
+css += '''
+#chat .mes {
+ background-image:
+ linear-gradient(transparent calc(100cqw * 90 / 941),var(--wl-line) calc(100cqw * 90 / 941),var(--wl-line) calc(100% - 10px),transparent calc(100% - 10px)),
+ linear-gradient(transparent calc(100cqw * 90 / 941),var(--wl-line) calc(100cqw * 90 / 941),var(--wl-line) calc(100% - 10px),transparent calc(100% - 10px)),
+ linear-gradient(transparent calc(100cqw * 90 / 941),#b6c7d9 calc(100cqw * 90 / 941),#b6c7d9 calc(100% - 10px),transparent calc(100% - 10px)),
+ linear-gradient(transparent calc(100cqw * 90 / 941),#b6c7d9 calc(100cqw * 90 / 941),#b6c7d9 calc(100% - 10px),transparent calc(100% - 10px))!important;
+}
+#chat .mes + .mes::before {background-position:center bottom,center 7px;}
+#chat .mes .ch_name .name_text {transform:translate(-6px,-4px);}
+#chat .mes .mes_buttons {
+ padding-block:calc(var(--wl-controls-width) * .1025)!important;
+ align-content:center!important;align-items:center!important;
+}
+@media (min-width:600px) and (orientation:portrait) {
+ #chat .mes + .mes::before {background-position:center bottom,center calc(var(--c) * 7);}
+ #chat .mes .ch_name .name_text {transform:translate(calc(var(--c) * -6),calc(var(--c) * -4));}
+}
+'''
+
 theme = json.loads((ROOT / 'theme/Rose-Moon-Phases.json').read_text())
 cool = json.loads((ROOT / 'theme/Thin-Mist-Cool-Native-Size.json').read_text())
 for key in theme:
     if key.endswith('_color'):
         theme[key] = cool[key]
-theme['name'] = cool['name']
+theme['name'] = '薄雾来信'
 theme['custom_css'] = css
 (ROOT / 'theme/blue-clean.css').write_text(css)
 (ROOT / 'theme/Blue-Clean.json').write_text(json.dumps(theme, ensure_ascii=False, indent=2) + '\n')

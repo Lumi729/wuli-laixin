@@ -4,7 +4,7 @@ const ctx=getContext();
 const defaults={enabled:true,theme:'rose',icon:'',size:64,frameScale:100,itemSize:44,x:0.85,y:0.65,items:[]};
 const cfg=ctx.extensionSettings[KEY]??=structuredClone(defaults);
 for(const [k,v] of Object.entries(defaults))if(cfg[k]===undefined)cfg[k]=v;
-const asset=n=>new URL(`./assets/floating-dock/${n}.png`,import.meta.url).href;
+const asset=n=>new URL(`./assets/floating-dock/${n}.png${n==='honeydew-launcher'?'?v=music-box':''}`,import.meta.url).href;
 const themeAssets={rose:'rose',lily:'lily-ink',mist:'thin-mist',honeydew:'honeydew'};
 const save=()=>ctx.saveSettingsDebounced();
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n;};

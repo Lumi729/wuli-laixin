@@ -1,5 +1,11 @@
 # 雾里来信
 
+## 蜜瓜花笺（2026-10-30）
+
+浅蜜瓜绿与白铃兰的独立主题：[下载导入文件](https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/theme/Honeydew-Letter.json)。主题名为「蜜瓜花笺」，蓝色版保持不变。
+
+[实际页面预览](docs/honeydew-preview.webp) · [图标透明检查](docs/honeydew-icons-check.webp) · [说明与验证](docs/honeydew-notes.md)
+
 ## 冷白银蓝独立模块修复（2026-10-29）
 
 下载 [Blue-Clean.json](https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/theme/Blue-Clean.json) 导入酒馆主题。先备份旧主题，再替换同名主题；不要把新 CSS 追加到旧 CSS 后。

@@ -45,3 +45,62 @@
  #chat .mes .mes_timer { left:72px; }
  #chat .mes .tokenCounterDisplay { left:142px; }
 }
+
+/* 参考图的薄玻璃叠层：所有正文维持自然高度，框线使用九宫格。 */
+:root {
+ --specimen-frame:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/optical-frame.webp');
+ --specimen-leaf:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/etching.webp');
+ --glass-surface:linear-gradient(125deg,rgba(255,255,255,.86),rgba(232,242,248,.65) 42%,rgba(255,255,255,.85));
+ --glass-edge:inset 0 0 0 1px #ffffffed,inset 0 0 0 3px #c8d6df70,inset 0 0 0 5px #ffffffa6,0 4px 13px #334d6220;
+ --glass-avatar:112px;
+}
+#chat { background:transparent!important; padding-top:70px!important; }
+#chat .mes { background:var(--glass-surface)!important; border-color:#ffffffdb!important; box-shadow:var(--glass-edge)!important; border-radius:19px!important; margin-top:78px!important; }
+#chat .mes::after { content:''; position:absolute; inset:-3px; border:24px solid transparent; border-image:var(--specimen-frame) 160 / 26px / 0 stretch; pointer-events:none; z-index:2; }
+#chat .mes::before { opacity:.43; width:126px; height:200px; }
+#chat .mes .mesAvatarWrapper > .avatar { top:-66px; left:17px; width:var(--glass-avatar)!important; height:140px!important; padding:3px!important; border-radius:15px!important; background:#ffffff39!important; box-shadow:inset 0 0 0 1px white,0 3px 8px #4c606529!important; overflow:visible!important; z-index:3; }
+#chat .mes .mesAvatarWrapper > .avatar::after { content:''; position:absolute; inset:-5px -8px -7px -4px; border:22px solid transparent; border-image:var(--specimen-frame) 160 / 23px / 0 stretch; pointer-events:none; }
+#chat .mes .mesAvatarWrapper > .avatar img { border:1px solid #faffffb3; border-radius:11px!important; }
+#chat .mes .ch_name { margin-left:calc(var(--glass-avatar) + 12px)!important; min-height:70px!important; padding-top:0; border-bottom:0; }
+#chat .mes .name_text { display:inline-block; padding:5px 13px!important; border:1px solid #ffffffd6; border-radius:5px 12px 5px 5px; background:linear-gradient(115deg,#ffffffa8,#e5edf260,#ffffff95); box-shadow:inset 0 -2px 0 #afc2ce66,0 1px 3px #52728615; color:#344854!important; font-weight:500; font-size:1.08em; }
+#chat .mes .mes_buttons { margin-top:5px; padding:5px 8px; border:1px solid #ffffffeb; border-radius:12px; background:linear-gradient(110deg,#ffffff9c,#e4eef475,#ffffffb3); box-shadow:inset 0 0 0 2px #d0dfe84d,0 2px 5px #596f7c12; gap:8px; opacity:1; }
+#chat .mes .mes_buttons :is(.mes_button,.mes_edit,.mes_translate,.extraMesButtonsHint) { color:#607682!important; text-shadow:none!important; filter:none!important; }
+#chat .mes .extraMesButtons { padding:5px; border-radius:9px; background:#f5fafbd9; }
+#chat .mes[is_user="true"] { background:var(--glass-surface)!important; margin-top:60px!important; }
+#chat .mes[is_user="true"] .mesAvatarWrapper > .avatar { top:-40px; left:auto; right:17px; width:90px!important; height:104px!important; }
+#chat .mes[is_user="true"] .ch_name { margin-left:0!important; margin-right:102px!important; min-height:65px!important; }
+/* 顶栏保留全部原生入口，收小图标并给每个入口加透明玻璃座。 */
+#top-bar { background:linear-gradient(110deg,#ffffffb8,#e4eff5a6,#ffffffce)!important; border:1px solid #fffffff2!important; border-radius:0 0 15px 15px!important; box-shadow:var(--glass-edge)!important; }
+#top-settings-holder { gap:3px!important; padding:5px 6px!important; box-sizing:border-box; }
+#top-settings-holder > .drawer { min-width:0!important; }
+#top-settings-holder .drawer-toggle { display:flex; justify-content:center; align-items:center; padding:2px!important; }
+#top-settings-holder .drawer-icon { display:inline-flex!important; align-items:center; justify-content:center; font-size:20px!important; width:34px!important; height:34px!important; min-width:0!important; border:1px solid #ffffffdc; border-radius:9px; background:linear-gradient(145deg,#ffffffb5,#d8e6f052,#ffffffa8)!important; box-shadow:inset 0 -1px 1px #a9bcc75c; color:#5e7380!important; opacity:1!important; text-shadow:none!important; filter:none!important; }
+/* 输入框与发送/菜单按钮。只装饰已有控件，不替换其功能。 */
+#send_form { background:var(--glass-surface)!important; border:1px solid #fffffff2!important; border-radius:25px!important; box-shadow:var(--glass-edge)!important; padding:6px 8px!important; }
+#send_textarea { background:var(--specimen-leaf) left bottom/48px auto no-repeat!important; padding-left:26px!important; color:#405462!important; }
+#send_form :is(#send_but,#options_button,#extensionsMenuButton) { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:36px; min-height:36px; font-size:22px!important; color:#526b7b!important; border:1px solid #ffffffc9; border-radius:50%; background:linear-gradient(130deg,#ffffffaa,#e1ebf246,#ffffffaa); box-shadow:inset 0 0 0 2px #d0dde64d; text-shadow:none!important; filter:none!important; }
+/* 可折叠的玻璃标本夹：不改展开状态，不裁掉推理正文。 */
+#chat .mes .mes_reasoning_details { margin:14px 0!important; padding:10px 13px!important; border:1px solid #ffffffec!important; border-radius:12px!important; background:linear-gradient(125deg,#ffffffa8,#dce9f17a,#ffffffb0)!important; box-shadow:inset 0 0 0 2px #c3d5e16b,0 2px 8px #4a667510; }
+#chat .mes .mes_reasoning_summary { gap:8px; color:#536f80; }
+#chat .mes .mes_reasoning_header { padding:5px 12px; border:1px solid #ffffffe8; border-radius:4px 11px 4px 4px; background:linear-gradient(110deg,#faffffd9,#e0edf39c); box-shadow:inset 3px 0 0 #afc7d8; color:#526c7c; }
+#chat .mes .mes_reasoning_header_title { color:#526c7c; letter-spacing:.06em; }
+#chat .mes .mes_reasoning { padding:12px 2px 4px; margin-top:8px; border-top:1px solid #b4cbd77d; color:#526571; line-height:1.8; overflow-wrap:anywhere; }
+#chat .mes .mes_reasoning_actions { color:#69818e; }
+#chat .mes .reasoning_edit_textarea { background:#f6fbfde0; border:1px solid #becfd8; color:#405462; }
+#chat .mes .mes_text { color:#344854!important; }
+#chat .mes :is(.mes_edit_textarea,.edit_textarea) { background:#f7fbfd; color:#344854; }
+@media(max-width:600px) {
+ :root { --glass-avatar:102px; }
+ #chat .mes { padding:17px 18px 40px!important; margin-top:74px!important; }
+ #chat .mes .mesAvatarWrapper > .avatar { height:128px!important; top:-58px; left:12px; }
+ #chat .mes .ch_name { margin-left:calc(var(--glass-avatar) + 5px)!important; min-height:75px!important; }
+ #chat .mes .mes_buttons { gap:6px; padding:4px 6px; }
+ #chat .mes[is_user="true"] .mesAvatarWrapper > .avatar { right:12px; width:78px!important; height:90px!important; top:-36px; }
+ #chat .mes[is_user="true"] .ch_name { margin-left:0!important; margin-right:84px!important; min-height:60px!important; }
+ #top-settings-holder .drawer-icon { font-size:18px!important; width:30px!important; height:32px!important; }
+}
+@media(max-width:360px) {
+ #top-settings-holder { gap:0!important; padding-inline:2px!important; }
+ #top-settings-holder .drawer-icon { width:27px!important; font-size:16px!important; }
+ #chat .mes .mes_buttons { gap:4px; }
+}

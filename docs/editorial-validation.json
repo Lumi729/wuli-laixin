@@ -1,0 +1,266 @@
+[
+  {
+    "width": 360,
+    "scroll": 360,
+    "images": 0,
+    "portrait": [
+      {
+        "width": 62,
+        "height": 86
+      },
+      {
+        "width": 42,
+        "height": 59
+      }
+    ],
+    "buttons": [
+      {
+        "x": 106,
+        "y": 312.1875,
+        "width": 26,
+        "height": 175
+      },
+      {
+        "x": 191.984375,
+        "y": 830.703125,
+        "width": 145,
+        "height": 31
+      }
+    ],
+    "expanded": true,
+    "reasoningClosed": true,
+    "longScroll": 360,
+    "theme": "night-log"
+  },
+  {
+    "width": 390,
+    "scroll": 390,
+    "images": 0,
+    "portrait": [
+      {
+        "width": 62,
+        "height": 86
+      },
+      {
+        "width": 42,
+        "height": 59
+      }
+    ],
+    "buttons": [
+      {
+        "x": 106,
+        "y": 312.1875,
+        "width": 26,
+        "height": 175
+      },
+      {
+        "x": 221.984375,
+        "y": 830.703125,
+        "width": 145,
+        "height": 31
+      }
+    ],
+    "expanded": true,
+    "reasoningClosed": true,
+    "longScroll": 390,
+    "theme": "night-log"
+  },
+  {
+    "width": 430,
+    "scroll": 430,
+    "images": 0,
+    "portrait": [
+      {
+        "width": 62,
+        "height": 86
+      },
+      {
+        "width": 42,
+        "height": 59
+      }
+    ],
+    "buttons": [
+      {
+        "x": 106,
+        "y": 316.078125,
+        "width": 26,
+        "height": 175
+      },
+      {
+        "x": 261.984375,
+        "y": 777.484375,
+        "width": 145,
+        "height": 31
+      }
+    ],
+    "expanded": true,
+    "reasoningClosed": true,
+    "longScroll": 430,
+    "theme": "night-log"
+  },
+  {
+    "width": 800,
+    "scroll": 800,
+    "images": 0,
+    "portrait": [
+      {
+        "width": 187,
+        "height": 253
+      },
+      {
+        "width": 57,
+        "height": 79
+      }
+    ],
+    "buttons": [
+      {
+        "x": 256.3125,
+        "y": 440.15625,
+        "width": 30,
+        "height": 185
+      },
+      {
+        "x": 612.984375,
+        "y": 946.015625,
+        "width": 160,
+        "height": 33
+      }
+    ],
+    "expanded": true,
+    "reasoningClosed": true,
+    "longScroll": 800,
+    "theme": "night-log"
+  },
+  {
+    "width": 360,
+    "scroll": 360,
+    "images": 0,
+    "portrait": [
+      {
+        "width": 56,
+        "height": 56
+      },
+      {
+        "width": 56,
+        "height": 56
+      }
+    ],
+    "buttons": [
+      {
+        "x": 16,
+        "y": 262,
+        "width": 28,
+        "height": 182
+      },
+      {
+        "x": 39.796875,
+        "y": 921.671875,
+        "width": 28,
+        "height": 182
+      }
+    ],
+    "expanded": true,
+    "reasoningClosed": true,
+    "longScroll": 360,
+    "theme": "orange-soda"
+  },
+  {
+    "width": 390,
+    "scroll": 390,
+    "images": 0,
+    "portrait": [
+      {
+        "width": 56,
+        "height": 56
+      },
+      {
+        "width": 56,
+        "height": 56
+      }
+    ],
+    "buttons": [
+      {
+        "x": 16,
+        "y": 262,
+        "width": 28,
+        "height": 182
+      },
+      {
+        "x": 41.890625,
+        "y": 921.671875,
+        "width": 28,
+        "height": 182
+      }
+    ],
+    "expanded": true,
+    "reasoningClosed": true,
+    "longScroll": 390,
+    "theme": "orange-soda"
+  },
+  {
+    "width": 430,
+    "scroll": 430,
+    "images": 0,
+    "portrait": [
+      {
+        "width": 56,
+        "height": 56
+      },
+      {
+        "width": 56,
+        "height": 56
+      }
+    ],
+    "buttons": [
+      {
+        "x": 16,
+        "y": 262,
+        "width": 28,
+        "height": 182
+      },
+      {
+        "x": 44.6875,
+        "y": 921.671875,
+        "width": 28,
+        "height": 182
+      }
+    ],
+    "expanded": true,
+    "reasoningClosed": true,
+    "longScroll": 430,
+    "theme": "orange-soda"
+  },
+  {
+    "width": 800,
+    "scroll": 800,
+    "images": 0,
+    "portrait": [
+      {
+        "width": 76,
+        "height": 76
+      },
+      {
+        "width": 76,
+        "height": 76
+      }
+    ],
+    "buttons": [
+      {
+        "x": 20,
+        "y": 285.15625,
+        "width": 30,
+        "height": 187
+      },
+      {
+        "x": 74.3125,
+        "y": 945.203125,
+        "width": 30,
+        "height": 187
+      }
+    ],
+    "expanded": true,
+    "reasoningClosed": true,
+    "longScroll": 800,
+    "theme": "orange-soda"
+  }
+]

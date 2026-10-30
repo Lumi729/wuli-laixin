@@ -4,13 +4,13 @@
  --gs-root:initial;
  --gs-bg:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/reference/background.webp');
  --gs-leaf:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/reference/specimen.webp');
- --gs-avatar-art:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/optical-frame.webp');
- --gs-name:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/optical-frame.webp');
- --gs-fold:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/optical-frame.webp');
- --gs-tray:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/optical-frame.webp');
- --gs-top:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/optical-frame.webp');
- --gs-input:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/optical-frame.webp');
- --gs-edge:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/optical-frame.webp');
+ --gs-avatar-art:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/final/avatar-slide.webp');
+ --gs-name:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/final/name-tag.webp');
+ --gs-fold:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/final/reasoning-fold.webp');
+ --gs-tray:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/final/action-tray.webp');
+ --gs-top:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/final/top-lintel.webp');
+ --gs-input:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/final/composer.webp');
+ --gs-edge:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/final/message-edge.webp');
 }
 
 #bg1 {background-image:var(--gs-bg)!important;background-position:center!important;background-size:cover!important;opacity:1!important;}
@@ -65,9 +65,9 @@
 #chat .mes[is_system="true"] {padding-top:calc(160 * var(--gs-u))!important;}
 #top-bar {top:calc(35 * var(--gs-u))!important;width:min(94%,886px)!important;height:calc(86 * var(--gs-u))!important;left:50%!important;right:auto!important;margin:0!important;transform:translateX(-50%);border:0!important;background:var(--gs-top) center/100% 100% no-repeat!important;box-shadow:none!important;backdrop-filter:none!important;}
 #top-settings-holder {position:absolute!important;top:calc(35 * var(--gs-u))!important;left:50%!important;transform:translateX(-50%);width:min(94%,886px)!important;height:calc(86 * var(--gs-u))!important;padding:0 3%!important;gap:0;justify-content:space-between;background:transparent!important;}
-#top-settings-holder::after {content:none!important;display:none!important;}
+#top-settings-holder::after {content:'玻璃标本室';position:absolute;left:34%;width:32%;top:50%;transform:translateY(-50%);text-align:center;font-family:'Noto Serif SC','Songti SC',serif;font-size:calc(34 * var(--gs-u));letter-spacing:.15em;color:#252c33;pointer-events:none;}
 #top-settings-holder > .drawer {width:auto!important;min-width:0!important;flex:0 1 auto;}
-#top-settings-holder > .drawer:nth-child(5) {margin-left:0;}
+#top-settings-holder > .drawer:nth-child(5) {margin-left:34%;}
 #top-settings-holder .drawer-icon {font-size:calc(27 * var(--gs-u))!important;width:calc(38 * var(--gs-u))!important;min-width:0!important;background:transparent!important;color:#34434c!important;text-shadow:none!important;filter:none!important;opacity:1!important;}
 #send_form {position:relative;isolation:isolate;box-sizing:border-box;width:94%!important;min-height:calc(130 * var(--gs-u));margin:calc(20 * var(--gs-u)) auto calc(55 * var(--gs-u))!important;padding:calc(20 * var(--gs-u)) calc(32 * var(--gs-u))!important;gap:calc(22 * var(--gs-u));border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;}
 #send_form::before {content:'';position:absolute;left:0;right:0;bottom:0;height:calc(240 * var(--gs-u));background:var(--gs-input) center bottom/100% 100% no-repeat;z-index:-1;pointer-events:none;}
@@ -88,39 +88,66 @@
 #chat .mes[is_user="true"]:is(:hover,:focus-within) .mes_buttons {opacity:1!important;}
 @media(hover:none){#chat .mes[is_user="true"] .mes_buttons{opacity:.65!important;}}
 
-/* Readable cool-white surfaces; existing optical artwork is drawn only at edges. */
-#chat .mes {background:#f7fafc!important;box-shadow:inset 0 0 0 1px #d2dfe6,0 3px 12px #24374418!important;}
-#chat .mes[is_user="true"] {background:#f3f8fb!important;}
-#chat .mes::before {opacity:.18;}
-#chat .mes .mes_text {color:#24313b!important;text-shadow:none!important;}
-#chat .mes .mesAvatarWrapper > .avatar::after {
- inset:10% 4% 4% 27%;box-sizing:border-box;background:none;
- border:10px solid transparent;border-image:var(--gs-avatar-art) 100 / 10px / 2px stretch;
+/* 参考图校准：独立左右玻璃夹片、磨砂层和短回复框。 */
+:root {
+ --gs-avatar-art:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/matched/assistant-avatar.webp');
+ --gs-user-avatar:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/matched/user-avatar.webp');
+ --gs-frost:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/matched/frosted-paper.webp');
+ --gs-user-panel:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/matched/user-panel.webp');
 }
-#chat .mes .name_text {
- background:#f7fafc!important;border:7px solid transparent;
- border-image:var(--gs-name) 100 / 7px / 0 stretch;
+#chat .mes {
+ background-color:rgba(239,244,248,.72)!important;
+ background-image:var(--gs-frost),linear-gradient(112deg,#f8fcff77,#e9f0f433 48%,#f8fbfd66)!important;
+ background-size:100% 100%,100% 100%!important;
+ background-blend-mode:soft-light,normal;
+ backdrop-filter:blur(7px) saturate(.65)!important;
+ -webkit-backdrop-filter:blur(7px) saturate(.65)!important;
 }
-#chat .mes .mes_reasoning_details {
- background:#eef4f8!important;border:10px solid transparent!important;
- border-image:var(--gs-fold) 100 / 10px / 0 stretch!important;
+#chat .mes .mesAvatarWrapper > .avatar {
+ left:calc(7 * var(--gs-u));width:calc(324 * var(--gs-u))!important;
+ height:auto!important;aspect-ratio:10/11;
 }
-#chat .mes .mes_buttons {
- background:#f0f5f9!important;border:9px solid transparent!important;
- border-image:var(--gs-tray) 100 / 9px / 0 stretch!important;
+#chat .mes .mesAvatarWrapper > .avatar img {
+ left:28%;top:11%;width:65%!important;height:82.5%!important;
+ transform:none!important;
 }
-#chat .mes[is_user="true"] .mes_buttons {background:none!important;border:0!important;border-image:none!important;}
-#top-bar {
- box-sizing:border-box;background:#f5f9fc!important;
- border:9px solid transparent!important;border-image:var(--gs-top) 100 / 9px / 0 stretch!important;
+#chat .mes .mesAvatarWrapper > .avatar::after {background-size:contain;}
+#chat .mes[is_user="true"] {
+ background:transparent!important;box-shadow:none!important;
+ backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+ border-radius:0!important;
 }
-#top-settings-holder {padding-inline:3%!important;}
-#top-settings-holder > .drawer {flex:1 1 0;display:flex;justify-content:center;}
-#send_form {background:#f7fafc!important;border-radius:10px!important;}
-#send_form::before {
- inset:0;height:auto;box-sizing:border-box;background:none;z-index:0;
- border:10px solid transparent;border-image:var(--gs-input) 100 / 10px / 0 stretch;
+#chat .mes[is_user="true"]::after {
+ inset:0;border:calc(28 * var(--gs-u)) solid transparent;
+ border-image:var(--gs-user-panel) 85 fill / calc(28 * var(--gs-u)) / 0 stretch;
+ z-index:-1;
 }
-#send_form > * {position:relative;z-index:1;}
-#send_textarea {background:#f7fafc!important;color:#24313b!important;}
-#send_textarea::placeholder {color:#62717d!important;opacity:1;}
+#chat .mes[is_user="true"] .mesAvatarWrapper > .avatar {
+ left:auto;right:calc(-8 * var(--gs-u));width:calc(220 * var(--gs-u))!important;
+ height:auto!important;aspect-ratio:10/11;transform:none!important;
+}
+#chat .mes[is_user="true"] .mesAvatarWrapper > .avatar::after {background-image:var(--gs-user-avatar);}
+#chat .mes[is_user="true"] .mesAvatarWrapper > .avatar img {
+ left:8%;top:7%;width:62%!important;height:84%!important;transform:none!important;
+}
+/* 保留每个原生按钮的事件及意义，只替换线条图标。 */
+#chat .mes .mes_buttons > .mes_button {
+ position:relative;border:1px solid #faffff!important;
+ background-color:#f5f8fa28!important;
+ box-shadow:0 0 0 1px #73838e66,inset 0 0 0 2px #fff7,0 2px 3px #46586522!important;
+}
+#chat .mes .mes_buttons > .mes_button:is(.extraMesButtonsHint,.mes_bookmark,.mes_edit)::before {
+ content:''!important;position:absolute;inset:22%;background-position:center;background-size:contain;background-repeat:no-repeat;
+}
+#chat .mes .extraMesButtonsHint::before {background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/matched/more.svg');}
+#chat .mes .mes_bookmark::before {background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/matched/bookmark.svg');}
+#chat .mes .mes_edit::before {background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/matched/edit.svg');}
+#chat .mes .mes_buttons > .extraMesButtonsHint {order:10;}
+#send_but,#options_button {position:relative;flex-shrink:0;}
+#send_but {width:calc(82 * var(--gs-u));min-width:30px;height:calc(82 * var(--gs-u));min-height:30px;}
+#send_but::before {content:''!important;position:absolute;inset:20%;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/matched/send.svg') center/contain no-repeat;}
+#options_button {width:calc(58 * var(--gs-u));min-width:28px;height:calc(58 * var(--gs-u));min-height:28px;border-radius:50%;border:1px solid #faffff;box-shadow:0 0 0 1px #72808b55,inset 0 0 0 2px #ffffff60;background:#f4f8fa25;}
+#options_button::before {content:''!important;position:absolute;inset:22%;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/matched/plus.svg') center/contain no-repeat;}
+#chat .mes .mes_reasoning_details {background-size:100% 100%;}
+#top-settings-holder {z-index:11;}
+@media(prefers-reduced-transparency:reduce){#chat .mes{background-color:#f1f5f8!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;}}

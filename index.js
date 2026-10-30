@@ -138,3 +138,7 @@ new MutationObserver(records=>{
  if(!needsSync)return;if(timer)return;timer=setTimeout(()=>{timer=null;mountEntries();installQr();sync();},250);
 }).observe(document.documentElement,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['src','style','class','data-art']});
 mountEntries();installQr();sync();
+
+// Opt-in illustrated editorial layouts; inactive under all existing themes.
+void import('./editorial-layout.js').catch(error => console.warn('[花信布局]', error));
+

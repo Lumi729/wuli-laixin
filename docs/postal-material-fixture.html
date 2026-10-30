@@ -1,0 +1,33 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>云端邮局 · 布局验证样例</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fbfcff;font-family:serif;color:#383f48}
+#top-bar{position:relative;height:38px}#top-settings-holder{display:flex;height:100%;align-items:center;justify-content:space-around}
+.drawer{display:flex}.drawer-toggle{display:flex}.drawer-icon{display:block}
+#sheld{width:100%}#chat{display:flex;flex-direction:column;width:100%}
+.avatar{background:#f3f8fe;display:flex;align-items:center;justify-content:center;color:#4c617d}
+.avatar span{font-size:14px}.ch_name .flex1{display:flex}.mes_buttons{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px}
+.mes_button{border:0;background:transparent;color:#728394;cursor:pointer}.extraMesButtons{display:none}
+.mes_text{font-size:16px}#send_form{display:flex;gap:10px;align-items:center;min-height:54px}
+#send_form i{display:block;width:28px;height:28px;flex:none}#send_textarea{width:100%;min-width:0;border:0;resize:none;font:16px serif}
+</style><link rel="stylesheet" href="../theme/postal-material.css">
+<div id="top-bar"><div id="top-settings-holder">
+<div class="drawer"><div class="drawer-toggle"><i id="leftNavDrawerIcon" class="drawer-icon"></i></div></div>
+<div class="drawer"><div class="drawer-toggle"><i id="API-status-top" class="drawer-icon"></i></div></div>
+<div id="advanced-formatting-button" class="drawer"><div class="drawer-toggle"><i class="drawer-icon"></i></div></div>
+<div class="drawer"><div class="drawer-toggle"><i id="WIDrawerIcon" class="drawer-icon"></i></div></div>
+<div id="user-settings-button" class="drawer"><div class="drawer-toggle"><i class="drawer-icon"></i></div></div>
+<div id="backgrounds-button" class="drawer"><div class="drawer-toggle"><i class="drawer-icon"></i></div></div>
+<div id="extensions-settings-button" class="drawer"><div class="drawer-toggle"><i class="drawer-icon"></i></div></div>
+<div id="persona-management-button" class="drawer"><div class="drawer-toggle"><i class="drawer-icon"></i></div></div>
+<div class="drawer"><div class="drawer-toggle"><i id="rightNavDrawerIcon" class="drawer-icon"></i></div></div>
+</div></div>
+<main id="sheld"><div id="chat"><article class="mes" is_user="false">
+<div class="mesAvatarWrapper"><div class="avatar"><span>16:9 · 头像区域</span></div><span class="mesIDDisplay">#12</span><span class="mes_timer">604.1s</span><span class="tokenCounterDisplay">37953t</span></div>
+<div class="mes_block"><div class="ch_name"><div class="flex1"><div class="alignItemsBaseline"><span class="name_text">裴识渊</span></div></div>
+<div class="mes_buttons"><button class="mes_button" title="更多">•••</button><button class="mes_button">♫</button><button class="mes_button">♡</button><button class="mes_button">✎</button><button class="mes_button">▱</button><button class="mes_button">▥</button><div class="extraMesButtons"><button class="mes_button">↶</button><button class="mes_button">↷</button></div></div></div>
+<div class="mes_text"><p>夜色沿着屋檐慢慢落下。</p><p>他将那封信放在你掌心，<br>纸页还带着淡淡的花香。</p><p>「若你愿意，明夜仍在这里等我。」</p></div></div></article></div></main>
+<form id="send_form"><i id="options_button"></i><i id="extensionsMenuButton"></i><textarea id="send_textarea" placeholder="写下你的回信…"></textarea><i id="send_but"></i></form>
+<script>document.querySelector('.mes_button').onclick=()=>{const x=document.querySelector('.extraMesButtons');x.style.display=x.style.display==='flex'?'none':'flex';};</script>
+</html>

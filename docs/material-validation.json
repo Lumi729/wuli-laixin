@@ -1,0 +1,66 @@
+[
+  {
+    "theme": "ocean",
+    "width": 390,
+    "avatarRatio": 1.7778891115564461,
+    "missing": [],
+    "expandedButtons": true,
+    "longMessages": true
+  },
+  {
+    "theme": "ocean",
+    "width": 800,
+    "avatarRatio": 1.77779577293708,
+    "missing": [],
+    "expandedButtons": true,
+    "longMessages": true
+  },
+  {
+    "theme": "rabbit",
+    "width": 390,
+    "avatarRatio": 1.7778891115564461,
+    "missing": [],
+    "expandedButtons": true,
+    "longMessages": true
+  },
+  {
+    "theme": "rabbit",
+    "width": 800,
+    "avatarRatio": 1.77779577293708,
+    "missing": [],
+    "expandedButtons": true,
+    "longMessages": true
+  },
+  {
+    "theme": "rain",
+    "width": 390,
+    "avatarRatio": 1.7778891115564461,
+    "missing": [],
+    "expandedButtons": true,
+    "longMessages": true
+  },
+  {
+    "theme": "rain",
+    "width": 800,
+    "avatarRatio": 1.77779577293708,
+    "missing": [],
+    "expandedButtons": true,
+    "longMessages": true
+  },
+  {
+    "theme": "postal",
+    "width": 390,
+    "avatarRatio": 1.7778891115564461,
+    "missing": [],
+    "expandedButtons": true,
+    "longMessages": true
+  },
+  {
+    "theme": "postal",
+    "width": 800,
+    "avatarRatio": 1.77779577293708,
+    "missing": [],
+    "expandedButtons": true,
+    "longMessages": true
+  }
+]

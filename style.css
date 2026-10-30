@@ -121,3 +121,12 @@
 #lfd-root[data-theme=lily] .lfd-frame-center img{left:-299px}
 
 #lfd-root[data-theme=mist]{--lfd-paper:#f7fbff;--lfd-ink:#414b5b}
+
+/* Honeydew artwork keeps its 3:1 ratio; only the plain rail bridge grows. */
+#lfd-root[data-theme=honeydew]{--lfd-paper:#fbfdf7;--lfd-ink:#526148}
+#lfd-root[data-theme=honeydew] .lfd-frame img{width:414px!important;height:138px!important;top:26px}
+#lfd-root[data-theme=honeydew] .lfd-frame-bridge img{left:-207px}
+#lfd-root[data-theme=honeydew] .lfd-tray{padding-top:calc(67px * var(--lfd-frame-scale));padding-bottom:calc(65px * var(--lfd-frame-scale))}
+#lfd-root[data-theme=honeydew] .lfd-row{height:calc(52px * var(--lfd-frame-scale))}
+#lfd-root[data-theme=honeydew] .lfd-item{--lfd-fit-icon:min(var(--lfd-item-size),max(8px,calc(52px * var(--lfd-frame-scale) - var(--lfd-label-space) - 4px)))}
+#lfd-root[data-theme=honeydew] .lfd-tray::after{inset:calc(65px * var(--lfd-frame-scale)) calc(28px * var(--lfd-frame-scale)) calc(64px * var(--lfd-frame-scale))}

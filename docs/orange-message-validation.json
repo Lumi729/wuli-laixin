@@ -1,0 +1,126 @@
+[
+  {
+    "navBottom": 146.234375,
+    "chatTop": 136.25,
+    "noHorizontal": true,
+    "inputVisible": true,
+    "noAdapter": true,
+    "icons": [
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      }
+    ],
+    "settingsClick": true,
+    "sendHit": true,
+    "long": true,
+    "end": true,
+    "textWidth": 349.21875,
+    "chatWidth": 388,
+    "theme": "Orange-Soda",
+    "width": 390
+  },
+  {
+    "navBottom": 384,
+    "chatTop": 374,
+    "noHorizontal": true,
+    "inputVisible": true,
+    "noAdapter": true,
+    "icons": [
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      }
+    ],
+    "settingsClick": true,
+    "sendHit": true,
+    "long": true,
+    "end": true,
+    "textWidth": 921.625,
+    "chatWidth": 1024,
+    "theme": "Orange-Soda",
+    "width": 1024
+  }
+]

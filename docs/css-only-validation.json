@@ -1,0 +1,242 @@
+[
+  {
+    "navBottom": 146.234375,
+    "chatTop": 136.25,
+    "noHorizontal": true,
+    "inputVisible": true,
+    "noAdapter": true,
+    "icons": [
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      }
+    ],
+    "settingsClick": true,
+    "sendHit": true,
+    "long": true,
+    "end": true,
+    "theme": "Orange-Soda",
+    "width": 390
+  },
+  {
+    "navBottom": 384,
+    "chatTop": 374,
+    "noHorizontal": true,
+    "inputVisible": true,
+    "noAdapter": true,
+    "icons": [
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      }
+    ],
+    "settingsClick": true,
+    "sendHit": true,
+    "long": true,
+    "end": true,
+    "theme": "Orange-Soda",
+    "width": 1024
+  },
+  {
+    "navBottom": 86.4375,
+    "chatTop": 114.15625,
+    "noHorizontal": true,
+    "inputVisible": true,
+    "noAdapter": true,
+    "icons": [
+      {
+        "w": 21.328125,
+        "h": 21.328125,
+        "display": "flex"
+      },
+      {
+        "w": 21.328125,
+        "h": 21.328125,
+        "display": "flex"
+      },
+      {
+        "w": 21.328125,
+        "h": 21.328125,
+        "display": "flex"
+      },
+      {
+        "w": 21.328125,
+        "h": 21.328125,
+        "display": "flex"
+      },
+      {
+        "w": 21.328125,
+        "h": 21.328125,
+        "display": "flex"
+      },
+      {
+        "w": 21.328125,
+        "h": 21.328125,
+        "display": "flex"
+      },
+      {
+        "w": 21.328125,
+        "h": 21.328125,
+        "display": "flex"
+      },
+      {
+        "w": 21.328125,
+        "h": 21.328125,
+        "display": "flex"
+      },
+      {
+        "w": 21.328125,
+        "h": 21.328125,
+        "display": "flex"
+      }
+    ],
+    "settingsClick": true,
+    "sendHit": true,
+    "long": true,
+    "end": true,
+    "theme": "Night-Log",
+    "width": 390
+  },
+  {
+    "navBottom": 227,
+    "chatTop": 316,
+    "noHorizontal": true,
+    "inputVisible": true,
+    "noAdapter": true,
+    "icons": [
+      {
+        "w": 56,
+        "h": 56,
+        "display": "flex"
+      },
+      {
+        "w": 56,
+        "h": 56,
+        "display": "flex"
+      },
+      {
+        "w": 56,
+        "h": 56,
+        "display": "flex"
+      },
+      {
+        "w": 56,
+        "h": 56,
+        "display": "flex"
+      },
+      {
+        "w": 56,
+        "h": 56,
+        "display": "flex"
+      },
+      {
+        "w": 56,
+        "h": 56,
+        "display": "flex"
+      },
+      {
+        "w": 56,
+        "h": 56,
+        "display": "flex"
+      },
+      {
+        "w": 56,
+        "h": 56,
+        "display": "flex"
+      },
+      {
+        "w": 56,
+        "h": 56,
+        "display": "flex"
+      }
+    ],
+    "settingsClick": true,
+    "sendHit": true,
+    "long": true,
+    "end": true,
+    "theme": "Night-Log",
+    "width": 1024
+  }
+]

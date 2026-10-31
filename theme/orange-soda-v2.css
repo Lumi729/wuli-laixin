@@ -435,6 +435,43 @@
 /* 输入框：去掉「代写」和「继续」两个按钮 */
 #send_form #mes_impersonate,#send_form #mes_continue{display:none!important}
 
+
+/* ================= 第五版 ================= */
+/* 角色卡不用浮动了：工具条固定压在纸左边，思绪标签单独一行靠右。正文上面不会再空一块 */
+#chat .mes[is_user="false"]>.mes_block{display:flex!important;flex-direction:column!important;min-height:calc(var(--os-u)*232)!important}
+#chat .mes[is_user="false"]>.mes_block>.ch_name>.flex1{order:0}
+#chat .mes[is_user="false"] .mes_edit_buttons{order:1}
+#chat .mes[is_user="false"]>.mes_block>.mes_reasoning_details{order:2}
+#chat .mes[is_user="false"]>.mes_block>.mes_text{order:3}
+#chat .mes[is_user="false"]>.mes_block>.mes_media_wrapper{order:4}
+#chat .mes[is_user="false"]>.mes_block>.mes_file_wrapper{order:5}
+#chat .mes[is_user="false"]>.mes_block>.mes_bias{order:6}
+#chat .mes[is_user="false"] .mes_buttons{position:absolute!important;left:calc(var(--os-u)*-32)!important;top:calc(var(--os-u)*54)!important;float:none!important;margin:0!important}
+#chat .mes[is_user="false"] .mes_reasoning_details{float:none!important;align-self:flex-end;max-width:100%!important;margin:0 calc(var(--os-u)*-20) calc(var(--os-u)*8) 0!important}
+#chat .mes[is_user="false"] .mes_reasoning_details[open]{align-self:stretch;margin:0 0 calc(var(--os-u)*10)!important}
+#chat .mes[is_user="false"]>.mes_block:has(> .mes_reasoning_details[open])>.mes_reasoning_details{order:7}
+
+/* 用户消息：铺满一行，头像在纸卡右上角里面，猫咪书堆压在左下角 */
+#chat .mes[is_user="true"]>.mes_block{margin:0 calc(var(--os-u)*4)!important;padding:calc(var(--os-u)*6) calc(var(--os-u)*12) calc(var(--os-u)*40)!important}
+#chat .mes[is_user="true"]>.mesAvatarWrapper{right:calc(var(--os-u)*26)!important;top:calc(var(--os-u)*32)!important;width:calc(var(--os-u)*44)!important;height:calc(var(--os-u)*44)!important}
+#chat .mes[is_user="true"] .ch_name>.flex1{min-height:calc(var(--os-u)*44);align-items:center;padding-right:calc(var(--os-u)*50)}
+#chat .mes[is_user="true"]::before{left:calc(var(--os-u)*-2)!important;bottom:calc(var(--os-u)*30)!important;width:calc(var(--os-u)*86)!important;height:calc(var(--os-u)*62)!important}
+#chat .mes[is_user="true"]>.mes_block::before{left:calc(var(--os-u)*-6)!important}
+#chat .mes[is_user="true"] .mes_buttons{padding-left:calc(var(--os-u)*70)!important}
+
+/* 输入框：笔袋铺满左右，边更窄，输入区更宽 */
+#form_sheld #send_form{
+ margin:0 0 calc(var(--os-u)*4)!important;min-height:calc(var(--os-u)*62)!important;
+ border-width:calc(var(--os-u)*12) calc(var(--os-u)*22) calc(var(--os-u)*12) calc(var(--os-u)*28)!important;
+ border-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/orange-soda-v2/pencil-case.webp') 40 120 40 140 fill / calc(var(--os-u)*12) calc(var(--os-u)*22) calc(var(--os-u)*12) calc(var(--os-u)*28) stretch!important;
+}
+#send_textarea{min-height:calc(var(--os-u)*38)!important;padding:calc(var(--os-u)*7) calc(var(--os-u)*12)!important}
+/* 发送键小一点；生成中只显示停止键，不再同时出现发送 */
+#rightSendForm>#send_but{width:calc(var(--os-u)*34)!important;height:calc(var(--os-u)*34)!important;font-size:calc(var(--os-u)*14)!important;margin-left:calc(var(--os-u)*2)!important}
+body:is([data-generating="true"],[data-swiping="true"]) #rightSendForm>#send_but{display:none!important}
+#rightSendForm>#mes_stop{width:calc(var(--os-u)*34)!important;height:calc(var(--os-u)*34)!important;font-size:calc(var(--os-u)*26)!important;display:none;align-items:center;justify-content:center;opacity:1!important}
+body[data-generating="true"] #rightSendForm>#mes_stop{display:flex!important}
+
 /* 所有界面隐藏滚动条，不留宽度，照样能滑；禁止下拉刷新整页 */
 html,body,*{scrollbar-width:none!important;scrollbar-gutter:auto!important}
 ::-webkit-scrollbar,*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}

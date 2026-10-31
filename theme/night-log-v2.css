@@ -339,6 +339,10 @@
 /* 面板颜色 */
 .fillLeft,.fillRight,.drawer-content{background-color:#f3eee4!important;color:var(--nl-ink)!important;backdrop-filter:none!important}
 
+/* 图片不被压扁：写了宽高的图片在变窄时按原比例缩小 */
+#chat .mes :is(.mes_text,.mes_reasoning) img[height],#chat .mes :is(.mes_text,.mes_reasoning) img[width]{height:auto!important;max-width:100%!important}
+#chat .mes :is(.mes_text,.mes_reasoning) :is(img,video,canvas){max-width:100%!important}
+#chat .mes .mes_img{height:auto!important;width:auto!important;max-width:100%!important;object-fit:contain!important}
 /* 所有界面隐藏滚动条；禁止下拉刷新 */
 html,body,*{scrollbar-width:none!important;scrollbar-gutter:auto!important}
 ::-webkit-scrollbar,*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
@@ -378,7 +382,8 @@ html,body{overscroll-behavior:none!important}
  #top-settings-holder{left:var(--nl-side)!important;width:calc(100vw - var(--nl-side))!important;position:fixed!important;top:0!important;padding:calc(var(--nl-u)*80) calc(var(--nl-u)*10) 0!important}
  #top-settings-holder .drawer-icon{width:calc(var(--nl-u)*40)!important;height:calc(var(--nl-u)*40)!important}
  #top-settings-holder .drawer-toggle::after{font-size:calc(var(--nl-u)*11)}
- .fillLeft,.fillRight{position:fixed!important;top:var(--topBarBlockSize)!important;height:calc(100dvh - var(--topBarBlockSize))!important;max-height:calc(100dvh - var(--topBarBlockSize))!important}
+ .fillLeft,.fillRight{top:var(--topBarBlockSize)!important;max-height:calc(100dvh - var(--topBarBlockSize))!important}
+ .fillLeft.openDrawer,.fillRight.openDrawer{position:fixed!important;height:calc(100dvh - var(--topBarBlockSize))!important}
  #top-settings-holder .drawer-content{left:var(--nl-side)!important;width:calc(100vw - var(--nl-side))!important;max-width:none!important}
 
  /* 左边档案栏 = 最新一条角色消息 */

@@ -398,6 +398,28 @@
 #chat .mes[is_user="false"] .mes_reasoning{width:100%!important;height:auto!important;min-height:calc(var(--os-u)*170);max-height:calc(var(--os-u)*260);padding:calc(var(--os-u)*40) calc(var(--os-u)*16) calc(var(--os-u)*40) calc(var(--os-u)*26)!important;font-size:calc(var(--os-u)*12)!important}
 #chat .mes[is_user="false"] .mes_text{display:block}
 
+
+/* 思绪展开时：便签从右边挪到正文下面，整行宽；收起时还是挂在右边 */
+#chat .mes[is_user="false"]>.mes_block:has(> .mes_reasoning_details[open]){display:flex!important;flex-direction:column!important}
+#chat .mes[is_user="false"]>.mes_block:has(> .mes_reasoning_details[open])>.ch_name>.flex1{order:0}
+#chat .mes[is_user="false"]>.mes_block:has(> .mes_reasoning_details[open]) .mes_edit_buttons{order:1}
+#chat .mes[is_user="false"]>.mes_block:has(> .mes_reasoning_details[open])>.mes_text{order:2}
+#chat .mes[is_user="false"]>.mes_block:has(> .mes_reasoning_details[open])>.mes_reasoning_details{order:3}
+#chat .mes[is_user="false"]>.mes_block:has(> .mes_reasoning_details[open])>.mes_media_wrapper{order:4}
+#chat .mes[is_user="false"]>.mes_block:has(> .mes_reasoning_details[open])>.mes_file_wrapper{order:5}
+#chat .mes[is_user="false"]>.mes_block:has(> .mes_reasoning_details[open])>.mes_bias{order:6}
+#chat .mes[is_user="false"]>.mes_block:has(> .mes_reasoning_details[open]) .mes_buttons{position:absolute!important;left:calc(var(--os-u)*-32)!important;top:calc(var(--os-u)*52)!important;float:none!important;margin:0!important}
+#chat .mes[is_user="false"] .mes_reasoning_details[open]{
+ float:none!important;width:auto!important;max-width:none!important;margin:calc(var(--os-u)*12) 0 calc(var(--os-u)*2)!important;
+}
+#chat .mes[is_user="false"] .mes_reasoning_details[open] .mes_reasoning{
+ min-height:calc(var(--os-u)*110)!important;max-height:calc(var(--os-u)*300)!important;margin-top:calc(var(--os-u)*6)!important;
+ background:none!important;border-style:solid!important;border-color:transparent!important;
+ border-width:calc(var(--os-u)*22) calc(var(--os-u)*36) calc(var(--os-u)*36) calc(var(--os-u)*14)!important;
+ border-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/orange-soda-v2/notepad.webp') 110 200 200 70 fill / calc(var(--os-u)*22) calc(var(--os-u)*36) calc(var(--os-u)*36) calc(var(--os-u)*14) stretch!important;
+ padding:calc(var(--os-u)*6) calc(var(--os-u)*6) calc(var(--os-u)*0) calc(var(--os-u)*14)!important;font-size:calc(var(--os-u)*13)!important;
+}
+
 /* ---- 用户消息：橙色纸卡，头像压在右边缘，猫咪书堆在左下角 ---- */
 #chat .mes[is_user="true"]>.mes_block{margin:0 calc(var(--os-u)*46) 0 calc(var(--os-u)*52)!important}
 #chat .mes[is_user="true"]>.mesAvatarWrapper{right:calc(var(--os-u)*14)!important;top:calc(var(--os-u)*34)!important;width:calc(var(--os-u)*54)!important;height:calc(var(--os-u)*54)!important}

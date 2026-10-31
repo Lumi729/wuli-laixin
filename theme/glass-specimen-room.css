@@ -53,7 +53,7 @@
 #chat .mes .extraMesButtons {flex-wrap:wrap;gap:10px;color:#526c7c;}
 #chat .mes .mes_edit_buttons {order:5;flex-wrap:wrap;}
 #chat .mes :is(.mes_edit_textarea,.reasoning_edit_textarea) {background:#f7fbfd;color:#344854;border:1px solid #b6cbd5;}
-#chat .mes[is_user="true"] {width:57.4%!important;margin:0 4.78% 0 auto!important;padding:calc(85 * var(--gs-u)) calc(235 * var(--gs-u)) calc(42 * var(--gs-u)) calc(54 * var(--gs-u))!important;min-height:calc(175 * var(--gs-u))!important;}
+#chat .mes[is_user="true"] {width:90.33%!important;margin:0 4.78% 0 auto!important;padding:calc(215 * var(--gs-u)) calc(54 * var(--gs-u)) calc(42 * var(--gs-u)) calc(54 * var(--gs-u))!important;min-height:calc(175 * var(--gs-u))!important;}
 #chat .mes[is_user="true"] .mesAvatarWrapper > .avatar {top:calc(-50 * var(--gs-u));left:auto;right:calc(-8 * var(--gs-u));width:calc(220 * var(--gs-u))!important;height:calc(245 * var(--gs-u))!important;transform:scaleX(-1);}
 #chat .mes[is_user="true"] .mesAvatarWrapper > .avatar img {transform:scaleX(-1);}
 #chat .mes[is_user="true"] .ch_name > .flex-container:first-child {top:0;left:auto;right:calc(212 * var(--gs-u));}

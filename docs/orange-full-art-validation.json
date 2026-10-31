@@ -1,0 +1,142 @@
+[
+  {
+    "navBottom": 146.234375,
+    "chatTop": 146.25,
+    "noHorizontal": true,
+    "inputVisible": true,
+    "noAdapter": true,
+    "icons": [
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      },
+      {
+        "w": 24.375,
+        "h": 24.375,
+        "display": "flex"
+      }
+    ],
+    "settingsClick": true,
+    "moreActions": true,
+    "sendHit": true,
+    "long": true,
+    "end": true,
+    "textWidth": 241.796875,
+    "chatWidth": 390,
+    "geometry": {
+      "top": 0,
+      "padding": "0px",
+      "margin": "0px",
+      "height": 844,
+      "border": "0px"
+    },
+    "theme": "Orange-Soda",
+    "width": 390
+  },
+  {
+    "navBottom": 384,
+    "chatTop": 384,
+    "noHorizontal": true,
+    "inputVisible": true,
+    "noAdapter": true,
+    "icons": [
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      },
+      {
+        "w": 64,
+        "h": 64,
+        "display": "flex"
+      }
+    ],
+    "settingsClick": true,
+    "moreActions": true,
+    "sendHit": true,
+    "long": true,
+    "end": true,
+    "textWidth": 634.875,
+    "chatWidth": 1024,
+    "geometry": {
+      "top": 0,
+      "padding": "0px",
+      "margin": "0px",
+      "height": 1536,
+      "border": "0px"
+    },
+    "theme": "Orange-Soda",
+    "width": 1024
+  }
+]

@@ -495,6 +495,17 @@ body[data-generating="true"] #rightSendForm>#mes_stop{display:flex!important}
 #chat .mes[is_user="true"]>.mes_block{border-width:calc(var(--os-u)*10)!important;border-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/orange-soda-v2/card-orange.webp') 40 fill / calc(var(--os-u)*10) stretch!important}
 #chat .mes[is_user="true"]>.mesAvatarWrapper{right:calc(var(--os-u)*22)!important;top:calc(var(--os-u)*28)!important}
 
+
+/* 第七版：头像再放大，边缘藏到花环底下，保证填满 */
+#chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"])))>.mesAvatarWrapper>.avatar{left:calc(var(--os-u)*16)!important;top:calc(var(--os-u)*8)!important;width:calc(var(--os-u)*98)!important;height:calc(var(--os-u)*98)!important}
+#chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"])))>.mesAvatarWrapper>.avatar img{box-shadow:none!important}
+#chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"])))>.mesAvatarWrapper>.avatar::after{width:calc(var(--os-u)*134)!important;height:calc(var(--os-u)*121)!important;transform:translate(calc(-50% - var(--os-u)*6.3),calc(-50% + var(--os-u)*3.8))!important}
+/* 扩展面板的标题字：浅橘色 */
+:is(#extensions_settings,#extensions_settings2) .inline-drawer-header,
+:is(#extensions_settings,#extensions_settings2) .inline-drawer-header :is(b,strong,span,div,i,.inline-drawer-icon){
+ color:#ffd2a1!important;-webkit-text-fill-color:#ffd2a1!important;text-shadow:0 1px 2px rgba(60,30,10,.55)!important;
+}
+
 /* 所有界面隐藏滚动条，不留宽度，照样能滑；禁止下拉刷新整页 */
 html,body,*{scrollbar-width:none!important;scrollbar-gutter:auto!important}
 ::-webkit-scrollbar,*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}

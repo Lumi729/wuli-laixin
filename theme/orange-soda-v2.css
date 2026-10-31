@@ -472,6 +472,29 @@ body:is([data-generating="true"],[data-swiping="true"]) #rightSendForm>#send_but
 #rightSendForm>#mes_stop{width:calc(var(--os-u)*34)!important;height:calc(var(--os-u)*34)!important;font-size:calc(var(--os-u)*26)!important;display:none;align-items:center;justify-content:center;opacity:1!important}
 body[data-generating="true"] #rightSendForm>#mes_stop{display:flex!important}
 
+
+/* ================= 第六版 ================= */
+/* 顶部头像填满花环中间的圆 */
+#chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"])))>.mesAvatarWrapper>.avatar{left:calc(var(--os-u)*20)!important;top:calc(var(--os-u)*11)!important;width:calc(var(--os-u)*84)!important;height:calc(var(--os-u)*84)!important}
+#chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"])))>.mesAvatarWrapper>.avatar::after{width:calc(var(--os-u)*124)!important;height:calc(var(--os-u)*112)!important;transform:translate(calc(-50% - var(--os-u)*5.8),calc(-50% + var(--os-u)*3.5))!important}
+
+/* 正文左右收窄留白 */
+#chat{padding-left:calc(var(--os-u)*4)!important;padding-right:calc(var(--os-u)*4)!important}
+#chat .mes[is_user="false"]>.mes_block{
+ margin:0 calc(var(--os-u)*4) 0 calc(var(--os-u)*16)!important;padding:calc(var(--os-u)*6) calc(var(--os-u)*12) calc(var(--os-u)*8) calc(var(--os-u)*6)!important;
+ border-width:calc(var(--os-u)*10)!important;border-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/orange-soda-v2/card-cream.webp') 40 fill / calc(var(--os-u)*10) stretch!important;
+}
+#chat .mes[is_user="false"] .mes_buttons{left:calc(var(--os-u)*-28)!important;top:calc(var(--os-u)*50)!important;width:calc(var(--os-u)*30)!important}
+#chat .mes[is_user="false"] :is(.mes_buttons .mes_button,.mes_buttons .extraMesButtons>div){font-size:calc(var(--os-u)*13)!important;padding:calc(var(--os-u)*3)!important}
+#chat .mes[is_user="false"]>.mesAvatarWrapper{left:calc(var(--os-u)*32)!important;top:calc(var(--os-u)*76)!important}
+#chat .mes[is_user="false"] .ch_name>.flex1{padding-left:calc(var(--os-u)*44)!important}
+/* 最新一条：名字一行，时间放到名字下面，不再叠在一起 */
+#chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"]))) .ch_name>.flex1{padding-left:0!important;padding-top:calc(var(--os-u)*24)!important;min-height:0!important}
+#chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"]))) .ch_name>.flex1 .timestamp{margin-left:0!important}
+#chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"])))::after{left:calc(var(--os-u)*32)!important;top:calc(var(--os-u)*78)!important;right:calc(var(--os-u)*30)!important}
+#chat .mes[is_user="true"]>.mes_block{border-width:calc(var(--os-u)*10)!important;border-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/orange-soda-v2/card-orange.webp') 40 fill / calc(var(--os-u)*10) stretch!important}
+#chat .mes[is_user="true"]>.mesAvatarWrapper{right:calc(var(--os-u)*22)!important;top:calc(var(--os-u)*28)!important}
+
 /* 所有界面隐藏滚动条，不留宽度，照样能滑；禁止下拉刷新整页 */
 html,body,*{scrollbar-width:none!important;scrollbar-gutter:auto!important}
 ::-webkit-scrollbar,*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}

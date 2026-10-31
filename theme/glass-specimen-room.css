@@ -17,7 +17,7 @@
 #bg2 {background-image:none!important;}
 #sheld {top:0!important;height:100dvh!important;max-height:100dvh!important;width:min(100%,941px)!important;max-width:941px!important;background:transparent!important;}
 #chat {min-height:0;max-height:none!important;flex:1;backdrop-filter:none!important;background:transparent!important;padding:calc(220 * var(--gs-u)) 0 0!important;overflow-x:hidden!important;}
-#chat .mes {position:relative;isolation:isolate;flex-shrink:0;box-sizing:border-box;width:90.33%!important;margin:calc(84 * var(--gs-u)) auto calc(66 * var(--gs-u))!important;padding:calc(284 * var(--gs-u)) calc(82 * var(--gs-u)) calc(70 * var(--gs-u))!important;min-height:0!important;height:auto!important;max-height:none!important;overflow:visible!important;border:0!important;border-radius:calc(36 * var(--gs-u)) calc(48 * var(--gs-u)) calc(68 * var(--gs-u)) calc(40 * var(--gs-u))!important;background:linear-gradient(112deg,#f7fbffdc,#edf2f5c9 48%,#f3f7fad6)!important;box-shadow:inset 0 0 0 2px #ffffff94,0 2px 12px #31445118!important;color:#252b30;backdrop-filter:none!important;font-family:'Noto Serif SC','Songti SC','SimSun',serif;}
+#chat .mes {position:relative;isolation:isolate;flex-shrink:0;box-sizing:border-box;width:90.33%!important;margin:calc(84 * var(--gs-u)) auto calc(66 * var(--gs-u))!important;padding:calc(284 * var(--gs-u)) calc(82 * var(--gs-u)) calc(70 * var(--gs-u))!important;min-height:0!important;height:auto!important;max-height:none!important;overflow:visible!important;border:0!important;border-radius:calc(36 * var(--gs-u)) calc(48 * var(--gs-u)) calc(68 * var(--gs-u)) calc(40 * var(--gs-u))!important;background:rgba(239,246,249,.44)!important;box-shadow:inset 0 0 0 2px #ffffff94,0 2px 12px #31445118!important;color:#252b30;backdrop-filter:none!important;font-family:'Noto Serif SC','Songti SC','SimSun',serif;}
 #chat .mes::after {content:'';position:absolute;inset:calc(-4 * var(--gs-u));border:calc(48 * var(--gs-u)) solid transparent;border-image:var(--gs-edge) 90 / calc(48 * var(--gs-u)) / 0 stretch;pointer-events:none;z-index:2;}
 #chat .mes::before {content:'';position:absolute;top:0;right:0;width:calc(185 * var(--gs-u));height:calc(700 * var(--gs-u));background:var(--gs-leaf) right top/100% 100% no-repeat;opacity:.76;mask-image:linear-gradient(#000 65%,transparent);pointer-events:none;z-index:-1;}
 #chat .mes > .mesAvatarWrapper {display:contents!important;}
@@ -65,9 +65,7 @@
 #chat .mes[is_system="true"] {padding-top:calc(160 * var(--gs-u))!important;}
 #top-bar {top:calc(35 * var(--gs-u))!important;width:min(94%,886px)!important;height:calc(86 * var(--gs-u))!important;left:50%!important;right:auto!important;margin:0!important;transform:translateX(-50%);border:0!important;background:var(--gs-top) center/100% 100% no-repeat!important;box-shadow:none!important;backdrop-filter:none!important;}
 #top-settings-holder {position:absolute!important;top:calc(35 * var(--gs-u))!important;left:50%!important;transform:translateX(-50%);width:min(94%,886px)!important;height:calc(86 * var(--gs-u))!important;padding:0 3%!important;gap:0;justify-content:space-between;background:transparent!important;}
-#top-settings-holder::after {content:'玻璃标本室';position:absolute;left:34%;width:32%;top:50%;transform:translateY(-50%);text-align:center;font-family:'Noto Serif SC','Songti SC',serif;font-size:calc(34 * var(--gs-u));letter-spacing:.15em;color:#252c33;pointer-events:none;}
 #top-settings-holder > .drawer {width:auto!important;min-width:0!important;flex:0 1 auto;}
-#top-settings-holder > .drawer:nth-child(5) {margin-left:34%;}
 #top-settings-holder .drawer-icon {font-size:calc(27 * var(--gs-u))!important;width:calc(38 * var(--gs-u))!important;min-width:0!important;background:transparent!important;color:#34434c!important;text-shadow:none!important;filter:none!important;opacity:1!important;}
 #send_form {position:relative;isolation:isolate;box-sizing:border-box;width:94%!important;min-height:calc(130 * var(--gs-u));margin:calc(20 * var(--gs-u)) auto calc(55 * var(--gs-u))!important;padding:calc(20 * var(--gs-u)) calc(32 * var(--gs-u))!important;gap:calc(22 * var(--gs-u));border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;}
 #send_form::before {content:'';position:absolute;left:0;right:0;bottom:0;height:calc(240 * var(--gs-u));background:var(--gs-input) center bottom/100% 100% no-repeat;z-index:-1;pointer-events:none;}
@@ -96,12 +94,12 @@
  --gs-user-panel:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/matched/user-panel.webp');
 }
 #chat .mes {
- background-color:rgba(239,244,248,.72)!important;
- background-image:var(--gs-frost),linear-gradient(112deg,#f8fcff77,#e9f0f433 48%,#f8fbfd66)!important;
+ background-color:rgba(239,246,249,.44)!important;
+ background-image:none!important;
  background-size:100% 100%,100% 100%!important;
- background-blend-mode:soft-light,normal;
- backdrop-filter:blur(7px) saturate(.65)!important;
- -webkit-backdrop-filter:blur(7px) saturate(.65)!important;
+ background-blend-mode:normal;
+ backdrop-filter:blur(18px) saturate(.8)!important;
+ -webkit-backdrop-filter:blur(18px) saturate(.8)!important;
 }
 #chat .mes .mesAvatarWrapper > .avatar {
  left:calc(7 * var(--gs-u));width:calc(324 * var(--gs-u))!important;
@@ -113,13 +111,13 @@
 }
 #chat .mes .mesAvatarWrapper > .avatar::after {background-size:contain;}
 #chat .mes[is_user="true"] {
- background:transparent!important;box-shadow:none!important;
- backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+ background:rgba(239,246,249,.44)!important;box-shadow:inset 0 0 0 1px #ffffff9c!important;
+ backdrop-filter:blur(18px) saturate(.8)!important;-webkit-backdrop-filter:blur(18px) saturate(.8)!important;
  border-radius:0!important;
 }
 #chat .mes[is_user="true"]::after {
  inset:0;border:calc(28 * var(--gs-u)) solid transparent;
- border-image:var(--gs-user-panel) 85 fill / calc(28 * var(--gs-u)) / 0 stretch;
+ border-image:var(--gs-user-panel) 85 / calc(28 * var(--gs-u)) / 0 stretch;
  z-index:-1;
 }
 #chat .mes[is_user="true"] .mesAvatarWrapper > .avatar {
@@ -149,5 +147,48 @@
 #options_button {width:calc(58 * var(--gs-u));min-width:28px;height:calc(58 * var(--gs-u));min-height:28px;border-radius:50%;border:1px solid #faffff;box-shadow:0 0 0 1px #72808b55,inset 0 0 0 2px #ffffff60;background:#f4f8fa25;}
 #options_button::before {content:''!important;position:absolute;inset:22%;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/glass-specimen-room/matched/plus.svg') center/contain no-repeat;}
 #chat .mes .mes_reasoning_details {background-size:100% 100%;}
-#top-settings-holder {z-index:11;}
+
 @media(prefers-reduced-transparency:reduce){#chat .mes{background-color:#f1f5f8!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;}}
+
+/* Readable interface surfaces; message cards retain real translucent blur. */
+:root {--SmartThemeBlurTintColor:rgba(239,246,249,.88);--blurStrength:16;}
+#top-bar {
+ z-index:3004!important;pointer-events:none!important;
+ height:max(48px,calc(86 * var(--gs-u)))!important;
+ background-color:rgba(239,246,249,.86)!important;
+ border-radius:14px!important;
+ backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
+}
+#top-settings-holder {
+ z-index:3006!important;pointer-events:auto!important;
+ height:max(48px,calc(86 * var(--gs-u)))!important;
+}
+#top-settings-holder::before,#top-settings-holder::after {content:none!important;pointer-events:none!important;}
+#top-settings-holder > .drawer {flex:1 1 0!important;margin-left:0!important;}
+#top-settings-holder .drawer-toggle {display:flex;align-items:center;justify-content:center;min-height:44px;width:100%;pointer-events:auto!important;}
+#top-settings-holder .drawer-icon {min-width:24px!important;min-height:28px;display:flex;align-items:center;justify-content:center;pointer-events:auto!important;}
+#send_form {
+ background:rgba(239,246,249,.82)!important;border-radius:16px!important;
+ backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
+ box-shadow:inset 0 0 0 1px #ffffffb8!important;
+}
+#send_form::before {opacity:1;pointer-events:none!important;}
+.welcomePanel {
+ background:rgba(239,246,249,.86)!important;border:1px solid #ffffffb8!important;
+ border-radius:16px;backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
+ color:#263640!important;
+}
+.welcomePanel :is(.recentChat,.menu_button) {background:rgba(255,255,255,.55)!important;color:#263640!important;}
+.drawer-content,.fillLeft,.fillRight,dialog,.popup {
+ background-color:rgba(239,246,249,.92)!important;color:#263640!important;
+ backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
+}
+
+/* Menus are independent readable surfaces; their controls keep native events. */
+.drawer-content :is(input,textarea,select),.popup :is(input,textarea,select) {
+ background-color:rgba(255,255,255,.82)!important;color:#263640!important;
+}
+#top-settings-holder .drawer-content {top:100%;max-width:100vw;}
+#send_form {background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;}
+#send_textarea {background:rgba(239,246,249,.38)!important;}
+#chat .mes .mesAvatarWrapper > .avatar img {box-shadow:none!important;}

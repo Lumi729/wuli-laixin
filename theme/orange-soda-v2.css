@@ -338,57 +338,71 @@
 #rightSendForm>#mes_stop{color:var(--os-orange)!important}
 
 
-/* ================= 第三版调整 ================= */
+/* ================= 第四版：照参考图摆放 ================= */
 /* 顶栏图标下面不放文字 */
 :root{--topBarBlockSize:calc(var(--os-head) + var(--os-u)*50)}
 #top-settings-holder .drawer-toggle::after{content:none!important;display:none!important}
 
-/* 顶部名字：最多两行，不再被省略；三个数字横排在名字下面，不会互相挡 */
+/* 顶部名字：最多两行毛笔字；三个数字横排在名字下面 */
 #chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"]))) .name_text{
  top:calc(var(--os-u)*14)!important;width:calc(100vw - var(--os-u)*236)!important;max-width:none!important;
  font-size:calc(var(--os-u)*26)!important;line-height:1.08!important;white-space:normal!important;word-break:break-all;
  display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden!important;text-overflow:clip!important;
 }
 #chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"]))) .name_text::after{content:none!important}
-#chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"]))) :is(.mesIDDisplay,.mes_timer,.tokenCounterDisplay){
- top:calc(var(--os-u)*80)!important;height:calc(var(--os-u)*18)!important;min-width:0!important;padding:0!important;
- font-size:calc(var(--os-u)*10.5)!important;line-height:calc(var(--os-u)*16)!important;
-}
+#chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"]))) :is(.mesIDDisplay,.mes_timer,.tokenCounterDisplay){top:calc(var(--os-u)*80)!important;height:calc(var(--os-u)*18)!important;min-width:0!important;padding:0!important;font-size:calc(var(--os-u)*10.5)!important;line-height:calc(var(--os-u)*16)!important}
 #chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"]))) .mesIDDisplay{left:calc(var(--os-u)*116)!important;width:calc(var(--os-u)*36)!important}
 #chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"]))) .mes_timer{left:calc(var(--os-u)*156)!important;width:calc(var(--os-u)*52)!important}
 #chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"]))) .tokenCounterDisplay{left:calc(var(--os-u)*212)!important;width:calc(var(--os-u)*56)!important}
 
-/* 角色消息：正文铺满整张纸，按钮挪到正文下面一行；去掉窗景 */
+/* ---- 角色消息：窗景在纸后面右上角露出来；工具条压在纸的左边缘；思绪便签压在右边缘，正文绕着排 ---- */
+#chat .mes[is_user="false"]{padding-top:calc(var(--os-u)*60)!important}
+#chat .mes[is_user="false"]::before{
+ content:"";position:absolute;right:calc(var(--os-u)*2);top:0;width:calc(var(--os-u)*96);height:calc(var(--os-u)*108);z-index:-1;pointer-events:none;
+ background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/orange-soda-v2/window.webp') center/contain no-repeat;transform:rotate(2deg);
+}
 #chat .mes[is_user="false"]>.mes_block{
- display:flex!important;flex-direction:column!important;min-height:0!important;
- margin:0 calc(var(--os-u)*2)!important;padding:calc(var(--os-u)*8) calc(var(--os-u)*12) calc(var(--os-u)*8)!important;
+ display:flow-root!important;position:relative!important;z-index:auto!important;min-height:calc(var(--os-u)*120)!important;
+ margin:0 calc(var(--os-u)*6) 0 calc(var(--os-u)*18)!important;padding:calc(var(--os-u)*6) calc(var(--os-u)*10) calc(var(--os-u)*8) calc(var(--os-u)*10)!important;
 }
-#chat .mes[is_user="false"] .ch_name>.flex1{order:0;padding-left:calc(var(--os-u)*46)!important}
-#chat .mes[is_user="false"]>.mesAvatarWrapper{left:calc(var(--os-u)*38)!important;top:calc(var(--os-u)*26)!important;width:calc(var(--os-u)*36)!important;height:calc(var(--os-u)*36)!important}
-#chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"]))) .ch_name>.flex1{min-height:0!important;padding-left:0!important;border-bottom:0!important;margin-bottom:calc(var(--os-u)*4)!important}
-#chat .mes .mes_edit_buttons{order:1}
-#chat .mes .mes_reasoning_details{order:3}
-#chat .mes .mes_text{order:2}
-#chat .mes .mes_media_wrapper{order:4}
-#chat .mes .mes_file_wrapper{order:5}
-#chat .mes .mes_bias{order:6}
 #chat .mes[is_user="false"] .mes_text::before{content:none!important;display:none!important}
-#chat .mes[is_user] .mes_buttons{
- order:9!important;position:static!important;inset:auto!important;transform:none!important;
- display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;justify-content:flex-end!important;align-items:center!important;
- width:auto!important;max-width:none!important;height:auto!important;gap:calc(var(--os-u)*2) calc(var(--os-u)*8)!important;
- margin:calc(var(--os-u)*8) 0 0!important;padding:calc(var(--os-u)*4) 0 0!important;border:0!important;border-image:none!important;
- border-top:1px dashed rgba(160,110,60,.3)!important;overflow:visible!important;
+/* 抬头一行：小头像、名字、数字、时间 */
+#chat .mes[is_user="false"]>.mesAvatarWrapper{left:calc(var(--os-u)*44)!important;top:calc(var(--os-u)*80)!important;width:calc(var(--os-u)*36)!important;height:calc(var(--os-u)*36)!important;z-index:2}
+#chat .mes[is_user="false"] .ch_name>.flex1{min-height:calc(var(--os-u)*42)!important;padding-left:calc(var(--os-u)*44)!important;margin-bottom:calc(var(--os-u)*8)!important}
+/* 最新一条的头像和数字在顶部，卡片里留名字 */
+#chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"]))) .ch_name>.flex1{padding-left:0!important}
+#chat>.mes[is_user="false"]:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"])))::after{
+ content:attr(ch_name)!important;display:block!important;position:absolute;left:calc(var(--os-u)*44);top:calc(var(--os-u)*84);right:calc(var(--os-u)*90);height:auto;z-index:2;pointer-events:none;
+ background:none!important;-webkit-mask:none!important;mask:none!important;
+ font:600 calc(var(--os-u)*15)/1.3 var(--os-serif);color:#3a2c20;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
-#chat .mes[is_user] .mes_buttons .extraMesButtons{flex-direction:row!important;flex-wrap:wrap!important;gap:calc(var(--os-u)*2) calc(var(--os-u)*8)!important;justify-content:flex-end}
+/* 分隔线挪到纸卡下面 */
+#chat .mes[is_user="false"]:not(:not([is_system="true"]):not(:has(~.mes[is_user="false"]:not([is_system="true"]))))::after{content:none!important}
+#chat .mes[is_user="false"]>.mes_block::after{
+ content:"";position:absolute;left:calc(var(--os-u)*10);right:calc(var(--os-u)*10);bottom:calc(var(--os-u)*-46);height:calc(var(--os-u)*20);pointer-events:none;
+ background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/orange-soda-v2/sticker-orange.webp') center/auto 100% no-repeat,radial-gradient(circle,#d8b98f 1.2px,transparent 1.6px) 0 50%/calc(var(--os-u)*9) calc(var(--os-u)*9) repeat-x;
+}
+#chat .mes.last_mes>.mes_block::after{display:none}
+/* 邮票工具条：浮在左边，压在纸边上，不占正文宽度 */
+#chat .mes[is_user="false"] .mes_buttons{
+ float:left!important;position:relative!important;z-index:2;
+ margin:0 calc(var(--os-u)*8) calc(var(--os-u)*6) calc(var(--os-u)*-42)!important;transform:rotate(-1.5deg)!important;
+}
+/* 思绪：薄荷便签浮在右边，压出纸边 */
+#chat .mes[is_user="false"] .mes_reasoning_details{
+ float:right!important;position:relative;z-index:2;clear:right;
+ margin:0 calc(var(--os-u)*-22) calc(var(--os-u)*8) calc(var(--os-u)*10)!important;max-width:58%;
+}
+#chat .mes[is_user="false"] .mes_reasoning_details[open]{width:calc(var(--os-u)*176)}
+#chat .mes[is_user="false"] .mes_reasoning_header{width:auto!important;padding-left:calc(var(--os-u)*12)!important;padding-right:calc(var(--os-u)*28)!important;font-size:calc(var(--os-u)*11.5)!important}
+#chat .mes[is_user="false"] .mes_reasoning{width:100%!important;height:auto!important;min-height:calc(var(--os-u)*170);max-height:calc(var(--os-u)*260);padding:calc(var(--os-u)*40) calc(var(--os-u)*16) calc(var(--os-u)*40) calc(var(--os-u)*26)!important;font-size:calc(var(--os-u)*12)!important}
+#chat .mes[is_user="false"] .mes_text{display:block}
 
-/* 用户消息：跟角色消息一样宽，头像放进纸卡右上角，去掉猫咪书堆 */
-#chat .mes[is_user="true"]{min-height:0!important}
-#chat .mes[is_user="true"]::before{content:none!important;display:none!important}
-#chat .mes[is_user="true"]>.mes_block{margin:0 calc(var(--os-u)*2)!important;padding:calc(var(--os-u)*6) calc(var(--os-u)*12) calc(var(--os-u)*8)!important}
-#chat .mes[is_user="true"]>.mesAvatarWrapper{right:calc(var(--os-u)*24)!important;top:calc(var(--os-u)*32)!important;width:calc(var(--os-u)*40)!important;height:calc(var(--os-u)*40)!important}
-#chat .mes[is_user="true"] .ch_name>.flex1{min-height:calc(var(--os-u)*40);align-items:center;padding-right:calc(var(--os-u)*48)}
-#chat .mes[is_user="true"]>.mes_block::before{left:calc(var(--os-u)*-4)!important}
+/* ---- 用户消息：橙色纸卡，头像压在右边缘，猫咪书堆在左下角 ---- */
+#chat .mes[is_user="true"]>.mes_block{margin:0 calc(var(--os-u)*46) 0 calc(var(--os-u)*52)!important}
+#chat .mes[is_user="true"]>.mesAvatarWrapper{right:calc(var(--os-u)*14)!important;top:calc(var(--os-u)*34)!important;width:calc(var(--os-u)*54)!important;height:calc(var(--os-u)*54)!important}
+#chat .mes[is_user="true"]::before{left:calc(var(--os-u)*-6)!important;bottom:calc(var(--os-u)*18)!important;width:calc(var(--os-u)*96)!important;height:calc(var(--os-u)*70)!important;z-index:2!important}
+#chat .mes[is_user="true"]>.mes_block{padding-bottom:calc(var(--os-u)*14)!important}
 
 /* 上一条 / 下一条 */
 #chat .mes>.swipe_left,#chat .mes>.swipeRightBlock>.swipe_right{width:auto!important;padding:0 calc(var(--os-u)*12)!important;gap:calc(var(--os-u)*4)}

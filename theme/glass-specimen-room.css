@@ -216,3 +216,16 @@
 #chat .mes[is_user="true"] .mes_timer {left:calc(33.333333% + 18 * var(--gs-u));}
 #chat .mes[is_user="true"] .tokenCounterDisplay {left:calc(66.666667% - 18 * var(--gs-u));}
 #chat .mes[is_user="true"] + .mes {margin-top:calc(146 * var(--gs-u))!important;}
+
+/* 用户消息显示原生计数，沿用角色消息的左侧排列；缺失数据仅显示占位。 */
+#chat .mes[is_user="true"] .mesAvatarWrapper > :is(.mesIDDisplay,.mes_timer,.tokenCounterDisplay) {
+ display:block!important;visibility:visible!important;opacity:.7!important;
+ position:absolute!important;z-index:3;
+ width:auto!important;max-width:none!important;min-width:0;
+ margin:0!important;padding:0!important;white-space:nowrap;
+ text-align:center;line-height:1.4;
+}
+#chat .mes[is_user="true"] .mesIDDisplay {left:calc(54 * var(--gs-u));}
+#chat .mes[is_user="true"] .mes_timer {left:calc(145 * var(--gs-u));}
+#chat .mes[is_user="true"] .tokenCounterDisplay {left:calc(220 * var(--gs-u));}
+#chat .mes[is_user="true"] .mesAvatarWrapper > :is(.mes_timer,.tokenCounterDisplay):empty::before {content:"—";}

@@ -68,7 +68,26 @@
 #top-settings-holder > .drawer {width:auto!important;min-width:0!important;flex:0 1 auto;}
 #top-settings-holder .drawer-icon {font-size:calc(27 * var(--gs-u))!important;width:calc(38 * var(--gs-u))!important;min-width:0!important;background:transparent!important;color:#34434c!important;text-shadow:none!important;filter:none!important;opacity:1!important;}
 #send_form {position:relative;isolation:isolate;box-sizing:border-box;width:94%!important;min-height:calc(130 * var(--gs-u));margin:calc(20 * var(--gs-u)) auto calc(55 * var(--gs-u))!important;padding:calc(20 * var(--gs-u)) calc(32 * var(--gs-u))!important;gap:calc(22 * var(--gs-u));border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;}
-#send_form::before {content:'';position:absolute;left:0;right:0;bottom:0;height:calc(240 * var(--gs-u));background:var(--gs-input) center bottom/100% 100% no-repeat;z-index:-1;pointer-events:none;}
+/* Nine-slice composer: preserve the leaf artwork in the top corners.
+   Only the glass centre and edge segments extend with the native textarea. */
+#send_form::before {
+  content:'';
+  position:absolute;
+  left:0;right:0;top:calc(-110 * var(--gs-u));bottom:0;
+  height:auto;
+  box-sizing:border-box;
+  min-height:calc(240 * var(--gs-u));
+  background:none;
+  border-style:solid;
+  border-color:transparent;
+  border-width:calc(220 * var(--gs-u)) calc(170 * var(--gs-u)) calc(20 * var(--gs-u)) calc(290 * var(--gs-u));
+  border-image-source:var(--gs-input);
+  border-image-slice:220 170 20 290 fill;
+  border-image-width:1;
+  border-image-repeat:stretch;
+  z-index:-1;
+  pointer-events:none;
+}
 #send_textarea {background:transparent!important;border:0!important;border-bottom:1px solid #66717c75!important;border-radius:0!important;color:#303d47!important;font-family:'Noto Serif SC','Songti SC',serif;font-size:calc(27 * var(--gs-u))!important;line-height:1.7;padding:calc(8 * var(--gs-u))!important;}
 #send_textarea::placeholder {color:#56636d;}
 #send_form :is(#send_but,#options_button,#extensionsMenuButton) {font-size:calc(38 * var(--gs-u))!important;color:#303e49!important;text-shadow:none!important;filter:none!important;}

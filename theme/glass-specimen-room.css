@@ -59,7 +59,7 @@
 #chat .mes[is_user="true"] .ch_name > .flex-container:first-child {top:0;left:auto;right:calc(212 * var(--gs-u));}
 #chat .mes[is_user="true"] .name_text {min-width:calc(106 * var(--gs-u));padding:calc(10 * var(--gs-u)) calc(27 * var(--gs-u));font-size:calc(28 * var(--gs-u))!important;}
 #chat .mes[is_user="true"]::before {display:none;}
-#chat .mes[is_user="true"] .mes_buttons {min-height:0;background:none!important;padding:0!important;margin-top:8px!important;gap:10px;}
+#chat .mes[is_user="true"] .mes_buttons {position:relative;inset:auto;width:100%;max-width:none;min-height:max(48px,calc(98 * var(--gs-u)));background:var(--gs-tray) center/100% 100% no-repeat!important;padding:max(10px,calc(18 * var(--gs-u))) max(16px,calc(42 * var(--gs-u)))!important;margin:calc(20 * var(--gs-u)) 0 0!important;gap:10px;opacity:1!important;}
 #chat .mes[is_user="true"] .mes_buttons > .mes_button {width:22px;height:22px;line-height:22px;font-size:12px!important;}
 #chat .mes[is_user="true"] .mesAvatarWrapper > :is(.mesIDDisplay,.mes_timer,.tokenCounterDisplay) {bottom:4px;font-size:10px!important;}
 #chat .mes[is_system="true"] {padding-top:calc(160 * var(--gs-u))!important;}
@@ -82,9 +82,6 @@
 #chat .mes .swipe_left {left:calc(20 * var(--gs-u));bottom:calc(24 * var(--gs-u));}
 #chat .mes .swipeRightBlock {position:absolute;right:calc(24 * var(--gs-u));bottom:calc(20 * var(--gs-u));}
 
-#chat .mes[is_user="true"] .mes_buttons {position:absolute;left:calc(54 * var(--gs-u));bottom:calc(8 * var(--gs-u));max-width:45%;opacity:0!important;}
-#chat .mes[is_user="true"]:is(:hover,:focus-within) .mes_buttons {opacity:1!important;}
-@media(hover:none){#chat .mes[is_user="true"] .mes_buttons{opacity:.65!important;}}
 
 /* 参考图校准：独立左右玻璃夹片、磨砂层和短回复框。 */
 :root {
@@ -192,3 +189,16 @@
 #send_form {background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;}
 #send_textarea {background:rgba(239,246,249,.38)!important;}
 #chat .mes .mesAvatarWrapper > .avatar img {box-shadow:none!important;}
+
+/* 用户卡片仅保留素材玻璃边框；磨砂填充收进玻璃边缘内。 */
+#chat .mes[is_user="true"] {
+ background:transparent!important;box-shadow:none!important;outline:none!important;
+ backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+#chat .mes[is_user="true"]::before {
+ content:'';display:block;position:absolute;inset:calc(14 * var(--gs-u));
+ width:auto;height:auto;border:0;border-radius:calc(16 * var(--gs-u));
+ background:rgba(239,246,249,.44);opacity:1;mask-image:none;-webkit-mask-image:none;
+ backdrop-filter:blur(18px) saturate(.8);-webkit-backdrop-filter:blur(18px) saturate(.8);
+ pointer-events:none;z-index:-1;
+}

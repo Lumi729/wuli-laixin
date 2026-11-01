@@ -1,0 +1,23 @@
+[
+  {
+    "width": 360,
+    "noOverflow": true,
+    "headerClear": true,
+    "menuWorks": true,
+    "longMessagePluginInside": true
+  },
+  {
+    "width": 390,
+    "noOverflow": true,
+    "headerClear": true,
+    "menuWorks": true,
+    "longMessagePluginInside": true
+  },
+  {
+    "width": 800,
+    "noOverflow": true,
+    "headerClear": true,
+    "menuWorks": true,
+    "longMessagePluginInside": true
+  }
+]

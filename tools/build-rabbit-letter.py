@@ -1,0 +1,78 @@
+from pathlib import Path
+import json,re,zipfile
+R=Path(__file__).resolve().parents[1];BASE='https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/';A=BASE+'assets/rabbit-letter/'
+css=r'''
+/* 月兔涂鸦：独立外链素材，文字及操作保留原生交互。 */
+:root{--rabbit-ink:#684477;--rabbit-paper:#fdfbfe;}
+html,body,body *{scrollbar-width:none!important;scrollbar-gutter:auto!important;}
+html::-webkit-scrollbar,body::-webkit-scrollbar,body *::-webkit-scrollbar{display:none!important;width:0!important;height:0!important;}
+#sheld,#chat{box-sizing:border-box!important;background:var(--rabbit-paper) url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/poetic-v3/rabbit/paper-grain.webp') center/326px auto repeat!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;}
+#sheld{width:100%!important;max-width:100%!important;margin-inline:0!important;left:0!important;right:0!important;}
+#chat{padding:0!important;gap:0!important;}
+#chat .mes{position:relative!important;isolation:isolate;box-sizing:border-box!important;display:grid!important;grid-template-columns:minmax(0,57%) minmax(0,43%);gap:0!important;width:100%!important;max-width:900px!important;min-width:0!important;margin:0 auto!important;padding:8px 10px clamp(100px,28vw,210px)!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:var(--rabbit-ink)!important;}
+#chat .mes>.mes_block{display:contents!important;}
+#chat .mes::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:url('ARTedge.webp') left top/16px auto repeat-y,url('ARTedge.webp') right top/16px auto repeat-y;opacity:.8;}
+#chat .mes::after{content:'';position:absolute;left:0;right:0;bottom:0;height:clamp(100px,28vw,210px);z-index:-1;pointer-events:none;background:url('ARTfooter.webp') center bottom/100% auto no-repeat;}
+#chat .mes .mesAvatarWrapper{grid-column:1;grid-row:1;box-sizing:border-box;position:relative!important;display:flex!important;flex-wrap:wrap!important;justify-content:space-evenly!important;align-content:start!important;gap:0!important;width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0!important;}
+#chat .mes .avatar{position:relative!important;box-sizing:border-box;flex:0 0 100%;width:100%!important;height:auto!important;max-width:none!important;aspect-ratio:4/5;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;}
+#chat .mes .avatar img{display:block;width:100%!important;height:100%!important;object-fit:cover;clip-path:ellipse(39% 41% at 50% 48%);border:0!important;border-radius:0!important;box-shadow:none!important;}
+#chat .mes .avatar::after{content:'';position:absolute;inset:0;pointer-events:none;background:url('ARTportrait.webp') center/contain no-repeat;}
+#chat .mes :is(.mesIDDisplay,.mes_timer,.tokenCounterDisplay){position:static!important;width:auto!important;margin:0!important;padding:0!important;font-size:9px!important;line-height:20px!important;color:#82618f!important;}
+#chat .mes .ch_name{grid-column:2;grid-row:1;position:relative!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:stretch!important;align-self:stretch!important;gap:14px!important;width:100%!important;min-width:0!important;margin:0!important;padding:20px 0 12px!important;background:none!important;}
+#chat .mes .ch_name>.flex1{position:relative;box-sizing:border-box;display:flex!important;flex:none!important;align-items:center!important;justify-content:center!important;min-width:0!important;min-height:76px!important;padding:18px 15px!important;margin:0!important;background:url('ARTname.webp') center/contain no-repeat;text-align:center!important;}
+#chat .mes .name_text{display:block!important;color:#684477!important;font-size:clamp(21px,6vw,34px)!important;font-weight:400!important;line-height:1.4!important;overflow-wrap:anywhere;text-wrap:balance;}
+#chat .mes .timestamp{font-size:9px!important;color:#9e86ab;}
+#chat .mes .mes_buttons{position:relative!important;box-sizing:border-box;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center!important;align-content:center!important;justify-items:center;gap:4px 8px!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:72px!important;padding:8px!important;margin:0!important;background:url('ARTactions.webp') center/100% auto no-repeat!important;border:0!important;box-shadow:none!important;opacity:1!important;overflow:visible!important;}
+#chat .mes .mes_buttons>:not(.extraMesButtons){box-sizing:border-box;flex:0 0 28px!important;width:28px!important;height:28px!important;min-width:28px!important;min-height:28px!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:var(--rabbit-action,url('ARTicon-6.webp')) center/contain no-repeat!important;color:transparent!important;font-size:0!important;text-shadow:none!important;filter:none!important;opacity:1!important;}
+#chat .mes .mes_buttons>:not(.extraMesButtons)::before,#chat .mes .mes_buttons>:not(.extraMesButtons)::after{opacity:0!important;}
+#chat .mes .mes_buttons>:not(.extraMesButtons)>:is(i,span,img,svg){visibility:hidden!important;}
+#chat .mes .extraMesButtons{position:absolute!important;right:0!important;top:100%!important;z-index:30;box-sizing:border-box;width:170px!important;max-width:min(170px,80vw)!important;flex-wrap:wrap;justify-content:center;gap:8px!important;padding:10px!important;background:#fffafd!important;border:1px solid #d4bcdf!important;border-radius:8px;box-shadow:0 3px 12px #68447718;}
+#chat .mes .extraMesButtons>.mes_button{font-size:18px!important;color:#85639b!important;min-width:28px;min-height:28px;background:none!important;}
+#chat .mes .mes_edit_buttons{grid-column:1/-1;min-width:0;}
+#chat .mes .mes_text{grid-column:1/-1;position:relative;box-sizing:border-box;width:100%!important;max-width:100%!important;min-width:0!important;min-height:0!important;margin:0!important;padding:22px 10px 16px!important;border:0!important;background:none!important;color:var(--rabbit-ink)!important;line-height:1.9!important;font-size:clamp(18px,4.8vw,22px)!important;overflow-wrap:anywhere;}
+#chat .mes .mes_text p{margin:.4em 0 .9em;padding-inline:0!important;}
+#chat .mes .mes_text :is(img,video){max-width:100%;height:auto;}
+#chat .mes .mes_text :is(pre,table){max-width:100%;overflow-x:auto;}
+#chat .mes>.mes_block>:not(.ch_name):not(.mes_text){grid-column:1/-1;min-width:0;max-width:100%;box-sizing:border-box;}
+#chat .mes>.swipeRightBlock,#chat .mes>.swipe_right{position:absolute!important;right:14px!important;bottom:6px!important;z-index:2;}
+#chat .mes>.swipe_left{position:absolute!important;left:14px!important;bottom:6px!important;z-index:2;}
+#chat .mes>.for_checkbox{position:absolute;top:4px;left:4px;z-index:6;}
+/* Compact user reply, matching the approved continuation on the same paper. */
+#chat .mes[is_user="true"]{grid-template-columns:minmax(0,1fr);padding-top:2px!important;padding-bottom:35px!important;}
+#chat .mes[is_user="true"] .mesAvatarWrapper{display:none!important;}
+#chat .mes[is_user="true"] .ch_name{grid-column:1;grid-row:auto;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;gap:8px!important;padding:0 12px!important;}
+#chat .mes[is_user="true"] .ch_name>.flex1{min-height:40px!important;min-width:70px!important;max-width:55%;padding:5px 14px!important;}
+#chat .mes[is_user="true"] .name_text{font-size:20px!important;}
+#chat .mes[is_user="true"] .mes_buttons{display:flex!important;width:auto!important;max-width:45%!important;min-height:0!important;gap:5px!important;padding:4px!important;background:none!important;}
+#chat .mes[is_user="true"] .mes_buttons>:not(.extraMesButtons){width:22px!important;height:22px!important;min-width:22px!important;min-height:22px!important;flex-basis:22px!important;}
+#chat .mes[is_user="true"]::after{content:none!important;}
+#chat .mes[is_user="true"] .mes_text{padding-top:8px!important;}
+#top-bar{background:var(--rabbit-paper)!important;border:0!important;box-shadow:none!important;}
+#top-settings-holder{width:100%!important;max-width:100%!important;gap:0!important;}
+#top-settings-holder>.drawer{min-width:0!important;flex:1 1 0;}
+#top-settings-holder .drawer-toggle{display:flex;align-items:center;justify-content:center;min-height:40px;}
+#top-settings-holder .drawer-icon{width:28px!important;height:30px!important;font-size:0!important;opacity:1!important;filter:none!important;background-position:center!important;background-size:contain!important;background-repeat:no-repeat!important;}
+#top-settings-holder .drawer-icon::before{opacity:0!important;}
+#send_form{position:relative!important;isolation:isolate;box-sizing:border-box;min-height:70px!important;padding:18px 16px!important;gap:7px!important;border:0!important;border-radius:0!important;background:var(--rabbit-paper)!important;box-shadow:none!important;}
+#send_form::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:-1;background:url('ARTcomposer.webp') center/100% auto no-repeat;}
+#send_textarea{min-width:0!important;background:transparent!important;border:0!important;box-shadow:none!important;color:#82618f!important;}
+#send_textarea::placeholder{color:#b39bc0!important;opacity:1;}
+#send_form :is(#options_button,#extensionsMenuButton,#send_but){width:29px!important;min-width:29px!important;height:32px!important;flex:0 0 29px!important;font-size:0!important;color:transparent!important;background-position:center!important;background-size:contain!important;background-repeat:no-repeat!important;}
+#send_form :is(#options_button,#extensionsMenuButton,#send_but)::before{opacity:0!important;}
+#send_form #options_button{background-image:url('ARTicon-12.webp')!important;}
+#send_form #extensionsMenuButton{background-image:url('ARTicon-13.webp')!important;}
+#send_form #send_but{background-image:url('ARTicon-14.webp')!important;}
+:is(#extensions_settings,#extensions_settings2){color:#b294ca!important;}
+:is(#extensions_settings,#extensions_settings2) :is(.inline-drawer-header,.inline-drawer-header b,.inline-drawer-header strong,.inline-drawer-header span,.inline-drawer-header i){color:#e4cef5!important;}
+:is(#extensions_settings,#extensions_settings2) .inline-drawer-header{background:#715b85!important;box-shadow:none!important;}
+@media(min-width:700px){#chat .mes .ch_name{gap:25px!important;padding:35px 10px!important;}#chat .mes .ch_name>.flex1{min-height:130px!important;}#chat .mes .mes_buttons{min-height:180px!important;gap:24px 18px!important;padding:20px 30px!important;}#chat .mes .mes_buttons>:not(.extraMesButtons){width:42px!important;height:42px!important;flex-basis:42px!important;}#chat .mes .mes_text{padding-inline:20px!important;}#chat .mes :is(.mesIDDisplay,.mes_timer,.tokenCounterDisplay){font-size:12px!important;}}
+'''.replace('ART',A)
+for n,selector in {6:'.extraMesButtonsHint',7:'.mes_narrate,.fa-music,.fa-bullhorn',8:'[title*="熊"],[title*="酒馆助手"],[class*="tavern_helper"]',9:'.mes_edit,.fa-pencil',10:'.mes_copy,.fa-layer-group',11:'.fa-chart-bar,.fa-chart-simple,[title*="统计"]',15:'.mes_bookmark,.fa-flag'}.items():css+=f"\n#chat .mes .mes_buttons>:is({selector}){{--rabbit-action:url('{A}icon-{n}.webp');}}"
+for i,n in enumerate([0,1,2,3,4,5,1,3,2],1):css+=f"\n#top-settings-holder>.drawer:nth-child({i}) .drawer-icon{{background-image:url('{A}icon-{n}.webp')!important;}}"
+d=json.loads((R/'theme/Moon-Rabbit-V3.json').read_text());d['name']='月兔涂鸦';d['custom_css']=css
+for k in ['main_text_color','italics_text_color','underline_text_color','quote_text_color']:d[k]='rgba(104, 68, 119, 1)'
+for k in ['blur_tint_color','chat_tint_color']:d[k]='rgba(253, 251, 254, 1)'
+(R/'theme/rabbit-letter/').mkdir(exist_ok=True)
+(R/'theme/rabbit-letter/月兔涂鸦.json').write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');(R/'theme/rabbit-letter.css').write_text(css)
+out=R.parent/'downloads';out.mkdir(exist_ok=True);(out/'Moon-Rabbit.json').write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')
+with zipfile.ZipFile(out/'Moon-Rabbit.zip','w',zipfile.ZIP_DEFLATED) as z:z.write(out/'Moon-Rabbit.json','月兔涂鸦.json')

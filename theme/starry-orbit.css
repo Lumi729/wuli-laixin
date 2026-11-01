@@ -51,12 +51,12 @@
 #chat .mes .avatar img{position:absolute!important;left:14%!important;top:14%!important;width:72%!important;height:72%!important;clip-path:circle(50%)!important;object-fit:cover!important;object-position:center 30%!important;border-radius:50%!important;}
 #chat .mes .avatar::after{content:'';position:absolute;inset:-2%;pointer-events:none;background:none;}
 #chat .mes .ch_name>.flex1{grid-column:2!important;grid-row:1!important;align-self:center!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:10px!important;width:100%!important;min-height:0!important;padding:0 8px 8px 0!important;background:none!important;text-align:left!important;}
-#chat .mes .ch_name>.flex1::after{content:'';width:44px;height:20px;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/0.webp') center/contain no-repeat;pointer-events:none;}
+#chat .mes .ch_name>.flex1::after{content:'';width:44px;height:20px;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/0.webp') center/contain no-repeat;pointer-events:none;}
 #chat .mes .name_text{font-size:clamp(20px,5.8vw,31px)!important;line-height:1.45!important;font-weight:400!important;letter-spacing:.04em;text-align:left!important;overflow-wrap:anywhere;}
 #chat .mes .timestamp{display:block;font-size:9px!important;opacity:.6;}
 #chat .mes .mesIDDisplay,#chat .mes .mes_timer,#chat .mes .tokenCounterDisplay{font-size:8px!important;line-height:16px!important;opacity:.65;}
 #chat .mes .mes_buttons{grid-column:1/-1!important;grid-row:2!important;box-sizing:border-box;position:relative!important;justify-self:start!important;display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:center!important;gap:4px!important;width:min(94%,380px)!important;max-width:100%!important;min-height:68px!important;margin:8px 0 4px!important;padding:12px 8px 16px!important;background:none!important;border:0!important;box-shadow:none!important;overflow:visible!important;}
-#chat .mes .mes_buttons>:not(.extraMesButtons){position:relative!important;inset:auto!important;box-sizing:border-box;flex:0 0 34px!important;width:34px!important;height:34px!important;min-width:34px!important;min-height:34px!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important;background:var(--orbit-action,url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/0.webp')) center/contain no-repeat!important;font-size:0!important;color:transparent!important;opacity:1!important;filter:none!important;}
+#chat .mes .mes_buttons>:not(.extraMesButtons){position:relative!important;inset:auto!important;box-sizing:border-box;flex:0 0 34px!important;width:34px!important;height:34px!important;min-width:34px!important;min-height:34px!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important;background:var(--orbit-action,url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/0.webp')) center/contain no-repeat!important;font-size:0!important;color:transparent!important;opacity:1!important;filter:none!important;}
 #chat .mes .mes_buttons>:not(.extraMesButtons)::before,#chat .mes .mes_buttons>:not(.extraMesButtons)::after{opacity:0!important;}
 #chat .mes .mes_buttons>:not(.extraMesButtons)>:is(i,span,img,svg){visibility:hidden!important;}
 #chat .mes .mes_buttons>:nth-child(1),#chat .mes .mes_buttons>:nth-child(8){transform:translateY(-8px)!important;}
@@ -74,9 +74,9 @@
 #send_form{background:#071b36!important;padding:12px 10px!important;}
 #send_form::before{background:rgba(21,48,78,.85);border:0;border-radius:20px;}
 #send_form :is(#options_button,#extensionsMenuButton,#send_but){flex:0 0 32px!important;width:32px!important;height:36px!important;min-width:32px!important;font-size:0!important;background-position:center!important;background-size:contain!important;background-repeat:no-repeat!important;}
-#send_form #options_button{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/7.webp')!important;}
-#send_form #extensionsMenuButton{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/8.webp')!important;}
-#send_form #send_but{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/4.webp')!important;}
+#send_form #options_button{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/7.webp')!important;}
+#send_form #extensionsMenuButton{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/8.webp')!important;}
+#send_form #send_but{background-image:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/4.webp')!important;}
 #send_form :is(#options_button,#extensionsMenuButton,#send_but)::before{opacity:0!important;}
 @media(max-width:700px){#sheld{width:100%!important;max-width:100%!important;left:0!important;right:0!important;margin-inline:0!important;}#chat .mes{max-width:100%!important;}}
 
@@ -91,13 +91,13 @@
 #chat .mes .mes_buttons{grid-column:1!important;grid-row:2!important;justify-self:end!important;margin-top:0!important;margin-bottom:0!important;min-height:58px!important;}
 #chat .mes .mes_text{padding-top:4px!important;}
 
-#chat .mes .mes_buttons>:is(.extraMesButtonsHint){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/0.webp');}
-#chat .mes .mes_buttons>:is(.mes_bookmark,.fa-flag){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/1.webp');}
-#chat .mes .mes_buttons>:is(.mes_narrate,.fa-music,.fa-bullhorn){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/2.webp');}
-#chat .mes .mes_buttons>:is([title*="熊"],[title*="酒馆助手"],[class*="tavern_helper"]){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/3.webp');}
-#chat .mes .mes_buttons>:is(.mes_edit,.fa-pencil){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/4.webp');}
-#chat .mes .mes_buttons>:is(.mes_copy,.fa-layer-group){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/5.webp');}
-#chat .mes .mes_buttons>:is(.fa-chart-bar,.fa-chart-simple,[title*="统计"]){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/6.webp');}
+#chat .mes .mes_buttons>:is(.extraMesButtonsHint){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/0.webp');}
+#chat .mes .mes_buttons>:is(.mes_bookmark,.fa-flag){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/1.webp');}
+#chat .mes .mes_buttons>:is(.mes_narrate,.fa-music,.fa-bullhorn){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/2.webp');}
+#chat .mes .mes_buttons>:is([title*="熊"],[title*="酒馆助手"],[class*="tavern_helper"]){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/3.webp');}
+#chat .mes .mes_buttons>:is(.mes_edit,.fa-pencil){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/4.webp');}
+#chat .mes .mes_buttons>:is(.mes_copy,.fa-layer-group){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/5.webp');}
+#chat .mes .mes_buttons>:is(.fa-chart-bar,.fa-chart-simple,[title*="统计"]){--orbit-action:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/6.webp');}
 #top-settings-holder>.drawer:nth-child(1) .drawer-icon{width:26px!important;height:30px!important;font-size:0!important;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/poetic-v2/starry/icon-1.webp') center/contain no-repeat!important;}#top-settings-holder>.drawer:nth-child(1) .drawer-icon::before{opacity:0!important;}
 #top-settings-holder>.drawer:nth-child(2) .drawer-icon{width:26px!important;height:30px!important;font-size:0!important;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/poetic-v2/starry/icon-2.webp') center/contain no-repeat!important;}#top-settings-holder>.drawer:nth-child(2) .drawer-icon::before{opacity:0!important;}
 #top-settings-holder>.drawer:nth-child(3) .drawer-icon{width:26px!important;height:30px!important;font-size:0!important;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/poetic-v2/starry/icon-3.webp') center/contain no-repeat!important;}#top-settings-holder>.drawer:nth-child(3) .drawer-icon::before{opacity:0!important;}
@@ -107,3 +107,11 @@
 #top-settings-holder>.drawer:nth-child(7) .drawer-icon{width:26px!important;height:30px!important;font-size:0!important;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/poetic-v2/starry/icon-3.webp') center/contain no-repeat!important;}#top-settings-holder>.drawer:nth-child(7) .drawer-icon::before{opacity:0!important;}
 #top-settings-holder>.drawer:nth-child(8) .drawer-icon{width:26px!important;height:30px!important;font-size:0!important;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/poetic-v2/starry/icon-4.webp') center/contain no-repeat!important;}#top-settings-holder>.drawer:nth-child(8) .drawer-icon::before{opacity:0!important;}
 #top-settings-holder>.drawer:nth-child(9) .drawer-icon{width:26px!important;height:30px!important;font-size:0!important;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/poetic-v2/starry/icon-1.webp') center/contain no-repeat!important;}#top-settings-holder>.drawer:nth-child(9) .drawer-icon::before{opacity:0!important;}
+#chat .mes .ch_name{display:grid!important;grid-column:1/-1!important;grid-row:2!important;grid-template-columns:minmax(0,1fr)!important;gap:4px!important;align-content:center!important;position:relative!important;isolation:isolate;min-height:130px!important;padding:18px 12px 22px!important;margin:0!important;}
+#chat .mes .ch_name::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/header-panel.webp') center/contain no-repeat;}
+#chat .mes .ch_name>.flex1{grid-column:1!important;grid-row:1!important;align-self:center!important;align-items:center!important;justify-content:center!important;width:100%!important;margin:0!important;padding:0 20px!important;text-align:center!important;}
+#chat .mes .name_text{display:block!important;text-align:center!important;font-size:clamp(19px,5.3vw,29px)!important;line-height:1.4!important;}
+#chat .mes .mes_buttons{grid-column:1!important;grid-row:2!important;justify-self:center!important;justify-content:center!important;align-items:center!important;gap:5px!important;width:100%!important;min-height:40px!important;padding:0!important;margin:0!important;}
+#chat .mes .mes_buttons>:not(.extraMesButtons){transform:none!important;flex:0 0 36px!important;width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;background-image:var(--orbit-action,url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/0.webp'))!important;}
+#chat .mes .mes_text{padding:8px 0 18px!important;}
+#chat .mes .ch_name .extraMesButtons{top:100%!important;left:0!important;}

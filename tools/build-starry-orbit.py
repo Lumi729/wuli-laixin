@@ -68,6 +68,20 @@ for n,sel in {0:'.extraMesButtonsHint',1:'.mes_bookmark,.fa-flag',2:'.mes_narrat
  css+=f"\n#chat .mes .mes_buttons>:is({sel}){{--orbit-action:url('{ART}{n}.webp');}}"
 for i in range(1,10):
  css+=f"\n#top-settings-holder>.drawer:nth-child({i}) .drawer-icon{{width:26px!important;height:30px!important;font-size:0!important;background:url('{BASE}assets/poetic-v2/starry/icon-{(i-1)%4+1}.webp') center/contain no-repeat!important;}}#top-settings-holder>.drawer:nth-child({i}) .drawer-icon::before{{opacity:0!important;}}"
+
+# A single name/action panel below the preserved large portrait.
+css+="""
+#chat .mes .ch_name{display:grid!important;grid-column:1/-1!important;grid-row:2!important;grid-template-columns:minmax(0,1fr)!important;gap:4px!important;align-content:center!important;position:relative!important;isolation:isolate;min-height:130px!important;padding:18px 12px 22px!important;margin:0!important;}
+#chat .mes .ch_name::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/header-panel.webp') center/contain no-repeat;}
+#chat .mes .ch_name>.flex1{grid-column:1!important;grid-row:1!important;align-self:center!important;align-items:center!important;justify-content:center!important;width:100%!important;margin:0!important;padding:0 20px!important;text-align:center!important;}
+#chat .mes .name_text{display:block!important;text-align:center!important;font-size:clamp(19px,5.3vw,29px)!important;line-height:1.4!important;}
+#chat .mes .mes_buttons{grid-column:1!important;grid-row:2!important;justify-self:center!important;justify-content:center!important;align-items:center!important;gap:5px!important;width:100%!important;min-height:40px!important;padding:0!important;margin:0!important;}
+#chat .mes .mes_buttons>:not(.extraMesButtons){transform:none!important;flex:0 0 36px!important;width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;background-image:var(--orbit-action,url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/0.webp'))!important;}
+#chat .mes .mes_text{padding:8px 0 18px!important;}
+#chat .mes .ch_name .extraMesButtons{top:100%!important;left:0!important;}
+"""
+# Use the legible matched painted controls, including a real chart symbol.
+css=css.replace("assets/starry-orbit/", "assets/painted-controls/starry/").replace("assets/painted-controls/starry/header-panel.webp", "assets/starry-orbit/header-panel.webp")
 theme=json.loads((R/'theme/Starry-Voyage-V3.json').read_text());theme['name']='星潮夜航';theme['custom_css']=css
 out=R/'theme/starry-orbit';out.mkdir(exist_ok=True)
 (out/'星潮夜航.json').write_text(json.dumps(theme,ensure_ascii=False,indent=2)+'\n')

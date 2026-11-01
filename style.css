@@ -133,3 +133,6 @@
 /* 雾钟城：红黑哥特，深色底；画框比例和玫瑰月相一致，只把两道横线之间填成深色 */
 #lfd-root[data-theme=fog]{--lfd-paper:#140a0c;--lfd-ink:#e9e1dc}
 #lfd-root[data-theme=fog] .lfd-tray::after{inset:calc(62px * var(--lfd-frame-scale)) calc(28px * var(--lfd-frame-scale)) calc(59px * var(--lfd-frame-scale));opacity:.94}
+/* 深渊圣谕：黑银，深色底 */
+#lfd-root[data-theme=abyss]{--lfd-paper:#0b0b0e;--lfd-ink:#e7e5e8}
+#lfd-root[data-theme=abyss] .lfd-tray::after{inset:calc(60px * var(--lfd-frame-scale)) calc(28px * var(--lfd-frame-scale)) calc(61px * var(--lfd-frame-scale));opacity:.94}

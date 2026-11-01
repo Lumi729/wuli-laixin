@@ -5,7 +5,7 @@ const defaults={enabled:true,theme:'rose',icon:'',size:64,frameScale:100,itemSiz
 const cfg=ctx.extensionSettings[KEY]??=structuredClone(defaults);
 for(const [k,v] of Object.entries(defaults))if(cfg[k]===undefined)cfg[k]=v;
 const asset=n=>new URL(`./assets/floating-dock/${n}.png${n==='honeydew-launcher'?'?v=music-box':''}`,import.meta.url).href;
-const themeAssets={rose:'rose',lily:'lily-ink',mist:'thin-mist',honeydew:'honeydew',fog:'fog'};
+const themeAssets={rose:'rose',lily:'lily-ink',mist:'thin-mist',honeydew:'honeydew',fog:'fog',abyss:'abyss'};
 const save=()=>ctx.saveSettingsDebounced();
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n;};
 const safeUrl=s=>{if(typeof s!=='string'||!s.trim())return '';try{const u=new URL(s,location.href);return ['https:','http:'].includes(u.protocol)||(u.protocol==='blob:'&&u.origin===location.origin)||/^data:image\/(png|jpeg|webp|gif|avif|svg\+xml)[;,]/i.test(s)?u.href:'';}catch{return '';}};
@@ -109,7 +109,7 @@ function input(label,value,change,type='text'){const wrap=el('label','lfd-field'
 function button(text,fn){const b=el('button','menu_button',text);b.type='button';b.onclick=fn;return b;}
 function openEditor(){document.querySelector('#lfd-editor')?.remove();const d=el('dialog');d.id='lfd-editor';const title=el('h3','','浮窗收纳');d.append(title);const close=button('完成',()=>d.close());d.append(close);d.addEventListener('close',()=>d.remove());
 const enabled=el('label','lfd-field','启用收纳');const cb=el('input');cb.type='checkbox';cb.checked=cfg.enabled;cb.onchange=()=>{cfg.enabled=cb.checked;save();sync();};enabled.append(cb);d.append(enabled);
-const themes=el('select');for(const [v,t] of [['rose','玫瑰月相'],['lily','百合羽信'],['mist','薄雾来信'],['honeydew','蜜瓜花笺'],['fog','雾钟城']]){const o=el('option','',t);o.value=v;themes.append(o);}themes.value=cfg.theme;themes.onchange=()=>{cfg.theme=themes.value;save();sync();};d.append(themes,input('入口图片链接（留空使用内置）',cfg.icon,v=>{cfg.icon=v;save();sync();}),input('入口大小（40–110）',cfg.size,v=>{cfg.size=Math.max(40,Math.min(110,Number(v)||64));save();sync();},'number'));
+const themes=el('select');for(const [v,t] of [['rose','玫瑰月相'],['lily','百合羽信'],['mist','薄雾来信'],['honeydew','蜜瓜花笺'],['fog','雾钟城'],['abyss','深渊圣谕']]){const o=el('option','',t);o.value=v;themes.append(o);}themes.value=cfg.theme;themes.onchange=()=>{cfg.theme=themes.value;save();sync();};d.append(themes,input('入口图片链接（留空使用内置）',cfg.icon,v=>{cfg.icon=v;save();sync();}),input('入口大小（40–110）',cfg.size,v=>{cfg.size=Math.max(40,Math.min(110,Number(v)||64));save();sync();},'number'));
 d.append(input('装饰框等比大小（60–160%，超出屏幕时自动适配）',cfg.frameScale,v=>{cfg.frameScale=Math.max(60,Math.min(160,Number(v)||100));save();sync();},'number'),input('收纳图标大小（20–90）',cfg.itemSize,v=>{cfg.itemSize=Math.max(20,Math.min(90,Number(v)||44));save();sync();},'number'));
 d.append(button('点选一个悬浮按钮',()=>{d.close();startPick();}),button('一键扫描并全部收纳',()=>{collectAll();openEditor();}));
 for(const [i,item] of cfg.items.entries()){const box=el('div','lfd-entry');box.append(input('名字',item.name,v=>{item.name=v;save();sync();}),input('图案链接（留空沿用原图）',item.icon,v=>{item.icon=v;save();sync();}),input('按钮定位（高级）',item.selector,v=>{item.selector=v;save();sync();}));box.append(button('前移',()=>{if(i){[cfg.items[i-1],cfg.items[i]]=[cfg.items[i],cfg.items[i-1]];save();sync();openEditor();}}),button('移出',()=>{cfg.items.splice(i,1);save();sync();openEditor();}));d.append(box);}

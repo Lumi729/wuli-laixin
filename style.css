@@ -130,3 +130,6 @@
 #lfd-root[data-theme=honeydew] .lfd-row{height:calc(52px * var(--lfd-frame-scale))}
 #lfd-root[data-theme=honeydew] .lfd-item{--lfd-fit-icon:min(var(--lfd-item-size),max(8px,calc(52px * var(--lfd-frame-scale) - var(--lfd-label-space) - 4px)))}
 #lfd-root[data-theme=honeydew] .lfd-tray::after{inset:calc(65px * var(--lfd-frame-scale)) calc(28px * var(--lfd-frame-scale)) calc(64px * var(--lfd-frame-scale))}
+/* 雾钟城：红黑哥特，深色底；画框比例和玫瑰月相一致，只把两道横线之间填成深色 */
+#lfd-root[data-theme=fog]{--lfd-paper:#140a0c;--lfd-ink:#e9e1dc}
+#lfd-root[data-theme=fog] .lfd-tray::after{inset:calc(62px * var(--lfd-frame-scale)) calc(28px * var(--lfd-frame-scale)) calc(59px * var(--lfd-frame-scale));opacity:.94}

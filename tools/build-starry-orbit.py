@@ -69,16 +69,20 @@ for n,sel in {0:'.extraMesButtonsHint',1:'.mes_bookmark,.fa-flag',2:'.mes_narrat
 for i in range(1,10):
  css+=f"\n#top-settings-holder>.drawer:nth-child({i}) .drawer-icon{{width:26px!important;height:30px!important;font-size:0!important;background:url('{BASE}assets/poetic-v2/starry/icon-{(i-1)%4+1}.webp') center/contain no-repeat!important;}}#top-settings-holder>.drawer:nth-child({i}) .drawer-icon::before{{opacity:0!important;}}"
 
-# A single name/action panel below the preserved large portrait.
+# Split masthead before the full-width portrait; body follows portrait directly.
 css+="""
-#chat .mes .ch_name{display:grid!important;grid-column:1/-1!important;grid-row:2!important;grid-template-columns:minmax(0,1fr)!important;gap:4px!important;align-content:center!important;position:relative!important;isolation:isolate;min-height:130px!important;padding:18px 12px 22px!important;margin:0!important;}
-#chat .mes .ch_name::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/starry-orbit/header-panel.webp') center/contain no-repeat;}
-#chat .mes .ch_name>.flex1{grid-column:1!important;grid-row:1!important;align-self:center!important;align-items:center!important;justify-content:center!important;width:100%!important;margin:0!important;padding:0 20px!important;text-align:center!important;}
-#chat .mes .name_text{display:block!important;text-align:center!important;font-size:clamp(19px,5.3vw,29px)!important;line-height:1.4!important;}
-#chat .mes .mes_buttons{grid-column:1!important;grid-row:2!important;justify-self:center!important;justify-content:center!important;align-items:center!important;gap:5px!important;width:100%!important;min-height:40px!important;padding:0!important;margin:0!important;}
+#chat .mes{row-gap:0!important;}
+#chat .mes .mesAvatarWrapper{grid-row:2!important;}
+#chat .mes .ch_name{display:grid!important;grid-column:1/-1!important;grid-row:1!important;grid-template-columns:minmax(0,42%) minmax(0,58%)!important;gap:0!important;align-items:center!important;position:relative!important;min-height:98px!important;padding:10px 4px!important;margin:0!important;background:none!important;}
+#chat .mes .ch_name::before,#chat .mes .ch_name::after{content:none!important;}
+#chat .mes .ch_name>.flex1{grid-column:1!important;grid-row:1!important;align-self:center!important;align-items:flex-start!important;justify-content:center!important;width:100%!important;min-width:0!important;margin:0!important;padding:8px 8px 8px 6px!important;text-align:left!important;background:none!important;}
+#chat .mes .ch_name>.flex1::before{content:'';display:block;width:42px;height:22px;margin-bottom:4px;background:url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/poetic-v2/starry/icon-2.webp') left center/contain no-repeat;}
+#chat .mes .name_text{display:block!important;text-align:left!important;font-size:clamp(18px,5vw,28px)!important;line-height:1.45!important;letter-spacing:.02em!important;overflow-wrap:anywhere!important;text-wrap:balance!important;}
+#chat .mes .mes_buttons{grid-column:2!important;grid-row:1!important;justify-self:end!important;justify-content:flex-end!important;align-content:center!important;align-items:center!important;gap:6px!important;width:100%!important;max-width:180px!important;min-height:78px!important;padding:4px!important;margin:0!important;background:none!important;}
 #chat .mes .mes_buttons>:not(.extraMesButtons){transform:none!important;flex:0 0 36px!important;width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;background-image:var(--orbit-action,url('https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/assets/painted-controls/starry/0.webp'))!important;}
-#chat .mes .mes_text{padding:8px 0 18px!important;}
-#chat .mes .ch_name .extraMesButtons{top:100%!important;left:0!important;}
+#chat .mes .mes_text{padding:10px 0 18px!important;}
+#chat .mes .ch_name .extraMesButtons{top:100%!important;left:auto!important;right:0!important;}
+#chat .mes .mesIDDisplay,#chat .mes .mes_timer,#chat .mes .tokenCounterDisplay{opacity:.85!important;font-size:10px!important;padding-block:4px!important;}
 """
 # Use the legible matched painted controls, including a real chart symbol.
 css=css.replace("assets/starry-orbit/", "assets/painted-controls/starry/").replace("assets/painted-controls/starry/header-panel.webp", "assets/starry-orbit/header-panel.webp")

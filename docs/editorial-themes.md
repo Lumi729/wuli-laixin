@@ -1,3 +1,5 @@
+> 历史版本说明。旧主题已从主分支清理；当前版本见[主题目录](../theme/README.md)，旧文件可从[清理前版本](https://github.com/Lumi729/wuli-laixin/tree/4416a998c4b6bb60b03f588bb337cdac610ad3a9/theme)取回。
+
 # 夜航档案 / 橘子汽水
 
 两套新设计，未替换现有主题。分别导入 `theme/Night-Log.json` 或 `theme/Orange-Soda.json`。替换整个自定义 CSS，不要把它们追加到其他主题后。

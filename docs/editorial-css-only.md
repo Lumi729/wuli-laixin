@@ -1,3 +1,5 @@
+> 历史版本说明。旧主题已从主分支清理；当前版本见[主题目录](../theme/README.md)，旧文件可从[清理前版本](https://github.com/Lumi729/wuli-laixin/tree/4416a998c4b6bb60b03f588bb337cdac610ad3a9/theme)取回。
+
 # 档案 / 橘子 · 纯 CSS 修复版
 
 直接导入 Night-Log-CSS-Only.json 或 Orange-Soda-CSS-Only.json。无需更新、安装或启用任何新扩展。旧 Faithful 版本不要继续使用。新主题设定 --ed-layout:none，会停用旧布局适配层；不影响浮窗收纳其他功能。

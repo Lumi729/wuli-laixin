@@ -1,3 +1,5 @@
+> 历史版本说明。旧主题已从主分支清理；当前版本见[主题目录](../theme/README.md)，旧文件可从[清理前版本](https://github.com/Lumi729/wuli-laixin/tree/4416a998c4b6bb60b03f588bb337cdac610ad3a9/theme)取回。
+
 # 材质系列 · 可导入预览版
 
 这四款使用现有玫瑰月相 / 蜜瓜花笺布局，仅替换为独立绘制的素材和配色，并按素材自然比例安排名字牌和按钮框。
@@ -5,7 +7,7 @@
 - [贝母潮汐 · 彩铅](../theme/Ocean-Pencil.json)
 - [月兔糖纸 · 蜡笔](../theme/Rabbit-Crayon.json)
 - [雨后手札 · 毛玻璃](../theme/Rain-Frosted.json)
-- [云端邮局](../theme/Cloud-Post.json)
+- [云端邮局](https://raw.githubusercontent.com/Lumi729/wuli-laixin/4416a998c4b6bb60b03f588bb337cdac610ad3a9/theme/Cloud-Post.json)
 
 下载 JSON，在酒馆「用户设置 → UI 主题」中导入对应文件。主题均使用独立外链 WebP 素材，没有 Base64 图片，没有脚本和动画。已有主题不会被覆盖。
 

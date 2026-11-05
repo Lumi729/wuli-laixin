@@ -1,5 +1,7 @@
 # 雾里来信
 
+[查看当前主题与下载入口](theme/README.md)。已清理被替代的旧主题文件，历史版本仍可从 Git 记录取回。
+
 ## 蜜瓜花笺（2026-10-30）
 
 浅蜜瓜绿与白铃兰的独立主题：[下载导入文件](https://raw.githubusercontent.com/Lumi729/wuli-laixin/main/theme/Honeydew-Letter.json)。主题名为「蜜瓜花笺」，蓝色版保持不变。

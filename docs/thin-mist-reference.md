@@ -1,3 +1,5 @@
+> 历史版本说明。旧主题已从主分支清理；当前版本见[主题目录](../theme/README.md)，旧文件可从[清理前版本](https://github.com/Lumi729/wuli-laixin/tree/4416a998c4b6bb60b03f588bb337cdac610ad3a9/theme)取回。
+
 # 薄雾来信：原图花枝版
 
 导入文件：`theme/薄雾来信-原图花枝.json`。

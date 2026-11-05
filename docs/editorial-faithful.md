@@ -1,3 +1,5 @@
+> 历史版本说明。旧主题已从主分支清理；当前版本见[主题目录](../theme/README.md)，旧文件可从[清理前版本](https://github.com/Lumi729/wuli-laixin/tree/4416a998c4b6bb60b03f588bb337cdac610ad3a9/theme)取回。
+
 # 夜航档案与橘子汽水 · 原图布局版
 
 先在酒馆扩展管理中更新本仓库的「浮窗收纳」扩展，并刷新页面，再导入 theme/Night-Log-Faithful.json 或 theme/Orange-Soda-Faithful.json。扩展版本为 1.2.0。

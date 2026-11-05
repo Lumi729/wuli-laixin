@@ -1,3 +1,5 @@
+> 历史版本说明。旧主题已从主分支清理；当前版本见[主题目录](../theme/README.md)，旧文件可从[清理前版本](https://github.com/Lumi729/wuli-laixin/tree/4416a998c4b6bb60b03f588bb337cdac610ad3a9/theme)取回。
+
 # 四款独立布局 · 试用版
 
 在酒馆「用户设置 → 界面主题 → 导入」中，分别导入 ZIP 内的 JSON，再选择对应主题。

@@ -9,7 +9,7 @@ const themeAssets={rose:'rose',lily:'lily-ink',mist:'thin-mist',honeydew:'honeyd
 const save=()=>ctx.saveSettingsDebounced();
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n;};
 const safeUrl=s=>{if(typeof s!=='string'||!s.trim())return '';try{const u=new URL(s,location.href);return ['https:','http:'].includes(u.protocol)||(u.protocol==='blob:'&&u.origin===location.origin)||/^data:image\/(png|jpeg|webp|gif|avif|svg\+xml)[;,]/i.test(s)?u.href:'';}catch{return '';}};
-const find=s=>{try{let scope=document;const parts=s.split(' >>> ');for(let i=0;i<parts.length;i++){const n=scope.querySelector(parts[i]);if(i===parts.length-1)return n;scope=n?.shadowRoot;if(!scope)return null;}}catch{return null;}};
+const find=s=>{try{let scope=document;const parts=s.split(' >>> ');for(let i=0;i<parts.length;i++){const all=scope.querySelectorAll(parts[i]);const n=all.length>1?[...all].reverse().find(x=>x.isConnected&&!x.closest('[hidden]'))||all[all.length-1]:all[0]||null;if(i===parts.length-1)return n;scope=n?.shadowRoot;if(!scope)return null;}}catch{return null;}};
 function deepNodes(scope=document){const nodes=[...scope.querySelectorAll('*')];return [...(scope.shadowRoot?deepNodes(scope.shadowRoot):[]),...nodes.flatMap(n=>n.shadowRoot?[n,...deepNodes(n.shadowRoot)]:[n])];}
 function floatingAncestor(n){for(let p=n;p&&p!==document.body;p=p.parentElement||p.getRootNode()?.host){const pos=getComputedStyle(p).position;if(pos==='fixed'||(pos==='absolute'&&p.parentElement===document.body))return p;}return null;}
 function protectedNode(n){return n.closest('#top-bar,#send_form')||(n.closest('#chat')&&getComputedStyle(n).position!=='fixed');}

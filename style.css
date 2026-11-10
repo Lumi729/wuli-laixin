@@ -136,3 +136,6 @@
 /* 深渊圣谕：黑银，深色底 */
 #lfd-root[data-theme=abyss]{--lfd-paper:#0b0b0e;--lfd-ink:#e7e5e8}
 #lfd-root[data-theme=abyss] .lfd-tray::after{inset:calc(60px * var(--lfd-frame-scale)) calc(28px * var(--lfd-frame-scale)) calc(61px * var(--lfd-frame-scale));opacity:.94}
+/* 雾隐山行：红白黑，深色底 */
+#lfd-root[data-theme=fox]{--lfd-paper:#0e0a0c;--lfd-ink:#f2ecec}
+#lfd-root[data-theme=fox] .lfd-tray::after{inset:33% 18% 33%;opacity:.94}
